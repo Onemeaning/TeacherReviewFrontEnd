@@ -1,0 +1,26 @@
+<!--pages/comment/comment.wxml-->
+<view class='search'>
+        <view class='searchItem'>
+            <image src="/image/icon/icon_search.png" />
+            <input  bindconfirm='searchTeachers' value='{{searchContent}}' type="text" confirm-type="search" placeholder="查找学校，请具体到系" ></input>
+            <text>| 学校</text>
+        </view>
+    </view>
+
+  <swiper class='swiperstyle' next-margin='30rpx' previous-margin='40rpx'>
+      <block wx:for="{{topFiveTeachers}}" wx:key="{{index}}">
+          <swiper-item >      
+            <view class='all-teacher-css' bindtap='func_detail' data-teacher-item="{{item}}">
+            <image class='picture' mode='widthFix' src='{{item.tPhoto}}'></image>
+              <view class='teacher-detail'>
+              <text>姓名：{{item.tName}}</text>
+              <text>单位:{{item.tAffiliation}}</text>
+              <text>邮箱：{{item.tEmail}}</text>
+              <text>简介:{{item.tIntroduction}}</text>
+              <text>研究方向:{{item.tResearchInterest}}</text>
+              <text>详细信息：{{item.tDetailLink}}</text>
+              </view>
+            </view>
+          </swiper-item>
+      </block>
+  </swiper>

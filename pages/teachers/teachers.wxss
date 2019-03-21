@@ -1,0 +1,41 @@
+/* pages/teachers/teachers.wxss */
+
+.outercss
+{
+display: flex;
+flex-direction: column;
+}
+
+.outercss text
+{
+  text-align: center;
+  size: 0.7rem;
+  color: rgb(56, 6, 6)
+}
+
+.rowcss
+{
+  width: 100%;
+  flex-wrap: wrap;
+  display: flex;
+
+}
+.aTeacher{
+  padding: 20rpx;
+  display: flex;
+  flex-direction: column;
+  height: 280rpx;
+  width: 210rpx;
+}
+.aTeacher image
+{
+  align-content: center;
+  height: 270rpx;
+  width: 200rpx;
+}
+.aTeacher text
+{
+  text-align: center;
+  color: blue;
+  size: 1rem;
+}

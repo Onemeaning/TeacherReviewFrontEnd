@@ -1,0 +1,33 @@
+{
+  "pages": [
+    "pages/authorize/authorize",
+    "pages/teacherInfo/introduction",
+    "pages/recommend/recommend",
+    "pages/aboutme/aboutme",
+    "pages/replycomment/replycomment",
+    "pages/teachers/teachers"
+  ],
+  "tabBar": {
+    "list": [
+      {
+        "pagePath": "pages/recommend/recommend",
+        "text": "所有老师",
+        "iconPath": "image/icon/icon_home_line.png",
+        "selectedIconPath": "image/icon/icon_home_solid.png"
+      },
+      {
+        "pagePath": "pages/aboutme/aboutme",
+        "text": "我",
+        "iconPath": "image/icon/icon_me_line.png",
+        "selectedIconPath": "image/icon/icon_me_solid.png"
+      }
+    ],
+    "color": "#000000",
+    "selectedColor": "#00b"
+  },
+  "window": {
+    "navigationBarBackgroundColor": "#689F38",
+    "navigationBarTextStyle": "white",
+    "navigationBarTitleText": "导师评价系统"
+  }
+}

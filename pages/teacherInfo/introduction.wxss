@@ -1,0 +1,263 @@
+/* pages/introduction.wxss */
+
+.pageStyle{
+  margin-left:0.5cm;
+  margin-top:0.5cm;
+  height: 30vh;/*设置这个container所对应的view占用手机屏幕的50%  */
+  display: flex;
+  flex-direction: column;
+  font-size: small;
+
+}
+.app-about-banner{
+  width: 220rpx;/*所有手机的屏幕的宽度都为750rpx，我们可以按照比例来使得图片适应手机屏幕的大小*/
+  height: 300rpx;
+  border-radius: 50%;/* 设置图片四周脚的弧度，当为50%的时候就是一个圆形的图片了*/
+  margin-top:0.6cm; 
+  margin-left: 15rpx;
+}
+.global-css{
+  background-color: whitesmoke;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+
+}
+
+.aline{
+ 
+  flex-direction: row;
+  text-align: left;
+  margin-bottom: 10rpx;
+}
+
+
+::-webkit-scrollbar{
+width: 0;
+height: 0;
+color: transparent;
+}
+
+.btnImg {
+  width: 60rpx;
+  height: 60rpx;
+}
+
+ .btn2 {
+  width: 180rpx;
+  height: 150rpx;
+  margin-top: 20rpx;
+  background-color: white;
+  color: #999999;
+  border-radius: 0rpx;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  font-size: 25rpx;
+ }
+
+ .btn2::after {
+  border: 0; 
+}
+
+.buttonGroup{
+  position: fixed;
+  bottom: 1rpx;
+  display: flex;
+  flex-direction: row
+}
+
+.buttonGroupHide{
+  position: fixed;
+  bottom: -100%rpx;
+  height: 0;  
+  width: 100%;  
+  overflow: hidden
+}
+
+
+/* 框架  */
+.talks-layer {  
+    position: fixed;  
+    bottom: -100%;  
+    height: 0;  
+    width: 100%;  
+    overflow: hidden;  
+}
+
+
+.layer-white-space {  
+    height: 100%;  
+    width: 100%;  
+    background-color: #eee;  
+    opacity: 0;  /*透明度的设置*/
+}
+
+
+.talks {  
+    position: absolute;  
+    height: 800rpx;  
+    width: 100%;  
+    bottom: 0rpx;  
+    background-color: rgb(209, 204, 204); 
+    border-top-left-radius: 5%;
+    border-top-right-radius: 5%
+}
+
+.talk-header {  
+    width: 100%;  
+    height: 40rpx;  
+    text-align: center;
+}
+
+/* 顶部元素  */
+.talk-count {  
+    font-size: 1rem;  
+    height: 40rpx;  
+    color: #6b696a;
+}
+/*关闭评论按钮*/
+.talk-close {  
+    position: absolute;  
+    top: 40rpx;  
+    right: 40rpx;  
+    width: 40rpx;  
+    height: 40rpx;
+}
+
+
+
+.talk-body {  
+    height: 700rpx;
+}
+
+/* 评论区，包括头像，昵称，评论的内容以及评论的时间  */
+.talk-item {  
+    height: 100rpx;
+    display: flex;  
+    align-items: flex-start;
+    flex-direction: column;   
+    width: 100%;  
+}
+
+/**************************/
+/* 用户头像和用户名的样式*/
+.talk-item-top{  
+    display: flex; 
+    flex-direction: row;  
+}
+
+/* 用户头像样式*/
+.talk-item-face { 
+    position: absolute;
+    left: 20rpx;
+    width: 80rpx;  
+    height: 80rpx;  
+    border-radius: 50%;
+}
+/*
+昵称字体的颜色
+*/
+.talk-item-nickname {  
+    font-size: 1rem;  
+    color: blue;
+    padding-left: 15rpx;
+}
+/**************************/
+
+
+
+/********评论的内容以及评论的时间等等************/
+.talk-item-bottom { 
+    display: flex;
+    width: 100%;  
+    flex-direction: column;
+    border-bottom: solid 1rpx gray;  
+}
+
+/*评论的内容*/
+.talk-item-content { 
+    display: -webkit-box;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    word-wrap: break-word;
+    white-space: normal ;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    line-height: 52rpx;
+    padding-left: 80rpx;
+    margin-bottom: 50rpx;
+    text-align: left;  
+    color: black;
+    width: 80%;  
+    
+}
+
+.talk-item-timebottom{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+
+}
+
+
+/*评论的时间的样式*/
+.talk-item-time {  
+    margin-left:50rpx;
+    font-size: 0.8rem;  
+    color: rgb(173, 173, 179);  
+} 
+.talk-item-reply{
+  background: orange;
+  font-size: 1.1rem;  
+  color: white;  
+}
+
+.talk-item-delete{
+   font-size: 1.1rem;  
+   color: white; 
+   border: solid 2rpx orange;
+
+}
+
+
+
+/**************************/
+/* 底部元素  */
+.talk-footer { 
+    position: absolute; 
+    bottom: 5rpx; 
+    width: 100%; 
+    height:90rpx;  
+}
+
+.talk-input {  
+    position: absolute; 
+    left: 10rpx;
+    bottom: 5rpx;
+    padding-left:20px;
+    border-radius: 98rpx; 
+    background-color: #eee;
+    width: 70%; 
+    height:70rpx;  
+    color: black; 
+}
+.message-send{
+  position: absolute;
+  font-size:1.2rem;
+  right: 60rpx;
+  bottom: 10rpx;
+  color: gray;
+}
+
+.message-input{
+position: absolute;
+  font-size:1.2rem;
+  right: 60rpx;
+  bottom: 10rpx;
+  color: blue;
+}
+
+
+/**************************/

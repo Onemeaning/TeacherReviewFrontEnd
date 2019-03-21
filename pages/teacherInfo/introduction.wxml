@@ -1,0 +1,125 @@
+
+
+<view class='global-css'>
+    <image class='app-about-banner' mode='widthFix' src='{{detailInfo.tPhoto}}'></image>
+
+    <view class='pageStyle'>
+    <!-- <text>教师ID：{{detailInfo.tId}}</text> -->
+      <view class='aline'>
+      <text style='font-weight:bold;margin-right: 20rpx'>姓名:</text>
+      <text >{{detailInfo.tName}}</text>
+      </view>
+
+      <view class='aline'>
+      <text style='font-weight:bold;margin-right: 20rpx'>简介：</text>
+      <text>{{detailInfo.tIntroduction}}</text>
+      </view>
+
+      <view class='aline'>
+      <text style='font-weight:bold;margin-right: 20rpx'>邮箱：</text>
+      <text>{{detailInfo.tEmail}}</text>  
+      </view>
+
+      <view class='aline'>
+      <text style='font-weight:bold;margin-right: 20rpx'>单位：</text>
+      <text>{{detailInfo.tAffiliation}}</text>
+      </view>
+
+      <view class='aline'>
+      <text style='font-weight:bold;margin-right: 20rpx'>研究方向:</text>
+      <text>{{detailInfo.tResearchInterest}}</text>
+      </view>    
+    </view>
+</view>
+
+<scroll-view  style='margin-bottom: 150rpx;'>
+    <view wx:if="{{detailInfo.tPublishedPaper!=null}}">
+      <text style='font-weight:bold;'> 一、发表论文：\n</text>
+      <text style='font-size:small'>{{detailInfo.tPublishedPaper}}</text>
+    </view>
+
+    <view wx:if="{{detailInfo.tProjects!=null}}">
+      <text style='font-weight:bold;'> \n二、研究项目：\n</text>
+      <text style='font-size:small'>{{detailInfo.tProjects}}</text>
+    </view>
+
+</scroll-view> 
+
+
+
+
+
+
+
+ <!-- ***********************************整个评论区（以弹出的形式） ************************************** -->
+ <view class='talks-layer' animation='{{talksAnimationData}}'>
+
+     <!-- 主要作用是点击后隐藏评论区  -->
+     <view class='layer-white-space' bindtap='hideTalks'></view>
+ 
+         <!-- 评论区  -->
+         <view class='talks'>
+        
+                 <!-- 评论头部  -->
+                 <view class='talk-header'>
+                       <view class='talk-count'>{{list.length}} 条评论</view>
+                       <image src='../../image/icon/icon_close.png' class='talk-close' bindtap='hideTalks'></image>
+                 </view>
+        
+
+           <!-- 评论体   -->
+           <scroll-view class='talk-body' scroll-y="true" ><!--滚动到底会触发事件用这个bindscrolltolower="onScrollLoad"-->
+               <block wx:key="{{index}}" wx:for="{{list}}">
+                    
+                    <view class='talk-item-top'>
+                       <image class='talk-item-face' src='{{item.uPhoto}}'></image>
+                        <text class='talk-item-nickname'>{{item.uNickName}}</text>
+                     </view>
+              
+                     <view class='talk-item-bottom'>       
+                         <text class='talk-item-content'>{{item.uComments}} </text>
+                        <!-- 在这个view中主要是 时间 回复  删除 按钮 设置在一排中 -->
+                        <view class='talk-item-timebottom'>
+                          <text class='talk-item-time'>{{item.uInsertTime}}</text>
+                          <navigator class='talk-item-reply' url='../replycomment/replycomment'>回复</navigator>
+                          <text class='talk-item-delete' bindtap='fc_deleteComment' data-time='{{item.uInsertTime}}' data-index='{{index}}' data-sourceid='{{item.sourceId}}'>删除</text>
+                        </view>
+                     </view>
+
+               </block>
+           </scroll-view>
+        
+                 <!-- 评论底部  -->
+                 <view class='talk-footer'>
+                    <!-- 这里的value属性至关重要，因为他直接控制着你是否能在输入完值之后能不能把他清空 -->
+                   <input bindinput='userInput' value='{{message}}' class='talk-input' type='text' placeholder=' /_ 写评论...'> </input> 
+                   <text bindtap='func_send' class="{{textInputing?'message-send':'message-input'}}" > 发 布</text> 
+                 </view>             
+         </view>    
+ </view>
+
+
+<!-- 底部的四个按钮 -->
+<view class="{{showView?'buttonGroup':'buttonGroupHide'}}" >
+
+  <button class='btn2'hover-class='button-hover'bindtap='func_support'>
+    <image class='btnImg' src='{{imageLocate}}'></image>
+    <view>{{support_count}}</view>
+  </button>
+
+  <button  class='btn2' bindtap='showTalks' >
+    <image class='btnImg' src='../../image/icon/icon_comment_before.png'></image>
+    <view>{{comment_count}}</view>
+  </button>
+
+  <button class='btn2' >
+    <image class='btnImg' src='../../image/icon/star_before.png' bindtap='collect'></image>
+    <view>收藏</view>
+  </button>
+
+  <button class='btn2' open-type='share'>
+      <image class='btnImg' src='../../image/icon/icon_share_before.png'></image>
+      <view>分享</view>
+  </button>
+
+</view>

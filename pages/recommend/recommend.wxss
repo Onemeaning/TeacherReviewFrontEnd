@@ -1,0 +1,77 @@
+/* pages/comment/comment.wxss */
+
+view.search {
+    display: flex;
+    flex-direction: row;
+    height: 98rpx;
+    background: #fff;
+    align-items: center;
+}
+
+view.searchItem {
+    display: flex;
+    width: 100%;
+    height: 70rpx;
+    background: #eee;
+    flex-direction: row;
+    border-radius: 98rpx;
+    margin-right: 20rpx;
+    margin-left: 20rpx;
+}
+
+view.searchItem image {
+    height: 42rpx;
+    width: 42rpx;
+    align-self: center;
+    margin-left: 20rpx;
+    margin-right: 20rpx;
+}
+
+view.searchItem input {
+    flex: 1;
+    padding-top: 10rpx;
+    font-size: 30rpx;
+}
+view.searchItem text{
+
+    align-self: center;
+    margin-left: 10rpx;
+    margin-right: 30rpx;  
+    color: rgb(69, 69, 71);
+    
+}
+
+
+
+.swiperstyle{
+  height:100vh;
+  background: #fff;
+}
+
+.all-teacher-css
+{
+ margin-top: 30rpx;
+ height:85vh;
+ display: flex;
+ flex-direction: column;
+ align-items: center;
+ background:#272B3B; 
+ border-radius:3%;
+ width: 620rpx;
+
+}
+.teacher-detail
+{
+  margin-top: 50rpx;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  font-size: small
+}
+.picture{
+  margin-top: 40rpx;
+  height: 250rpx;
+  width: 250rpx;
+  border-radius:50%;
+}
