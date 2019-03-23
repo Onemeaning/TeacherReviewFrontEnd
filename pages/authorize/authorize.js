@@ -18,7 +18,7 @@ Page({
                   app.globalData.userInfo = res.userInfo;
                   app.globalData.openid = wx.getStorageSync('openId');
 
-                  console.log("用户授权之后拿出来的信息："+res.userInfo);
+                  console.log("用户授权之后拿出来的信息："+ res.userInfo);
                   console.log("用户授权之后从缓存区读取ID："  + wx.getStorageSync('openId'));
 
                   //用户已经授权过

@@ -1,6 +1,6 @@
 //app.js
 App({
-//测试从远程拉取的功能
+//测试从远程拉取的功能，可以的很好
   onLaunch: function () {
     // 展示本地存储能力
     var that = this;
