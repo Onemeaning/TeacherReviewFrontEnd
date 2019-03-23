@@ -7,29 +7,30 @@ Page({
 
   onLoad: function () {
     var that = this;
-    // 查看是否授权
-    wx.getSetting({
-      success: function (res) {
-        if (res.authSetting['scope.userInfo']) {
-          wx.getUserInfo({
-            lang: "zh_CN",
-            success: function (res) {
-              //从数据库获取用户信息
-              console.log(res.userInfo);
-              console.log("openID："+wx.getStorageSync('openId'));
-              console.log("获取用户信息成功");
-              // that.queryUsreInfo();
-              //用户已经授权过
-              wx.switchTab({
-                 url: '/pages/recommend/recommend'
-              })
-            }
-          });
-        }
-      }
-    })
-  },
+      // 查看是否授权
+        wx.getSetting({
+          success: function (res) {
+            if (res.authSetting['scope.userInfo']) {
+              wx.getUserInfo({
+                lang: "zh_CN",
+                success: function (res) {    
 
+                  app.globalData.userInfo = res.userInfo;
+                  app.globalData.openid = wx.getStorageSync('openId');
+
+                  console.log("用户授权之后拿出来的信息："+res.userInfo);
+                  console.log("用户授权之后从缓存区读取ID："  + wx.getStorageSync('openId'));
+
+                  //用户已经授权过
+                  wx.switchTab({
+                    url: '/pages/recommend/recommend'
+                  })
+                }
+              });
+            }
+          }
+        })        
+  },
 
   bindGetUserInfo: function (e) {
     if (e.detail.userInfo) {
@@ -60,11 +61,11 @@ Page({
                     //4.解密成功后 获取自己服务器返回的结果
                     if (data.data.status == 1) {
                       console.log('成功从自己服务器中解密到需要的信息openID')
+
+                      //将获取到的信息保存到手机缓存或者全局变量中去，缓存有效期永久，除非用户删除
                       app.globalData.userInfo = data.data.userInfo;
-                      console.log(app.globalData.userInfo)
                       app.globalData.openid = data.data.userInfo.openId;
-                      console.log(app.globalData.openid)
-                      wx.setStorageSync('openId', data.data.openId);
+                      wx.setStorageSync('openId', data.data.userInfo.openId);
 
                       var appId = app.globalData.openid;
                       var uNickname = data.data.userInfo.nickName;                      
@@ -101,13 +102,10 @@ Page({
                                 }
                               }
                             });
-
                             //授权成功后，跳转进入小程序首页
                             wx.switchTab({
                               url: '/pages/recommend/recommend'
                             })
-
-
                     } else {
                       console.log('解密失败' + data.data.msg);
                     }
@@ -129,7 +127,6 @@ Page({
       wx.hideNavigationBarLoading();
 /**   ------------------------------------------------------------------------------------------- */
 
-
     } else {
       //用户按了拒绝按钮
       wx.showModal({
@@ -144,23 +141,6 @@ Page({
         }
       })
     }
-  },
-  //获取用户信息接口
-  queryUsreInfo: function () {
-
-    wx.request({
-      url: app.globalData.urlPath + '/superadmin/getUserInfo',
-      data: {
-        openid: app.globalData.openid
-      },
-      header: {
-        'content-type': 'application/json'
-      },
-      success: function (res) {
-        console.log(res.data);
-        getApp().globalData.userInfo = res.data;
-      }
-    })
   },
 
 })
