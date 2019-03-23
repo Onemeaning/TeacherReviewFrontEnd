@@ -122,8 +122,8 @@ color: transparent;
     position: absolute;  
     top: 40rpx;  
     right: 40rpx;  
-    width: 40rpx;  
-    height: 40rpx;
+    width: 70rpx;  
+    height: 70rpx;
 }
 
 

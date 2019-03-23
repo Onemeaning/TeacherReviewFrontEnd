@@ -9,7 +9,7 @@
 
   </view>
     <view class='item'>
-      <text class='left'>I D：</text><text class='right'>{{uid}}</text>
+      <text class='left'>账号：</text><text class='right'>{{uid}}</text>
     </view>
     <view class='item'>
       <text class='left'>学校：</text><text class='right'>{{uid}}</text>

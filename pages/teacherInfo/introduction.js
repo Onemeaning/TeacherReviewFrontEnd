@@ -295,47 +295,58 @@ updateThumps:function(counts)
     console.log(event.target.dataset.sourceid);
     console.log(event.target.dataset.index)
     console.log(event.target.dataset.time);
-    wx.showModal({
-      title: '提示',
-      content: '确认删除该条评论么？',
-      success:function(sm){
-        if(sm.confirm)
-        {
-          wx: wx.request({
-            url: app.globalData.urlPath +"/superadmin/removecomment",          
-            data: { "sourceId": event.target.dataset.sourceid,
-                     "uInsertTime": event.target.dataset.time
-            },
-            method: 'POST',
-            dataType: 'json',
-            responseType: 'text',
-            success: function (res) {
-              var result = res.data.success;
-              console.log(result)
-              var toasetext = "删除成功！";
-              if(result != true)
-              {
-                toasetext = "删除失败！"+res.data.errMsg;
-                console.log(toasetext)
-              }
-              else
-              {
-                that.data.list.splice(event.target.dataset.index,1);
-                that.setData({
-                  list:that.data.list
+    var targetId = event.target.dataset.sourceid;
+    var selfId = app.globalData.openid;
+    if (selfId == targetId)
+    {
+      wx.showModal({
+        title: '提示',
+        content: '确认删除该条评论么？',
+        success: function (sm) {
+          if (sm.confirm) {
+            wx: wx.request({
+              url: app.globalData.urlPath + "/superadmin/removecomment",
+              data: {
+                "sourceId": event.target.dataset.sourceid,
+                "uInsertTime": event.target.dataset.time
+              },
+              method: 'POST',
+              dataType: 'json',
+              responseType: 'text',
+              success: function (res) {
+                var result = res.data.success;
+                console.log(result)
+                var toasetext = "删除成功！";
+                if (result != true) {
+                  toasetext = "删除失败！" + res.data.errMsg;
+                  console.log(toasetext)
+                }
+                else {
+                  that.data.list.splice(event.target.dataset.index, 1);
+                  that.setData({
+                    list: that.data.list
+                  })
+                }
+                wx.showToast({
+                  title: toasetext,
+                  icon: '',
+                  duration: 2000
                 })
-              }
-            wx.showToast({
-              title: toasetext,
-              icon:'',
-              duration:2000
+              },
+
             })
-            },
-            
-          })
+          }
         }
-      }
-    })
+      })
+    }
+    else
+    {
+      wx.showToast({
+        title: '别想删除别人的啊',
+        icon:'none'
+      })
+    }
+   
   },
 
 /**
