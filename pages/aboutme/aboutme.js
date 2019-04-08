@@ -42,16 +42,22 @@ Page({
       }
     })
   },
-  resetpwd: function (e) {
-    var no = this.data.myinfo.no;
-    wx.navigateTo({
-      url: '../password/password?no=' + no,
+  updateUserInfo: function (e) {
+    wx.showModal({
+      title: '温馨提示',
+      content: '当您更新完整的个人信息之后，您将会被授予向数据库更新自己导师<新增项目><新发表的论文>等信息的权限，更新后的信息将可以被所有人查阅！',
+      success: function (res) {
+        if (res.confirm) {
+
+          wx.navigateTo({
+            url: '../password/password?no=' + no,
+          })
+
+        } else if (res.cancel) {
+          console.log('用户点击取消')
+        }
+      }
     })
   },
-  setemail: function (e) {
-    var no = this.data.myinfo.no;
-    wx.navigateTo({
-      url: '../email/email?no=' + no,
-    })
-  }
+ 
 })

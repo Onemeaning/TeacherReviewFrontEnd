@@ -1,26 +1,53 @@
 <!--pages/comment/comment.wxml-->
+<import src="../../model/model.wxml"/>
+<template is="areaData" data="{{...item}}"/>
+<!-- <view class="infoText">{{province}} {{city}} {{county}}</view> -->
+
 <view class='search'>
         <view class='searchItem'>
             <image src="/image/icon/icon_search.png" />
-            <input  bindconfirm='searchTeachers' value='{{searchContent}}' type="text" confirm-type="search" placeholder="查找学校，请具体到系" ></input>
-            <text>| 学校</text>
+            <input  bindconfirm='searchTeachers' value='{{province}}{{city}}{{county}}' data-choose='{{province}} {{city}} {{county}}' type="text" confirm-type="search" placeholder="搜索：请具体到院系" ></input>
+            <text bindtap="translate">| 学校</text>
         </view>
     </view>
 
-  <swiper class='swiperstyle' next-margin='30rpx' previous-margin='40rpx'>
+  <swiper  class="{{showScrollView?'swiperstyle':'swiperstyleHide'}}" next-margin='30rpx' previous-margin='40rpx'>
       <block wx:for="{{topFiveTeachers}}" wx:key="{{index}}">
           <swiper-item >      
             <view class='all-teacher-css' bindtap='func_detail' data-teacher-item="{{item}}">
             <image class='picture' mode='widthFix' src='{{item.tPhoto}}'></image>
               <view class='teacher-detail'>
-              <text>姓名：{{item.tName}}</text>
-              <text>单位:{{item.tAffiliation}}</text>
-              <text>邮箱：{{item.tEmail}}</text>
-              <text>简介:{{item.tIntroduction}}</text>
-              <text>研究方向:{{item.tResearchInterest}}</text>
-              <text>详细信息：{{item.tDetailLink}}</text>
+
+                <view class='aline'>
+                  <text style='font-weight:bold;margin-left: 20rpx'>姓名:</text>
+                  <text>{{item.tName}}</text>
+                </view>
+
+               <view class='aline'>  
+                  <text style='font-weight:bold;margin-left: 20rpx'>单位:</text>
+                  <text>{{item.tAffiliation}}</text>
+                </view>
+
+                <view class='aline'>
+                    <text style='font-weight:bold;margin-left: 20rpx'>邮箱：</text>
+                    <text>{{item.tEmail}}</text>
+                </view>
+
+                <view class='aline'>
+                    <text style='font-weight:bold;margin-left: 20rpx'>简介:</text>
+                    <text class = 'intro_text'>{{item.tIntroduction}}</text>
+                </view>
+
+                <view class='aline'>
+                    <text style='font-weight:bold;margin-left: 20rpx'>研究方向:</text>
+                    <text class = 'intro_text'>{{item.tResearchInterest}}</text>
+                </view> 
+
+                <text style='font-weight:bold; text-align: center;'>{{item.tDetailLink}}</text>  
               </view>
-            </view>
+               
+            </view>           
+
           </swiper-item>
       </block>
   </swiper>

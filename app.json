@@ -4,7 +4,7 @@
     "pages/teacherInfo/introduction",
     "pages/recommend/recommend",
     "pages/aboutme/aboutme",
-    "pages/replycomment/replycomment",
+   
     "pages/teachers/teachers"
   ],
   "tabBar": {
@@ -26,7 +26,7 @@
     "selectedColor": "#00b"
   },
   "window": {
-    "navigationBarBackgroundColor": "#689F38",
+    "navigationBarBackgroundColor": "#2A76BC",
     "navigationBarTextStyle": "white",
     "navigationBarTitleText": "导师评价系统"
   }

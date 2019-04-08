@@ -20,7 +20,6 @@ Page({
 
                   console.log("用户授权之后拿出来的信息："+ res.userInfo);
                   console.log("用户授权之后从缓存区读取ID："  + wx.getStorageSync('openId'));
-
                   //用户已经授权过
                   wx.switchTab({
                     url: '/pages/recommend/recommend'
@@ -36,6 +35,11 @@ Page({
     if (e.detail.userInfo) {
       //用户按了允许授权按钮
 /**-------------------------------从服务里中获取信息来实现登陆登录 ---------------------------------------------------- */   
+      wx.switchTab({
+        url: '/pages/recommend/recommend'
+      })
+
+
       var that = this;
       wx.showNavigationBarLoading();
       wx.login({
@@ -66,7 +70,6 @@ Page({
                       app.globalData.userInfo = data.data.userInfo;
                       app.globalData.openid = data.data.userInfo.openId;
                       wx.setStorageSync('openId', data.data.userInfo.openId);
-
                       var appId = app.globalData.openid;
                       var uNickname = data.data.userInfo.nickName;                      
                       var uPhoto = data.data.userInfo.avatarUrl;
@@ -98,14 +101,14 @@ Page({
                                   console.log('添加用户成功');
                                 }
                                 else {
-                                  console.log(res.data.errMsg);
+                                  console.log("用户已添加!");
                                 }
                               }
                             });
                             //授权成功后，跳转进入小程序首页
-                            wx.switchTab({
-                              url: '/pages/recommend/recommend'
-                            })
+                            // wx.switchTab({
+                            //   url: '/pages/recommend/recommend'
+                            // })
                     } else {
                       console.log('解密失败' + data.data.msg);
                     }
@@ -116,15 +119,17 @@ Page({
                   }
                 })
               },
-
+              
               fail: function () {
                 console.log('获取用户信息失败: wx.getUserInfo()不给你提供用户信息');
               }
+              
             })
+            wx.hideNavigationBarLoading();
           }
         }
       })  
-      wx.hideNavigationBarLoading();
+      // wx.hideNavigationBarLoading();
 /**   ------------------------------------------------------------------------------------------- */
 
     } else {

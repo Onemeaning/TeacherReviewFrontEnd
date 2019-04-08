@@ -2,19 +2,21 @@
 
 .pageStyle{
   margin-left:0.5cm;
-  margin-top:0.5cm;
-  height: 30vh;/*设置这个container所对应的view占用手机屏幕的50%  */
+  margin-top:0.2cm;
+  width: 80%;
+  /* height: 35vh;设置这个container所对应的view占用手机屏幕的50%  */
   display: flex;
   flex-direction: column;
   font-size: small;
 
 }
 .app-about-banner{
-  width: 220rpx;/*所有手机的屏幕的宽度都为750rpx，我们可以按照比例来使得图片适应手机屏幕的大小*/
+  width: 20%;/*所有手机的屏幕的宽度都为750rpx，我们可以按照比例来使得图片适应手机屏幕的大小*/
   height: 300rpx;
-  border-radius: 50%;/* 设置图片四周脚的弧度，当为50%的时候就是一个圆形的图片了*/
+  /* border-radius: 50%;设置图片四周脚的弧度，当为50%的时候就是一个圆形的图片了 */
   margin-top:0.6cm; 
   margin-left: 15rpx;
+ 
 }
 .global-css{
   background-color: whitesmoke;
@@ -22,6 +24,14 @@
   flex-direction: row;
   justify-content: space-around;
 
+}
+
+.intro_text{
+  overflow:hidden; 
+  text-overflow:ellipsis;
+  display:-webkit-box; 
+  -webkit-box-orient:vertical;
+  -webkit-line-clamp:2; 
 }
 
 .aline{
@@ -33,9 +43,9 @@
 
 
 ::-webkit-scrollbar{
-width: 0;
-height: 0;
-color: transparent;
+  width: 0;
+  height: 0;
+  color: transparent;
 }
 
 .btnImg {
@@ -43,8 +53,9 @@ color: transparent;
   height: 60rpx;
 }
 
+/*---------------------------------------------*/
  .btn2 {
-  width: 180rpx;
+  width: 187.5rpx;
   height: 150rpx;
   margin-top: 20rpx;
   background-color: white;
@@ -136,8 +147,8 @@ color: transparent;
 .talk-item {  
     height: 100rpx;
     display: flex;  
-    align-items: flex-start;
-    flex-direction: column;   
+    align-content: flex-start;
+    flex-direction:column;   
     width: 100%;  
 }
 
@@ -145,12 +156,13 @@ color: transparent;
 /* 用户头像和用户名的样式*/
 .talk-item-top{  
     display: flex; 
-    flex-direction: row;  
+    flex-direction: row; 
+    justify-content: flex-start
 }
 
 /* 用户头像样式*/
-.talk-item-face { 
-    position: absolute;
+.talk-item-face {
+   position: absolute; 
     left: 20rpx;
     width: 80rpx;  
     height: 80rpx;  
@@ -162,7 +174,13 @@ color: transparent;
 .talk-item-nickname {  
     font-size: 1rem;  
     color: blue;
-    padding-left: 15rpx;
+    padding-left: 2%;
+}
+
+.talk-item-nickname-android {  
+    font-size: 1rem;  
+    color: blue;
+    padding-left:8%;
 }
 /**************************/
 
@@ -197,6 +215,7 @@ color: transparent;
 .talk-item-timebottom{
   display: flex;
   flex-direction: row;
+  align-items: flex-end;
   justify-content: space-around;
 
 }
@@ -208,16 +227,30 @@ color: transparent;
     font-size: 0.8rem;  
     color: rgb(173, 173, 179);  
 } 
-.talk-item-reply{
-  background: orange;
-  font-size: 1.1rem;  
-  color: white;  
+.userSupport{
+  display: flex;
+  height: 60rpx;
+  width:100rpx;
+  flex-wrap: wrap;
+  align-items: flex-start;
+}
+
+.userSupport image{
+  height: 60rpx;
+  width: 60rpx;
+}
+.userSupport text{
+  height: 60rpx;
+  width: 40rpx;
+  color: gray;  
 }
 
 .talk-item-delete{
    font-size: 1.1rem;  
    color: white; 
+   background: orange;
    border: solid 2rpx orange;
+   border-radius: 10%;
 
 }
 
@@ -245,7 +278,7 @@ color: transparent;
 }
 .message-send{
   position: absolute;
-  font-size:1.2rem;
+  font-size: 1.2rem;  
   right: 60rpx;
   bottom: 10rpx;
   color: gray;
@@ -253,10 +286,13 @@ color: transparent;
 
 .message-input{
 position: absolute;
-  font-size:1.2rem;
+  background: #689F38;
+  font-size:1.1rem;
   right: 60rpx;
+  height:60rpx; 
   bottom: 10rpx;
-  color: blue;
+  border-radius: 10%;
+  color: white;
 }
 
 

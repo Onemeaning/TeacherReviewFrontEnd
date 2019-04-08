@@ -1,10 +1,7 @@
-
-
 <view class='global-css'>
     <image class='app-about-banner' mode='widthFix' src='{{detailInfo.tPhoto}}'></image>
-
     <view class='pageStyle'>
-    <!-- <text>教师ID：{{detailInfo.tId}}</text> -->
+    <text style='text-align: right;color:gray;margin-right:20rpx'>该页面点击数：{{access_count}}</text>
       <view class='aline'>
       <text style='font-weight:bold;margin-right: 20rpx'>姓名:</text>
       <text >{{detailInfo.tName}}</text>
@@ -12,7 +9,7 @@
 
       <view class='aline'>
       <text style='font-weight:bold;margin-right: 20rpx'>简介：</text>
-      <text>{{detailInfo.tIntroduction}}</text>
+      <text class = 'intro_text'>{{detailInfo.tIntroduction}}</text>
       </view>
 
       <view class='aline'>
@@ -71,9 +68,11 @@
            <scroll-view class='talk-body' scroll-y="true" ><!--滚动到底会触发事件用这个bindscrolltolower="onScrollLoad"-->
                <block wx:key="{{index}}" wx:for="{{list}}">
                     
+
                     <view class='talk-item-top'>
                        <image class='talk-item-face' src='{{item.uPhoto}}'></image>
-                        <text class='talk-item-nickname'>{{item.uNickName}}</text>
+                        <text wx:if = "{{system}}" class='talk-item-nickname'>{{item.uNickName}}</text>
+                        <text  wx:else class='talk-item-nickname-android'>{{item.uNickName}}</text>
                      </view>
               
                      <view class='talk-item-bottom'>       
@@ -81,7 +80,17 @@
                         <!-- 在这个view中主要是 时间 回复  删除 按钮 设置在一排中 -->
                         <view class='talk-item-timebottom'>
                           <text class='talk-item-time'>{{item.uInsertTime}}</text>
-                          <navigator class='talk-item-reply' url='../replycomment/replycomment'>回复</navigator>
+                          
+                        <view class='userSupport' bindtap='fuc_giveCommentSupport' data-time='{{item.uInsertTime}}'data-sourceid='{{item.sourceId}}'>
+                            
+                            <image  wx:if="{{areYouSupportedEveryComments[item.sourceId+item.uInsertTime]==null}}" src='../../image/icon/icon_support_before.png'></image>
+
+                            <image  wx:else src='../../image/icon/icon_support_after.png'></image>
+
+                            
+                            <text>{{everycommentCountsMap[item.sourceId+item.uInsertTime]}}</text>
+                          </view>
+                          
                           <text class='talk-item-delete' bindtap='fc_deleteComment' data-time='{{item.uInsertTime}}' data-index='{{index}}' data-sourceid='{{item.sourceId}}'>删除</text>
                         </view>
                      </view>
@@ -102,10 +111,11 @@
 <!-- 底部的四个按钮 -->
 <view class="{{showView?'buttonGroup':'buttonGroupHide'}}" >
 
-  <button class='btn2'hover-class='button-hover'bindtap='func_support'>
-    <image class='btnImg' src='{{imageLocate}}'></image>
-    <view>{{support_count}}</view>
+  <button class='btn2' hover-class='button-hover'bindtap='func_support'>
+    <image class='btnImg' src='{{imageLocate}}'> </image>
+    <view>{{thumbs_counts}}</view>
   </button>
+
 
   <button  class='btn2' bindtap='showTalks' >
     <image class='btnImg' src='../../image/icon/icon_comment_before.png'></image>

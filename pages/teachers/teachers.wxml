@@ -1,11 +1,13 @@
 <!--pages/teachers/teachers.wxml-->
-<view class='outercss'>
-      <view class='rowcss'>
-          <block wx:for="{{teacherList}}" wx:key="{{index}}">
-                <view class='aTeacher' bindtap='toDetailInfo' data-teacher="{{item}}">
-                    <image src='{{item.tPhoto}}'></image>
-                    <text>{{item.tName}}</text>
-                </view>
-          </block>
-      </view>
-</view>
+<scroll-view scroll-y="true" style='height: 100vh;'>
+  <view class='outercss'>
+        <view class='rowcss'>
+            <block wx:for="{{teacherList}}" wx:key="{{index}}">
+                  <view class='aTeacher' bindtap='toDetailInfo' data-teacher="{{item}}">
+                      <image src='{{item.tPhoto}}'></image>
+                      <text>{{item.tName}}</text>
+                  </view>
+            </block>
+        </view>
+  </view>
+</scroll-view>

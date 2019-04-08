@@ -1,6 +1,6 @@
 
 .nav{
-    background-color: #689F38;
+    background-color: #2A76BC;
 }
 .top{
   width: 250rpx;
@@ -31,4 +31,9 @@
   color: #ccc;
   font-size: 0.8rem;
   margin-right: 20rpx;
+}
+.bottom {
+    border-radius: 80rpx;
+    margin: 70rpx 50rpx;
+    font-size: 35rpx;
 }

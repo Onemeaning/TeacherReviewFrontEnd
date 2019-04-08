@@ -5,43 +5,59 @@ Page({
    * 页面的初始数据
    */
   data:{
-      detailInfo: null,     
-      support_count: 0,
-      comment_count: 0,
+      detailInfo: null, //老师信息    
+      access_count: 0,//页面的访问次数
+      user_support_count: 0,//给用户评论的点赞数
+      comment_count: 0,//评论的数量
+      thumbs_counts:0,//用于统计点赞的数量的
+
       /* 这下面的变量是关于评论相关的 */
       list: [],//定义一个list，用于存储评论数据
       showView: true,//控制是否显示groupButton
       textInputing: true,//控制发布两个字的颜色
       message: "",//用于存储评论框中输入的数据
-      isPushed:0,//用于判断是否按下点在键了
+      doesPush:false,//有没有点赞？默认没有
+      imageLocate:"",//给老师表达爱心的数目
+      userImageLocate:"",//给用户评论的点赞图标
+
+      /**下面是处理每一条评论对应的点赞数的 */
+      everycommentCountsMap : {},//每一条评论的点赞数目
+      areYouSupportedEveryComments:{},//存储着每一条评论你是否点赞了的数据
+
+      system:true,//表示是IOS系统
   },
   
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {   
+  onLoad: function (options) {
+    console.log(app.globalData.systemInfo)
+    console.log(app.globalData.systemInfo.indexOf("Android")) ;
+    if(app.globalData.systemInfo.indexOf("Android")>=0)
+    {
+        this.setData({
+          system:false
+        })
+    }   
+    this.queryInfo(app.globalData.teacherId); 
+    this.isPushedThumbs();  //初始化是否点赞了，如果已经点赞将点赞图标设置为点赞后的，将doesPush设置为true， 
+    this.getThumbsCounts();//获取点赞的数量 
+    this.loadTalks();    // 设置动画内容为：使用绝对定位显示区域，高度变为100%  
+    this.setEveryCommentsSupportCounts(); //获取每条评论的点赞数目
+    this.areYouSupportEveryComments();//获取你是否为每条评论点赞了
     this.setData({
-       imageLocate: "../../image/icon/icon_support_before.png",
-       isPushed:false,
-       detailInfo: app.globalData.aSelectedTeacher,   
-       support_count: app.globalData.aSelectedTeacher.tThumpUpCounts,
-       isPushed: app.globalData.aSelectedTeacher.tThumpUpCounts
+      userImageLocate: "../../image/icon/icon_support_before.png"
+
     })
-    this.loadTalks();    // 设置动画内容为：使用绝对定位显示区域，高度变为100%
   },
 
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
     onReady: function () { 
-
-    wx.setNavigationBarTitle({
-      title: this.data.detailInfo.tName,
-    })
-
    // 评论弹出层动画创建
-    this.animation = wx.createAnimation({
-      duration: 300, // 整个动画过程花费的时间，单位为毫秒
+      this.animation = wx.createAnimation({
+      duration: 700, // 整个动画过程花费的时间，单位为毫秒
       timingFunction: "ease", // 动画的类型
       delay: 0 // 动画延迟参数
     })
@@ -51,7 +67,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+     this.queryInfo(app.globalData.teacherId);
   },
 
   /**
@@ -65,7 +81,7 @@ Page({
    * 生命周期函数--监听页面卸载
    */
   onUnload: function () {
-
+    this.updateAccessCounts();
   },
 
   /**
@@ -89,77 +105,47 @@ Page({
 
   },
 /**
- * 
  * 点击点赞按钮，数字加一，并且不能再点击了
  */
   func_support: function(event){   
 
-    if (this.data.isPushed==this.data.support_count)//如果还没有按下点赞键，开始点赞，并且往数据库更新数据
+    if (!this.data.doesPush)//如果还没有按下点赞键，开始点赞，并且往数据库更新数据
     {
-      this.setData({
-         support_count: this.data.support_count + 1,        
-         imageLocate: "../../image/icon/icon_support_after.png",
-      })
-      this.updateThumps(this.data.support_count);
-    }
-    
-    else//否则说明你已经点赞了，这时候回退点赞头像，将点赞数减一
+      this.addAThumbs();
+  
+    }else//否则说明你已经点赞了，这时候回退点赞头像，将点赞数减一
     {
-      this.setData({
-        support_count: this.data.support_count -1 ,
-        imageLocate: "../../image/icon/icon_support_before.png",
-      })
-      this.updateThumps(this.data.support_count);      
-    }
-    
+      this.deleteAThumbs();
+    }   
   },
+
 /**
- * 向数据库中更新点赞的数据
+ * 向数据库中更新页面访问数量
  */
-updateThumps:function(counts)
+updateAccessCounts:function()
 {
   var that = this;
+  var counts = this.data.detailInfo.tThumpUpCounts;
+  counts = counts+1;
+  
   wx: wx.request({
     url: app.globalData.urlPath + "/superadmin/updateSupportCounts",
-    data: { tId: app.globalData.aSelectedTeacher.tId ,
-           tThumpUpCounts:counts
+    data: { tId: app.globalData.teacherId ,
+             tThumpUpCounts: counts
            },
     method: 'POST',
     dataType: 'json',
     responseType: 'text',
-    success: function (res) {
-      var Commentlists = res.data.success;
-      if (Commentlists != true) {
-        var toastText = "点赞失败" + res.data.errMsg;
-        wx.showToast({
-          title: toastText,
-          icon: '',
-          duration: 2000
-        });
-        that.setData({
-          support_count: that.data.support_count - 1,
-          imageLocate: "../../image/icon/icon_support_before.png",
-        })
-      }
-    },
-    fail: function (res) { },
-    complete: function (res) { },
   })
-
+  
 },
-
 
 /**
  * 点击按钮出现输入对话框，使得用户可以输入评论语句
- * 
- * 
  */
   showTalks: function () {
     // 加载数据
     this.loadTalks();    // 设置动画内容为：使用绝对定位显示区域，高度变为100%
-    this.setData({
-      talksAnimationData: this.animation.export() 
-    })
     this.animation.bottom("0rpx").height("100%").step()
     this.setData({
       showView: (!this.data.showView),//控制评论按钮图标消失，用于显示评论的界面
@@ -168,8 +154,12 @@ updateThumps:function(counts)
   },
 
 
+
+
+
   hideTalks: function () {
     // 设置动画内容为：使用绝对定位隐藏整个区域，高度变为0
+    this.loadTalks();
     this.animation.bottom("-100%").height("0rpx").step()
     this.setData({
       showView: (!this.data.showView),//控制评论按钮图标显示
@@ -180,12 +170,12 @@ updateThumps:function(counts)
 
 
   // 加载数据
-  loadTalks: function () {    // 随机产生一些评论
+  loadTalks: function () {   
     var that = this;
     wx.showNavigationBarLoading();
       wx:wx.request({
         url: app.globalData.urlPath+"/superadmin/showComments",
-        data: { tId:app.globalData.aSelectedTeacher.tId},
+        data: { tId: app.globalData.teacherId},
         method: 'GET',
         dataType: 'json',
         responseType: 'text',
@@ -291,10 +281,10 @@ updateThumps:function(counts)
  * 更新：根据用户的ID以及每条评论的评论时间组合起来达到唯一定位一条评论的效果
  */
   fc_deleteComment:function(event){
-  var that = this;
-    console.log(event.target.dataset.sourceid);
-    console.log(event.target.dataset.index)
-    console.log(event.target.dataset.time);
+    var that = this;
+    // console.log(event.target.dataset.sourceid);
+    // console.log(event.target.dataset.index)
+    // console.log(event.target.dataset.time);
     var targetId = event.target.dataset.sourceid;
     var selfId = app.globalData.openid;
     if (selfId == targetId)
@@ -348,16 +338,271 @@ updateThumps:function(counts)
     }
    
   },
+/**
+ * 按照老师的ID查询信息，目的是为了更新访问页面的次数
+ * 
+ */
+  queryInfo: function (teacherId) {
+    var that = this;
+    wx: wx.request({
+      url: app.globalData.urlPath + "/superadmin/findByTeacherId",
+      data: {
+        tId: teacherId,
+      },
+      method: 'GET',
+      dataType: 'json',
+      responseType: 'text',
+      success: function (res) {
+        var t_data = res.data.success;
+        if (t_data != null) {
+          that.setData({
+            detailInfo: t_data,
+            access_count: t_data.tThumpUpCounts,
+          })
+          wx.setNavigationBarTitle({
+            title: t_data.tName,
+          })
+        }
+      },
+    })
+  },
+
+/**
+ * 判断是否点赞了
+ */
+  isPushedThumbs:function(){
+    var that = this;
+    wx: wx.request({
+      url: app.globalData.urlPath + "/superadmin/isThumbsUp",
+      data: {
+        sourceId: app.globalData.openid,
+        destId: app.globalData.teacherId
+      },
+      method: 'GET',
+      dataType: 'json',
+      responseType: 'text',
+      success: function (res) {
+        var thumbsCounts = res.data.success;
+        if (thumbsCounts == null) {//未查出数据，说明没有点赞。将变量doesPushed赋值为false
+          that.setData({
+            doesPush:false,
+            imageLocate: "../../image/icon/icon_love_before.png",
+          })        
+        }
+        else
+        {
+          that.setData({
+            doesPush: true,
+            imageLocate: "../../image/icon/icon_love_after.png",
+          })     
+        }
+
+      },
+    })
+  },
+
+/**
+ * 点赞的数量是多少：
+ */
+  getThumbsCounts: function () {
+    var that = this;
+    wx: wx.request({
+      url: app.globalData.urlPath + "/superadmin/findRecordsCounts",
+      data: {
+        sourceId: app.globalData.openid,
+        destId: app.globalData.teacherId
+      },
+      method: 'GET',
+      dataType: 'json',
+      responseType: 'text',
+      success: function (res) { 
+      that.setData({
+        thumbs_counts: res.data.success
+      })  
+    },
+    })
+  },
+
+/**
+ * 插入一条点赞记录
+ */
+  addAThumbs: function () {
+    var that = this;
+    var times = new Date().getTime();
+    wx: wx.request({
+      url: app.globalData.urlPath + "/superadmin/insertCounts",
+      data: {
+        sourceId: app.globalData.openid,
+        destId: app.globalData.teacherId,
+        thumpsUpTime:times
+      },
+      method: 'POST',
+      dataType: 'json',
+      responseType: 'text',
+      success: function (res) {
+        that.setData({
+          imageLocate: "../../image/icon/icon_love_after.png",
+          doesPush: true,
+          thumbs_counts: that.data.thumbs_counts +1,
+        })
+      },
+    })
+  },
+
+/**
+ * 删除点赞记录
+ */
+  deleteAThumbs: function () {
+    var that = this;  
+    wx: wx.request({
+      url: app.globalData.urlPath + "/superadmin/deleteThumbsUpCounts",
+      data: {
+        sourceId: app.globalData.openid,
+        destId: app.globalData.teacherId,
+      },
+      method: 'GET',
+      dataType: 'json',
+      responseType: 'text',
+      success: function (res) {
+        that.setData({
+          imageLocate: "../../image/icon/icon_love_before.png",
+          doesPush: false,
+          thumbs_counts: that.data.thumbs_counts-1,
+        })
+      },
+    })
+  },
+
+/**
+ * 遍历每一个同学评论对应的点赞数目
+ */
+setEveryCommentsSupportCounts:function()
+{
+  var that = this;
+  wx: wx.request({
+    url: app.globalData.urlPath + "/superadmin/getCommentIdWithCounts",
+    data: {
+      teacherUniqueId: app.globalData.teacherId,
+    },
+    method: 'GET',
+    dataType: 'json',
+    responseType: 'text',
+    success: function (res) {
+      that.setData({
+        everycommentCountsMap:res.data.success
+      })
+      // console.log(res.data.success)
+    },
+  })
+},
+
+
+/**
+ * 获取每条记录是否点赞了
+ */
+areYouSupportEveryComments:function()
+{
+  var that = this;
+  wx: wx.request({
+    url: app.globalData.urlPath + "/superadmin/isYourCommentSupported",
+    data: {
+      sourceId: app.globalData.openid,
+      teacherUniqueId: app.globalData.teacherId
+    },
+    method: 'GET',
+    dataType: 'json',
+    responseType: 'text',
+    success: function (res) {
+      var mapData = res.data.success;
+      if(mapData!=null)
+      {
+        // console.log(mapData);
+        that.setData({
+          areYouSupportedEveryComments: res.data.success
+        })
+      }
+     
+    },
+  })
+},
+
+  fuc_giveCommentSupport:function(event){
+    var that = this;
+    var commentId = event.currentTarget.dataset.sourceid + event.currentTarget.dataset.time;
+    var destId = event.currentTarget.dataset.sourceid;
+    wx.vibrateShort();
+    if(that.data.areYouSupportedEveryComments[commentId]==null)
+    {
+      that.giveCommentSupport(commentId, destId);
+    }
+    else{
+      that.removeCommnetSupport(commentId);    
+    }
+  },
+  /**
+   * 为某条评论点赞
+   */
+  giveCommentSupport: function (commentId, destId) {
+    var that = this;
+    wx.vibrateShort();
+    var times = new Date().getTime();
+    wx: wx.request({
+      url: app.globalData.urlPath + "/superadmin/insertCommentSupportCounts",
+      data: {
+        teacherUniqueId: app.globalData.teacherId,
+        commentId: commentId,
+        sourceId: app.globalData.openid,
+        destId: destId,
+        thumpsUpTime: times
+      },
+      method: 'POST',
+      dataType: 'json',
+      responseType: 'text',
+      success: function (res) {
+        if (res.data.success) {
+          that.setEveryCommentsSupportCounts();
+          that.areYouSupportEveryComments();
+        }
+
+      },
+    })
+  },
+
+
+/**
+ * 取消对某条评论的点赞
+ */
+  removeCommnetSupport: function (commentId)
+{
+  var that = this;
+  wx: wx.request({
+    url: app.globalData.urlPath + "/superadmin/deleteCommentSupportCounts",
+    data: {
+      sourceId: app.globalData.openid,
+      commentId: commentId,
+    },
+    method: 'GET',
+    dataType: 'json',
+    responseType: 'text',
+    success: function (res) {
+      if (res.data.success) {
+        that.setEveryCommentsSupportCounts();
+        that.areYouSupportEveryComments();
+        
+      }
+    },
+  })
+
+},
+
+
 
 /**
  * 收藏该老师的信息到我的界面中展示
  */
 collect:function(e){
 
-
-
 }
-
 
 
 })

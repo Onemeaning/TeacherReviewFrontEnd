@@ -76,6 +76,7 @@ Page({
  */
   toDetailInfo :function(e){
     app.globalData.aSelectedTeacher = e.currentTarget.dataset.teacher;
+    app.globalData.teacherId = e.currentTarget.dataset.teacher.tId;
     wx.navigateTo({
       url: '/pages/teacherInfo/introduction',
     })

@@ -12,7 +12,7 @@
       <text class='left'>账号：</text><text class='right'>{{uid}}</text>
     </view>
     <view class='item'>
-      <text class='left'>学校：</text><text class='right'>{{uid}}</text>
+      <text class='left'>学校：</text><text class='right'>湖大信息</text>
     </view>
     <view class='item'>
       <text class='left'>学院：</text><text class='right'>{{myinfo.name}}</text>
@@ -28,9 +28,8 @@
     </view>
     <view class='item' bindtap='addTeacherInfo'>
      <text class='left'> 导师：</text><text class='right'>添加导师的信息</text>
-    </view>
-    <view class='item' bindtap='exit'>
-      <text class='left'>退出：</text><text class='right'>>>></text>
-    </view>
+    </view>   
+    <button class='bottom' type='primary' bindtap='updateUserInfo'>修改个人信息 </button>
+
 </view>
 
