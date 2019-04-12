@@ -4,20 +4,21 @@
     "pages/teacherInfo/introduction",
     "pages/recommend/recommend",
     "pages/aboutme/aboutme",
-   
+    "pages/help/help",
+     "pages/advice/advice",
     "pages/teachers/teachers"
   ],
   "tabBar": {
     "list": [
       {
         "pagePath": "pages/recommend/recommend",
-        "text": "所有老师",
+        "text": "导师信息",
         "iconPath": "image/icon/icon_home_line.png",
         "selectedIconPath": "image/icon/icon_home_solid.png"
       },
       {
         "pagePath": "pages/aboutme/aboutme",
-        "text": "我",
+        "text": "我的信息",
         "iconPath": "image/icon/icon_me_line.png",
         "selectedIconPath": "image/icon/icon_me_solid.png"
       }

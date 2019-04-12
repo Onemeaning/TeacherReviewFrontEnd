@@ -108,10 +108,10 @@
 
 .talks {  
     position: absolute;  
-    height: 800rpx;  
+    height: 950rpx;  
     width: 100%;  
     bottom: 0rpx;  
-    background-color: rgb(209, 204, 204); 
+    background-color: whitesmoke; 
     border-top-left-radius: 5%;
     border-top-right-radius: 5%
 }
@@ -247,9 +247,8 @@
 
 .talk-item-delete{
    font-size: 1.1rem;  
-   color: white; 
-   background: orange;
-   border: solid 2rpx orange;
+   color: #2A76BC; 
+   border: solid 2rpx #2A76BC;
    border-radius: 10%;
 
 }
@@ -286,7 +285,7 @@
 
 .message-input{
 position: absolute;
-  background: #689F38;
+  background: #2A76BC;
   font-size:1.1rem;
   right: 60rpx;
   height:60rpx; 

@@ -6,7 +6,7 @@
 <view class='search'>
         <view class='searchItem'>
             <image src="/image/icon/icon_search.png" />
-            <input  bindconfirm='searchTeachers' value='{{province}}{{city}}{{county}}' data-choose='{{province}} {{city}} {{county}}' type="text" confirm-type="search" placeholder="搜索：请具体到院系" ></input>
+            <input  bindconfirm='searchTeachers' value='{{province}}{{city}}{{county}}' data-choose='{{province}} {{city}} {{county}}' type="text" confirm-type="search" placeholder="搜索某专业热门导师（具体到系）" ></input>
             <text bindtap="translate">| 学校</text>
         </view>
     </view>
@@ -49,5 +49,18 @@
             </view>           
 
           </swiper-item>
+
       </block>
   </swiper>
+
+  <view class = 'view_bottom'>
+            <text bindtap='func_help'>使用帮助  </text>
+            <text > | </text>
+            <text bindtap='func_advice' >  意见反馈</text>
+  </view> 
+  
+            
+            
+
+
+ 

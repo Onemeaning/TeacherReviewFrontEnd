@@ -32,8 +32,22 @@
   font-size: 0.8rem;
   margin-right: 20rpx;
 }
-.bottom {
+/* .bottom {
     border-radius: 80rpx;
     margin: 70rpx 50rpx;
     font-size: 35rpx;
+} */
+
+.bottom { 
+  width: 90%; 
+  align-items: center;
+  height: 90rpx; 
+  line-height: 90rpx; 
+  background: #2A76BC; 
+  border-radius: 98rpx;
+  color:#fff; 
+}
+
+.bottom-hover{
+background: rgb(19, 54, 87); 
 }

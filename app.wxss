@@ -1,0 +1,13 @@
+.bottom { 
+  width: 90%; 
+  align-items: center;
+  height: 90rpx; 
+  line-height: 90rpx; 
+  background: #2A76BC; 
+  border-radius: 98rpx;
+  color:#fff; 
+}
+
+.bottom-hover{
+background: rgb(19, 54, 87); 
+}

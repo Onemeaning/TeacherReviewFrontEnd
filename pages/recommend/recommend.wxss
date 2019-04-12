@@ -13,7 +13,7 @@ view.searchItem {
     display: flex;
     width: 100%;
     height: 70rpx;
-    background: rgba(255, 255, 255, 0.7);
+    background: rgba(240, 238, 254, 0.7);
     flex-direction: row;
     border-radius: 98rpx;
     margin-right: 20rpx;
@@ -47,8 +47,10 @@ view.searchItem text{
 
 
 .swiperstyle{
+  display: flex;
+  flex-direction: column;
   height:100vh;
-  background: #fff;
+  background:rgb(240, 238, 254);
 }
 .swiperstyleHide{
   position: fixed;
@@ -61,11 +63,11 @@ view.searchItem text{
 .all-teacher-css
 {
  margin-top: 30rpx;
- height:85vh;
+ height:82vh;
  display: flex;
  flex-direction: column;
  align-items: center;
- background:#e2dbbe; 
+ background:#fff; 
  border-radius:3%;
  width: 620rpx;
 
@@ -81,7 +83,7 @@ view.searchItem text{
 }
 .picture{
   margin-top: 40rpx;
-  height: 250rpx;
+  height: 200rpx;
   width: 250rpx;
   border-radius:50%;
 }
@@ -98,4 +100,21 @@ view.searchItem text{
   flex-direction: row;
   text-align: left;
   margin-bottom: 10rpx;
+}
+
+.view_bottom{
+  height: 30rpx;
+  position: fixed;
+  bottom: 30rpx;
+  left: 33%;
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+}
+
+.view_bottom text{
+  font-size: small;
+  text-decoration:underline;
+  color: #2A76BC;
+  margin-left: 10rpx;
 }

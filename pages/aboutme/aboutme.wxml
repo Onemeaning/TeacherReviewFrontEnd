@@ -29,7 +29,7 @@
     <view class='item' bindtap='addTeacherInfo'>
      <text class='left'> 导师：</text><text class='right'>添加导师的信息</text>
     </view>   
-    <button class='bottom' type='primary' bindtap='updateUserInfo'>修改个人信息 </button>
+    <button class='bottom' hover-class="bottom-hover" bindtap='updateUserInfo'>修改个人信息 </button>
 
 </view>
 

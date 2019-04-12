@@ -18,6 +18,7 @@ Page({
       message: "",//用于存储评论框中输入的数据
       doesPush:false,//有没有点赞？默认没有
       imageLocate:"",//给老师表达爱心的数目
+      imageCommnet:"",//给老师的评论icon
       userImageLocate:"",//给用户评论的点赞图标
 
       /**下面是处理每一条评论对应的点赞数的 */
@@ -182,7 +183,7 @@ updateAccessCounts:function()
         success: function(res) {
           var Commentlists = res.data.commentList;
           if (Commentlists==null)
-          {
+          {         
               var toastText = "获取数据失败"+res.data.errMsg;
               wx.showToast({
                 title: toastText,
@@ -192,9 +193,23 @@ updateAccessCounts:function()
           }
           else
           {
+            if(Commentlists.length==0)
+            {
+              that.setData({
+                imageCommnet: "../../image/icon/icon_comment_before.png",
+              })
+            }
+
+          else
+          {
+              that.setData({
+                imageCommnet: "../../image/icon/icon_comment_after.png",
+              })
+          }
             that.setData({
-              list: Commentlists,
+              list: Commentlists,             
               comment_count: Commentlists.length,
+
               // talksAnimationData: that.animation.export()
             })
           }

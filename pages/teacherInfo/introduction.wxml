@@ -118,7 +118,7 @@
 
 
   <button  class='btn2' bindtap='showTalks' >
-    <image class='btnImg' src='../../image/icon/icon_comment_before.png'></image>
+    <image class='btnImg' src='{{imageCommnet}}'></image>
     <view>{{comment_count}}</view>
   </button>
 

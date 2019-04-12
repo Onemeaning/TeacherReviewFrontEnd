@@ -1,0 +1,122 @@
+.help{
+  border: solid 1rpx;
+  border-color: #eedfdfda;
+  margin: 20rpx;
+  padding: 20rpx;
+  border-radius:20%;
+  font-family:'';
+  font-size: 100%;
+  font-weight:900;
+
+}
+.main_body{
+  margin-top: 20rpx;
+  margin: 20rpx;
+  border: solid 1rpx;
+  border-color: #eedfdfda;
+  border-radius:1%;
+}
+.message2{
+  font-weight:200;
+  margin: 10rpx;
+  padding: 10rpx;
+  border: solid 1rpx;
+  border-color: #fcfcfcfd;
+}
+.message2_1{
+  font-size: 100%;
+  font-weight:900;
+  margin: 10rpx;
+  margin-top: 10rpx;
+  padding: 10rpx;
+  border: solid 1rpx;
+  border-color: #fcfcfcfd;
+}
+.message2_2{
+  font-weight:200;
+  margin: 10rpx;
+  margin-top: 20rpx;
+  padding: 10rpx;
+  border: solid 1rpx;
+  border-color: #fcfcfcfd;
+}
+.zhujiemian{
+  display: flex;
+  justify-content: center;
+  margin: 100rpx;
+  padding: 10rpx;
+  border: solid 1rpx;
+  border-color: #fcfcfcfd;
+}
+.message3_1{
+  
+  font-size: 100%;
+  font-weight:900;
+  margin: 10rpx;
+  margin-top: 20rpx;
+  padding: 10rpx;
+  border: solid 1rpx;
+  border-color: #fcfcfcfd;
+}
+.message3_2{
+  
+  font-size: 100%;
+  font-weight:200;
+  margin: 10rpx;
+  margin-top: 20rpx;
+  padding: 10rpx;
+  border: solid 1rpx;
+  border-color: #fcfcfcfd;
+}
+.xuanzejiemian{
+  display: flex;
+  justify-content: center;
+  margin: 10rpx;
+  padding: 100rpx;
+  border: solid 1rpx;
+  border-color: #fcfcfcfd;
+}
+.message4_1{
+  margin-top: 20rpx;
+  font-size: 100%;
+  font-weight:900;
+  margin: 10rpx;
+  padding: 10rpx;
+  border: solid 1rpx;
+  border-color: #fcfcfcfd;
+}
+.daoshixuanze{
+  display: flex;
+  justify-content: center;
+  margin: 10rpx;
+  padding: 100rpx;
+  border: solid 1rpx;
+  border-color: #fcfcfcfd;
+}
+.message5_1{
+  
+  font-size: 100%;
+  font-weight:900;
+  margin: 10rpx;
+  margin-top: 20rpx;
+  padding: 10rpx;
+  border: solid 1rpx;
+  border-color: #fcfcfcfd;
+}
+.message5_2{
+  font-size: 100%;
+  font-weight:200;
+  margin: 10rpx;
+  margin-top: 20rpx;
+  padding: 10rpx;
+  border: solid 1rpx;
+  border-color: #fcfcfcfd;
+}
+.daoshipingjia{
+  display: flex;
+  justify-content: center;
+  margin: 10rpx;
+  padding: 100rpx;
+  border: solid 1rpx;
+  border-color: #fcfcfcfd;
+}

@@ -1,0 +1,36 @@
+<!--index.wxml-->
+<view class="title">请选择反馈内容</view>
+<view>
+  <form bindsubmit="uploadImg">
+        <view>
+            <view class='radio-view'>
+                <radio-group class="radio-group">
+                    <view class="attr_value" wx:for="{{radios}}" wx:key="{{item.name}}">
+                      <radio color='' checked='{{item.checked}}' data-index='{{index}}' bindtap='radioChange'></radio>
+                      <label class='radio_label'>{{item.value}}</label>
+                    </view>
+                </radio-group>
+             </view>
+              <textarea bindblur="getValue" style='height:300rpx; border: #d1d4d6 solid 1rpx;' placeholder='写下你的宝贵意见吧~' value='{{content}}'></textarea>
+          </view>
+
+        <view class="chuansong">相关截图，最多三张（必填）</view>
+        <view>
+
+        <button class="bottom" hover-class="bottom-hover" bindtap="uploadimg">点击选择上传图</button>
+
+        </view>
+
+        <view class='imageStyle'>
+            <block wx:key="{{index}}" wx:for="{{source}}">
+                <image name="files" src='{{item}}' style='width:200rpx; height:200rpx' />
+            </block>
+        </view>
+
+        <button class='submit-btn' hover-class="submit-btn-hover" form-type='submit'>提交意见</button>
+
+   </form>
+
+
+   
+</view>

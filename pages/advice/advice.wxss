@@ -1,0 +1,131 @@
+/**index.wxss**/
+.title{
+  background-color: white;
+  width: 85%;
+  padding: 20rpx;
+  border: #f7f7f7 solid 1rpx;
+  margin: auto;
+  border-radius: 30rpx;
+  font-size: 28rpx;
+  caret-color: #d2d9e2
+}
+.radio-view {
+  margin-left: 5%;
+  padding-bottom:18rpx;
+  margin-top:20rpx;
+}
+
+.attr_value {
+  float: left;
+  margin-right: 20rpx;
+  position: relative;
+}
+
+.radio_label {
+  font-size: 28rpx;
+  display: block;
+  padding: 10rpx 20rpx;
+  height: 40rpx;
+  line-height: 40rpx
+}
+
+radio {
+  box-sizing: border-box;
+  background: none;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+}
+
+radio .wx-radio-input {
+  margin-right: 15rpx;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background: none;
+  border-radius: 6rpx;
+  box-sizing: border-box;
+}
+
+radio .wx-radio-input.wx-radio-input-checked {
+  background-color: transparent;
+  border-color: #0d1218;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+radio .wx-radio-input.wx-radio-input-checked::before {
+  content: '\2713';
+  font-family: "iconfont" !important;
+  font-size: 30rpx;
+  color: #ff3a5b;
+  top: auto;
+  left: auto;
+  right: -4rpx;
+  bottom: -4rpx;
+  transform: translate(0, 0) scale(1);
+  -webkit-transform: translate(0, 0) scale(1);
+}
+
+
+textarea {
+  background-color: white;
+  width: 85%;
+  height:750rpx;
+  padding: 20rpx;
+  border: #050e1a solid 1rpx;
+  margin: auto;
+  margin-top: 80rpx;
+  border-radius: 30rpx;
+  font-size: 28rpx;
+  caret-color: #050b13
+}
+
+.submit-btn {
+  background-color: #2A76BC;
+  color: white;
+  position: fixed;
+  right: 50rpx;
+  bottom: 70rpx;
+  border-radius: 50rpx;
+  font-size: 30rpx;
+}
+
+.submit-btn-hover{
+background: rgb(19, 54, 87); 
+}
+
+.chuansong{
+  background-color: white;
+  width: 85%;
+  padding: 20rpx;
+  border: #fafbfc solid 1rpx;
+  margin: auto;
+  margin-top: 10rpx;
+  border-radius: 30rpx;
+  font-size: 28rpx;
+  caret-color: #f2f3f5
+}
+
+.uploadimg{
+  margin-top: 10rpx;
+  width: 85%;
+  background-color: #030b14;
+  color: white;
+  border-radius: 50rpx;
+  font-size: 30rpx;
+}
+.imageStyle{
+  margin-top: 30rpx;
+  display: flex;
+  height: 220rpx;
+  width: 710rpx;
+  padding: 20rpx;
+  flex-direction: row;
+  align-items: center;
+  border: #d1d4d6 solid 1rpx;
+}

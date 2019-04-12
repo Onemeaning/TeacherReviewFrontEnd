@@ -96,7 +96,7 @@ Page({
   searchTeachers: function (event) {
     var that = this;
     var searchContent = event.detail.value;
-    that.searchByAffilication(searchContent);
+    that.func_lisTopFive(searchContent);
   },
 
 
@@ -157,8 +157,8 @@ searchByAffilication :function(affication)
       }
       else {
         wx.showToast({
-          title: '不要缩写，具体到系',
-          icon: 'none',
+          title: '该系暂未录入系统',
+          icon: 'loding',
           duration: 2000,
         })
       }
@@ -195,10 +195,10 @@ searchByAffilication :function(affication)
       var county = item.countys[item.value[2]].name;
       var affication = province + city + county;
 
-      // this.searchByAffilication(affication);
-      this.func_lisTopFive(affication);
+      this.searchByAffilication(affication);
+      // this.func_lisTopFive(affication);
       this.setData({
-        searchContent: 'affication'
+        searchContent: ''
       })
     }
     else{
@@ -225,6 +225,19 @@ searchByAffilication :function(affication)
   ,
   onReachBottom: function () {
   },
-  nono: function () { }
+  
+  func_help:function(){
+    wx.navigateTo({
+      url:"../../pages/help/help",
+    })
+  },
+
+  func_advice:function(){
+
+    wx.navigateTo({
+      url:"../../pages/advice/advice",
+    })
+
+  }
 
 })
