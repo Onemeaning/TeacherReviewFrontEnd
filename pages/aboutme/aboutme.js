@@ -5,36 +5,121 @@ Page({
    * 页面的初始数据
    */
   data: {
-    // onPullDownRefresh: function () {
-    //   wx.stopPullDownRefresh()
-    // },
     myinfos: null,
-    uid:''
+    uid:'',
+    emailsConunt:0,//未读邮件的数目
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    var info = app.globalData.userInfo;
     var id = app.globalData.openid;
+    this.getWxUserDetail();
+    this.getUncheckedEmails();
     this.setData({
-      myinfos: info,
          uid:id
      });
 
   },
-  exit: function (e) {
+
+  onShow:function()
+  {
+    this.getWxUserDetail();
+    this.getUncheckedEmails();
+  },
+
+
+  /**
+   * 获取个人详细信息：
+   */
+  getWxUserDetail: function () {
+    var that = this;
+    var id = app.globalData.openid;
+    wx: wx.request({
+      url: app.globalData.urlPath + "/superadmin/getUserInfo",
+      data: {
+        uWxid: id,
+      },
+      method: 'GET',
+      dataType: 'json',
+      responseType: 'text',
+      success: function (res) {
+        that.setData({
+          myinfos: res.data.success
+        })
+      },
+    })
+  },
+
+
+
+  /**
+   * 更新用户信息
+   */
+  updateUserInfo: function () {
+    wx.showModal({
+      title: '温馨提示',
+      content: '修改完整信息，让老师更了解你哦',
+      success: function (res) {
+        if (res.confirm) {
+          wx.navigateTo({
+            url: '../../pages/editInfo/editInfo',
+          })
+        } else if (res.cancel) {
+          console.log('用户点击取消')
+        }
+      }
+    })
+  },
+
+  myEmails:function()
+  {
+    wx.navigateTo({
+      url: '../../pages/emailDetails/emailDetails',
+    })
+    // this.getUncheckedEmails();
+  },
+
+/**
+ * 获取未读邮件的个数
+ */
+getUncheckedEmails:function()
+{
+  var that = this;
+  var id = app.globalData.openid;
+  wx: wx.request({
+    url: app.globalData.urlPath + "/superadmin/uncheckedEmailsNum",
+    data: {
+      toId: id,
+    },
+    method: 'GET',
+    dataType: 'json',
+    responseType: 'text',
+    success: function (res) {
+      console.log(res.data.success);
+      that.setData({
+         emailsConunt : res.data.success
+      })
+    },
+  })
+},
+
+
+  /**
+   * 退出登录
+   */
+  exit: function () {
     wx.showModal({
       title: '提示',
       content: '是否确认退出',
       success: function (res) {
         if (res.confirm) {
           // console.log('用户点击确定')
-          wx.removeStorageSync('student');
+          wx.removeStorageSync('openId');
           //页面跳转
           wx.redirectTo({
-            url: '../login/login',
+            url: '../../pages/authorize/authorize',
           })
         } else if (res.cancel) {
           console.log('用户点击取消')
@@ -42,22 +127,6 @@ Page({
       }
     })
   },
-  updateUserInfo: function (e) {
-    wx.showModal({
-      title: '温馨提示',
-      content: '当您更新完整的个人信息之后，您将会被授予向数据库更新自己导师<新增项目><新发表的论文>等信息的权限，更新后的信息将可以被所有人查阅！',
-      success: function (res) {
-        if (res.confirm) {
 
-          wx.navigateTo({
-            url: '../password/password?no=' + no,
-          })
 
-        } else if (res.cancel) {
-          console.log('用户点击取消')
-        }
-      }
-    })
-  },
- 
 })

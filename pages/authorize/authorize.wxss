@@ -40,17 +40,48 @@ background: rgb(19, 54, 87);
 
 
 .copy_bottom{
-  margin-top: 200rpx;
-  height: 30rpx;
+  position: fixed;
   bottom: 20rpx;
-  display: flex;
-  justify-content: center;
-  flex-direction: row;
+  left: 240rpx;
+  width: 100%;
 }
 
 .copy_bottom text{
   font-size: small;
   text-decoration:underline;
   color: gray;
-  margin-left: 10rpx;
+  text-align: center;
+}
+
+
+
+.identity{
+  display: flex;
+  flex-direction: row;
+  height: 400rpx;
+  margin-bottom: 20rpx;
+}
+
+.teacher{
+  width: 300rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content:center;
+}
+
+.student{
+  width: 300rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.image{
+  padding: 20rpx;
+  height: 60rpx;
+  width: 60rpx;
+}
+.text{
+  align-self: center;
+  
 }

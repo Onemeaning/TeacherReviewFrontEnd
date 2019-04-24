@@ -4,8 +4,10 @@ Page({
     //判断小程序的API，回调，参数，组件等是否在当前版本可用。
     canIUse: wx.canIUse('button.open-type.getUserInfo')
   },
-
   onLoad: function () {
+    wx.showLoading({
+      title: '正在加载，请稍后',
+    });
     var that = this;
       // 查看是否授权
         wx.getSetting({
@@ -22,13 +24,14 @@ Page({
                   console.log("用户授权之后从缓存区读取ID："  + wx.getStorageSync('openId'));
                   //用户已经授权过
                   wx.switchTab({
-                    url: '/pages/recommend/recommend'
+                    url: '/pages/homeIndex/homeIndex'
                   })
                 }
               });
             }
           }
-        })        
+        })  
+      wx.hideLoading();      
   },
 
   bindGetUserInfo: function (e) {
@@ -36,12 +39,14 @@ Page({
       //用户按了允许授权按钮
 /**-------------------------------从服务里中获取信息来实现登陆登录 ---------------------------------------------------- */   
       wx.switchTab({
-        url: '/pages/recommend/recommend'
+        url: '/pages/homeIndex/homeIndex'
       })
 
 
       var that = this;
-      wx.showNavigationBarLoading();
+      wx.showLoading({
+        title: '正在加载，请稍后',
+      })
       wx.login({
         success: function (res) {
           // 1、发送 res.code 到后台换取 openId, sessionKey, unionId
@@ -125,7 +130,7 @@ Page({
               }
               
             })
-            wx.hideNavigationBarLoading();
+            wx.hideLoading();
           }
         }
       })  

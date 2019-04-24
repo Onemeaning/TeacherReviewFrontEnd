@@ -11,20 +11,21 @@
                     </view>
                 </radio-group>
              </view>
-              <textarea bindblur="getValue" style='height:300rpx; border: #d1d4d6 solid 1rpx;' placeholder='写下你的宝贵意见吧~' value='{{content}}'></textarea>
+
+              <textarea bindblur="getValue" style='height:300rpx; border: #d1d4d6 solid 1rpx;'
+               placeholder='写下你的宝贵意见吧~' value='{{content}}'></textarea>
+
           </view>
 
-        <view class="chuansong">相关截图，最多三张（必填）</view>
-        <view>
+       <view class="title">相关截图，最多三张（必填）</view>
 
-        <button class="bottom" hover-class="bottom-hover" bindtap="uploadimg">点击选择上传图</button>
+        <view class='imageStyle'>     
+         <image mode='widthFix' bindtap="uploadimg" class='adviceImageBefore' 
+         wx:if="{{source.length==0}}" src='../../image/icon/icon_add.png'/>
 
-        </view>
-
-        <view class='imageStyle'>
             <block wx:key="{{index}}" wx:for="{{source}}">
-                <image name="files" src='{{item}}' style='width:200rpx; height:200rpx' />
-            </block>
+                <image mode='widthFix' class='adviceImage' name="files" wx:if="{{source.length>0}}" src='{{source[index]}}'/>     
+            </block>        
         </view>
 
         <button class='submit-btn' hover-class="submit-btn-hover" form-type='submit'>提交意见</button>

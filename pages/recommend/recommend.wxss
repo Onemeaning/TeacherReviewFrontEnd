@@ -35,6 +35,7 @@ view.searchItem input {
     color: rgb(98, 111, 161)
 
 }
+
 view.searchItem text{
 
     align-self: center;
@@ -58,8 +59,8 @@ view.searchItem text{
   height: 0;  
   width: 100%;  
   overflow: hidden
-
 }
+
 .all-teacher-css
 {
  margin-top: 30rpx;
@@ -100,21 +101,4 @@ view.searchItem text{
   flex-direction: row;
   text-align: left;
   margin-bottom: 10rpx;
-}
-
-.view_bottom{
-  height: 30rpx;
-  position: fixed;
-  bottom: 30rpx;
-  left: 33%;
-  display: flex;
-  justify-content: center;
-  flex-direction: row;
-}
-
-.view_bottom text{
-  font-size: small;
-  text-decoration:underline;
-  color: #2A76BC;
-  margin-left: 10rpx;
 }

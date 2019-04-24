@@ -1,0 +1,68 @@
+<view>
+  <view class="row">
+    <label class="title">我的地址</label>
+    <view class="info" bindtap="handleAddressClick">{{address}}</view>
+  </view>
+
+  <view class="row">
+    <label class="title">我的身份</label>
+    <view class="info">
+      <radio-group bindchange="handleTypeChange">
+        <label>
+          <radio value="student" checked="true"/>学生
+          <radio value="teacher"/>老师
+         </label>
+      </radio-group>
+    </view>
+  </view>
+
+
+  <view class="row">
+    <label class="title">姓名</label>
+    <view class="info">
+      <input class="info-input" bindinput="handleNameChange" placeholder="填写您的姓名"/>
+    </view>
+  </view>
+
+  <view class="row">
+    <label class="title">学校</label>
+    <view class="info">
+      <input class="info-input" bindinput="handleSchoolChange" placeholder="填写您的学校"/>
+    </view>
+  </view>
+
+  <view class="row">
+    <label class="title">学院</label>
+    <view class="info">
+      <input class="info-input" bindinput="handleCollegeChange" placeholder="填写您的联系方式"/>
+    </view>
+  </view>
+
+  <view class="row">
+      <label class="title">专业</label>
+      <view class="info">
+        <input class="info-input" bindinput="handleDepartmentChange" placeholder="填写您的专业"/>
+      </view>
+    </view>
+
+    <view class="row">
+      <label class="title">学号</label>
+      <view class="info">
+        <input class="info-input" bindinput="handleStudentIdChange" placeholder="填写您的专业"/>
+      </view>
+    </view>
+
+
+  <view class="row">
+    <label class="title">导师</label>
+    <view class="info">
+      <input class="info-input" bindinput="handleTutorChange" placeholder="填写您的导师"/>
+    </view>
+  </view>
+
+<view style='margin-top:50rpx;'></view>
+
+  <button class='bottom' hover-class="bottom-hover" bindtap="handleSubmit">提交信息 </button>
+
+</view>
+

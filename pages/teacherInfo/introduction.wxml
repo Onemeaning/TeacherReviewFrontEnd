@@ -9,7 +9,7 @@
 
       <view class='aline'>
       <text style='font-weight:bold;margin-right: 20rpx'>简介：</text>
-      <text class = 'intro_text'>{{detailInfo.tIntroduction}}</text>
+      <text >{{detailInfo.tIntroduction}}</text>
       </view>
 
       <view class='aline'>
@@ -28,6 +28,7 @@
       </view>    
     </view>
 </view>
+
 
 <scroll-view  style='margin-bottom: 150rpx;'>
     <view wx:if="{{detailInfo.tPublishedPaper!=null}}">
@@ -111,25 +112,25 @@
 <!-- 底部的四个按钮 -->
 <view class="{{showView?'buttonGroup':'buttonGroupHide'}}" >
 
-  <button class='btn2' hover-class='button-hover'bindtap='func_support'>
+  <button class='btn2' bindtap='func_support'>
     <image class='btnImg' src='{{imageLocate}}'> </image>
-    <view>{{thumbs_counts}}</view>
+    <text>{{thumbs_counts}}</text>
   </button>
 
 
   <button  class='btn2' bindtap='showTalks' >
     <image class='btnImg' src='{{imageCommnet}}'></image>
-    <view>{{comment_count}}</view>
+    <text>{{comment_count}}</text>
   </button>
 
-  <button class='btn2' >
-    <image class='btnImg' src='../../image/icon/star_before.png' bindtap='collect'></image>
-    <view>收藏</view>
+  <button class='btn2' bindtap='sendEmail'>
+    <image class='btnImg' src='../../image/icon/star_before.png' ></image>
+    <text>邮件</text>
   </button>
 
   <button class='btn2' open-type='share'>
       <image class='btnImg' src='../../image/icon/icon_share_before.png'></image>
-      <view>分享</view>
+      <text>分享</text>
   </button>
 
 </view>

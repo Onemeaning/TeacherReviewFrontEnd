@@ -25,6 +25,7 @@ App({
             // aSelectedTeacher:null,
             findedTeachers: [],
             teacherId:1,
-            systemInfo :''
+            systemInfo :'',
+            emailInfo:null,
          }
 }) 

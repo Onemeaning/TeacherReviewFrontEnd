@@ -1,0 +1,38 @@
+<!--pages/writeEmail/writeEmail.wxml-->
+
+  <form bindsubmit="sendEmail">
+    <view class="row">
+          <label class="title">To:</label>
+          <view class="info">
+            <text class="info-input">{{toNickName}}</text> 
+          </view>
+      </view>
+
+
+      <view class="row">
+          <label class="title">From:</label>
+          <view class="info">
+            <text class="info-input">{{fromNickName}} </text> 
+          </view>
+      </view>
+
+
+      <view>   
+        <textarea bindblur="getValue" class='textarea' placeholder='快把你的想法告诉TA吧：)' value='{{content}}'></textarea>
+      </view>
+
+
+      <view class='resumeImageOut' bindtap="chooseImg">
+         <image mode='widthFix' class='resumeImage' name="files" wx:if="{{source[0] != null}}" src='{{source[0]}}'/>
+         <image mode='widthFix' class='resumeImageBefore' wx:else src='../../image/icon/icon_add.png'/>
+      </view>
+    
+        <view class='resume'>
+        <text>选择简历(照片形式)</text>
+        <image class='btnImg' src='../../image/icon/icon_upload.png' bindtap="chooseImg"></image>
+      </view>
+
+      <button class='submit-btn' hover-class="submit-btn-hover" form-type='submit'>发送邮件</button>
+
+</form>
+

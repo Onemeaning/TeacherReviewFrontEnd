@@ -1,20 +1,31 @@
 {
   "pages": [
     "pages/authorize/authorize",
+    "pages/homeIndex/homeIndex",
     "pages/teacherInfo/introduction",
     "pages/recommend/recommend",
     "pages/aboutme/aboutme",
     "pages/help/help",
-     "pages/advice/advice",
-    "pages/teachers/teachers"
+    "pages/advice/advice",
+    "pages/teachers/teachers",
+    "pages/emailDetails/emailDetails",
+    "pages/editInfo/editInfo",
+    "pages/writeEmail/writeEmail",
+    "pages/eamilsDetailsInfo/eamilsDetailsInfo"
   ],
   "tabBar": {
     "list": [
       {
-        "pagePath": "pages/recommend/recommend",
-        "text": "导师信息",
+        "pagePath": "pages/homeIndex/homeIndex",
+        "text": "主页信息",
         "iconPath": "image/icon/icon_home_line.png",
         "selectedIconPath": "image/icon/icon_home_solid.png"
+      },
+      {
+        "pagePath": "pages/recommend/recommend",
+        "text": "导师信息",
+        "iconPath": "image/icon/icon_teachers_line.png",
+        "selectedIconPath": "image/icon/icon_teachers_solid.png"
       },
       {
         "pagePath": "pages/aboutme/aboutme",

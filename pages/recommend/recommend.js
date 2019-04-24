@@ -10,7 +10,12 @@ Page({
    */
   data: {
     topFiveTeachers:[],//用于存储今天推荐的点赞数前五名的老师信息
-    searchContent:'',
+    searchContent:'通信工程',
+
+    province:"",//学校
+    city:"",//学院
+    county: "",//系专业
+
     showScrollView:true,
     item: {
       show: show
@@ -80,7 +85,6 @@ Page({
  */
   func_detail:function(event){
       var that = this;
-      // app.globalData.aSelectedTeacher = event.currentTarget.dataset.teacherItem;//将当前选中的老师对象保存到全局变量中
       app.globalData.teacherId = event.currentTarget.dataset.teacherItem.tId;
     wx.navigateTo({
       url: '/pages/teacherInfo/introduction',
@@ -127,13 +131,27 @@ Page({
         else {
           that.setData({
             topFiveTeachers: topFiveTeachers,
-          })
+          });
+
+          if(affication!=null&&affication!="")
+          {
+            
+            var index = affication.indexOf("院");
+            if (index>0){
+              affication = affication.slice(index+1);
+            }
+            wx.setNavigationBarTitle({
+              title: "《"+ affication+"》专业热门导师推荐",
+            })
+          }
         }
       },
     });
     wx.hideNavigationBarLoading();
   },
-
+/**
+ * 通过学校按钮查询系中所有老师列表
+ */
 searchByAffilication :function(affication)
 {
   wx.showNavigationBarLoading();
@@ -221,23 +239,11 @@ searchByAffilication :function(affication)
       city: item.citys[item.value[1]].name,
       county: item.countys[item.value[2]].name
     });
-  }
-  ,
-  onReachBottom: function () {
   },
+ 
   
-  func_help:function(){
-    wx.navigateTo({
-      url:"../../pages/help/help",
-    })
-  },
 
-  func_advice:function(){
 
-    wx.navigateTo({
-      url:"../../pages/advice/advice",
-    })
 
-  }
 
 })

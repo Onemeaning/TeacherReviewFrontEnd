@@ -9,9 +9,24 @@
         <text>获得你的公开信息(昵称，头像等)</text>
     </view>
 
-    <button class='bottom' hover-class="bottom-hover" lang='zh_CN' open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo">
+    <view class='identity' >
+
+      <button class='teacher' lang='zh_CN' open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo">
+         <image class='image' src='/image/icon/icon_teacher.png'></image>
+         <text  class='text'>我是老师</text>
+      </button>
+
+      <button class='student' lang='zh_CN' open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo">
+          <image class='image' src='/image/icon/icon_student.png'></image>
+          <text class='text'>我是学生</text>
+      </button>
+    
+    </view>
+
+    <!-- <button class='bottom' hover-class="bottom-hover" lang='zh_CN' open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo">
         授权登录
-    </button>
+    </button> -->
+
 </view>
 
 <view wx:else>请升级微信版本</view>

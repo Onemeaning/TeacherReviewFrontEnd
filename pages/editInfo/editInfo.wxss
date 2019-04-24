@@ -1,0 +1,25 @@
+/* pages/editInfo/editInfo.wxss */
+page{
+  background: #eee;
+}
+
+.row{
+  line-height:50px;
+  border-bottom:1px solid #ccc;
+  color:#777;
+  overflow:hidden;
+  background-color: #fff;
+}
+
+.title{
+  padding-left:10px;
+  width:90px;
+  float:left;
+}
+.info-input{
+  height:50px;
+}
+
+.success{
+  background: #fff;
+}

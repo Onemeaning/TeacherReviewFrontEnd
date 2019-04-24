@@ -1,0 +1,41 @@
+<!--pages/emailDetails/emailDetails.wxml-->
+
+<view class="main">
+
+  <block wx:key="{{index}}" wx:for="{{dataList}}" >
+
+      <view class="adapter_item">
+
+
+          <view class='item_left'>
+              <image src="{{item.fromIdImage}}" class="talk-item-face"></image>   
+              <image  wx:if= "{{!item.checked}}" src='../../image/icon/icon_state.png' class="item_state" ></image> 
+          </view>
+
+
+            <view class="item_content" bindtap='eamilsDetailsInfo' data-index='{{index}}'>
+
+                <view class='item_top'>
+                  <text class="item_id">{{item.fromIdNickName}}</text>
+                  <text class="item_time">{{item.sendTime}}</text>
+                  <image src='../../image/icon/icon_go.png' class="item_go"></image> 
+                </view>
+
+                <text class="item_title">{{item.emailContent}}</text>  
+
+              <view class='item_bottom'>
+               <image src='../../image/icon/icon_delete.png' class="item_delete" catchtap ='deleteEmail'data-index='{{index}}'></image>   
+             </view>  
+            </view>                 
+      </view>
+
+      
+  </block>
+  
+      <view class='clearAll'  wx:if= "{{dataList.length>0}}"  bindlongtap='clearAll'>
+        <text class="item_id">长按清空所有邮件</text>
+        <image src='../../image/icon/icon_delete.png' class="item_deleteAll"></image> 
+      </view>
+</view>
+
+

@@ -72,6 +72,7 @@
   border: 0; 
 }
 
+
 .buttonGroup{
   position: fixed;
   bottom: 1rpx;

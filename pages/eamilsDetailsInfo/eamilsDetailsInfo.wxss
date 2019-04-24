@@ -1,0 +1,107 @@
+/* pages/eamilsDetailsInfo/eamilsDetailsInfo.wxss */
+.email{
+ height: 100vh;
+  display: flex;
+  flex-direction: column;
+  padding: 12rpx;
+}
+
+
+.adapter_item {
+  padding-left: 12rpx;
+  display: flex;
+  flex-direction: row;
+  border-bottom: solid 1rpx rgb(199, 195, 195);  
+}
+
+.item_content {
+  padding-left: 20rpx;
+  margin-left: 15rpx;
+  display: flex;
+  align-items: left;
+  flex-direction: column;
+  flex: 1;
+}
+
+
+/* 用户头像样式*/
+.talk-item-face { 
+    margin-top: 20rpx;
+    margin-left: 20rpx;
+    width: 100rpx;  
+    height: 100rpx;  
+    border-radius: 50%;
+}
+
+/*最上面的元素*/
+.item_top{
+  width: 100%;
+  height: 80rpx;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+
+.item_id {
+  width: 300rpx;
+  line-height: 80rpx;
+  vertical-align: left;
+  color: rgb(12, 12, 12);
+  font-weight: bold;
+  font-size: 1.1rem;
+}
+
+.item_time {
+  line-height: 80rpx;
+  font-size: 0.8rem;
+  display: flex;
+  justify-content: flex-end;
+  flex-grow: 1;
+  color: gray;
+  margin-right: 20rpx;
+}
+
+
+/*********主题内容*************/
+.item_detail {
+  padding: 20rpx;
+  width: 95%;
+  color: gray;
+  font-size: 0.9rem;
+  vertical-align: middle;
+  display: flex;
+  flex-wrap:wrap;
+  border-bottom: solid 1rpx rgb(199, 195, 195);  
+}
+
+
+/******* 底部一行样式********/
+.item_bottom{
+  width: 730rpx;
+  height: 80rpx;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-end;
+  margin-bottom: 5rpx;
+}
+
+.item_delete{
+  width: 50rpx;
+  height: 50rpx;
+  justify-content: flex-end;
+  margin-top: 10rpx;
+  margin-right: 20rpx;
+}
+
+
+.resumePhoto{
+  margin-top: 20rpx;
+  display: flex;
+  width:100%; 
+  border-radius: 10rpx;
+  justify-content: center;
+  align-items: center;
+  border: #4f515348 solid 1rpx;
+}

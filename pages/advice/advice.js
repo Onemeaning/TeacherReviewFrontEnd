@@ -64,7 +64,7 @@ Page({
     var userId = app.globalData.openid;
     var dateUtil = require('../../utils/dateUtils.js');
     var date = dateUtil.getToday();
-
+    console.log(that.data.content);
     if (that.data.source != null && that.data.source.length>0)
     {
       wx.showLoading({
@@ -73,12 +73,12 @@ Page({
         wx.uploadFile({
           url: app.globalData.urlPath + "/superadmin/advice",//自己的服务接口地址
           filePath: that.data.source[i],
-          name: 'files',
+          name: 'advicePhoto',
           formData: {
             'userId': userId,
-            'date':date,
+            'adviceTime':date,
             'adviceType':that.data.adviceType,
-            'content': that.data.content,
+            'adviceContent': that.data.content,
           },
           success: function (res) {
             var data = res.data

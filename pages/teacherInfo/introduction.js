@@ -32,8 +32,11 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    console.log(app.globalData.systemInfo)
-    console.log(app.globalData.systemInfo.indexOf("Android")) ;
+    wx.showLoading({
+      title: '正在加载，请稍后',
+    })
+    // console.log(app.globalData.systemInfo)
+    // console.log(app.globalData.systemInfo.indexOf("Android")) ;
     if(app.globalData.systemInfo.indexOf("Android")>=0)
     {
         this.setData({
@@ -49,7 +52,8 @@ Page({
     this.setData({
       userImageLocate: "../../image/icon/icon_support_before.png"
 
-    })
+    });
+    
   },
 
   /**
@@ -377,6 +381,8 @@ updateAccessCounts:function()
           wx.setNavigationBarTitle({
             title: t_data.tName,
           })
+
+          wx.hideLoading();
         }
       },
     })
@@ -611,13 +617,17 @@ areYouSupportEveryComments:function()
 },
 
 
-
 /**
- * 收藏该老师的信息到我的界面中展示
+ * 写邮件
  */
-collect:function(e){
-
-}
-
-
+  sendEmail: function (e) {
+    //这一步是为了把模板语言转化成js语言
+    var that = this;
+    var fromNickName = app.globalData.userInfo.nickName;
+    var toNickName = that.data.detailInfo.tName;
+    var toId = app.globalData.teacherId;
+    wx.navigateTo({
+      url: '../../pages/writeEmail/writeEmail?fromNickName=' + fromNickName + "&toNickName=" + toNickName + "&toId=" + toId
+    });
+  },
 })

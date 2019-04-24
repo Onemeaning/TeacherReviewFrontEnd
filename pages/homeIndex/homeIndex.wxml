@@ -1,0 +1,32 @@
+<import src="../../model/model.wxml"/>
+<template is="areaData" data="{{...item}}"/>
+
+
+<scroll-view  scroll-y="true"  class="{{showScrollView?'swiperstyle':'swiperstyleHide'}}">
+
+     <image class='image' src="img/swiper-img2.jpg" mode="widthFix"></image>
+
+      <view class="recpro panel" bindtap="translate">
+      <view  class="panel-title">
+        <text class="panel-title-txt">搜索您的专业</text>
+        <span class="panel-title-icon iconfont icon-xiayiye"></span>
+      </view>
+    </view>
+
+      <view class="brand panel">
+        <view url="../../pages/aboutme/aboutme" open-type="switchTab" class="panel-title">
+          <text class="panel-title-txt">导师选评系统</text>
+          <span class="panel-title-icon iconfont icon-xiayiye"></span>
+        </view>
+
+        <text class="brand-profile">路漫漫其修远兮,吾将上下而求索，我们写这个小程序的初衷，就是为了提供给广大将要进入硕士，博士阶段的学子提供一个更方便了解所去专业导师的客观信息的平台，在这里，你不仅能够了解导师的背景科研方向，还能看到师兄师姐们对导师的评价。除了以上的功能，你还可以在这里向导师发送私人简历，如果导师中意你，还能得到心怡导师的回复，还等什么呢，赶快点击右上角完善你的资料吧。</text>
+      </view>
+
+
+  <view class = 'view_bottom'>
+            <text bindtap='func_help'>使用帮助  </text>
+            <text > | </text>
+            <text bindtap='func_advice' >  意见反馈</text>
+  </view> 
+
+</scroll-view>

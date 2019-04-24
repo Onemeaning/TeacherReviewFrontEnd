@@ -11,3 +11,17 @@
 .bottom-hover{
 background: rgb(19, 54, 87); 
 }
+
+.submit-btn {
+  background-color: #2A76BC;
+  color: white;
+  position: fixed;
+  right: 50rpx;
+  bottom: 70rpx;
+  border-radius: 50rpx;
+  font-size: 30rpx;
+}
+
+.submit-btn-hover{
+background: rgb(19, 54, 87); 
+}
