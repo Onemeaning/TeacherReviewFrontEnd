@@ -1,0 +1,81 @@
+@import '../../model/model.wxss';
+page{
+  background: #eee;
+}
+
+.row{
+  line-height:50px;
+  border-bottom:1px solid #ccc;
+  color:#777;
+  overflow:hidden;
+  background-color: #fff;
+}
+.title{
+  padding-left:10px;
+  width:90px;
+  float:left;
+}
+.info-input{
+  height:50px;
+}
+
+.aline{
+  width: 750rpx;
+  display: flex;
+  flex-direction: row;
+}
+
+.resume{
+  width: 540rpx;
+  margin-top: 40rpx;
+  margin-left: 30rpx;
+  display: flex;
+  flex-direction: column;
+}
+
+.privacyText{
+  margin-top: 10rpx;
+  text-align: left;
+  font-size: .8rem;
+  color:#777;
+}
+
+
+
+.resumeImageOut{
+  margin-top: 40rpx;
+  display: flex;
+  width:210rpx; 
+  height:300rpx; 
+  margin-left:20rpx;
+  border-radius: 10rpx;
+  justify-content: center;
+  align-items: center;
+  border: #4f515348 solid 1rpx;
+}
+
+.resumeImage{
+  width:210rpx; 
+  height:300rpx; 
+}
+
+.resumeImageBefore{
+  margin-top: 20rpx;
+  width:100rpx; 
+  height:100rpx; 
+
+}
+
+.bottom { 
+  margin-top: 30rpx;
+  width: 90%; 
+  align-items: center;
+  height: 90rpx; 
+  line-height: 90rpx; 
+  background: rgb(155, 161, 167); 
+  color:#fff; 
+}
+
+.bottom-hover{
+ background: rgb(80, 80, 80); 
+}

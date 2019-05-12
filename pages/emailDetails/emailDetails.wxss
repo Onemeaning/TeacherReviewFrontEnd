@@ -66,7 +66,6 @@
 
 .item_id {
   height: 80rpx;
-  width: 200rpx;
   line-height: 80rpx;
   vertical-align: left;
   color: rgb(12, 12, 12);
@@ -76,7 +75,6 @@
 
 .item_time {
   height: 80rpx;
-  width: 180rpx;
   line-height: 80rpx;
   font-size: 0.8rem;
   display: flex;
@@ -129,24 +127,37 @@
 
 .clearAll{
    display:flex;
-   justify-content:flex-start ;
+   justify-content:flex-end ;
    position:fixed;
    bottom:20rpx;
-   left:20rpx;
+   border: solid 1rpx #eee;
+   border-radius: 5%;
+   background: #eee;
+   right:10rpx;
 }
+.clearAllHover{
+  display:flex;
+   justify-content:flex-end ;
+   position:fixed;
+   bottom:20rpx;
+   border: solid 1rpx #eee;
+   border-radius: 5%;
+   background: rgb(133, 131, 131);
+   right:10rpx;
 
+}
 .clearAll text
 {
-  line-height: 80rpx;
-  vertical-align: left;
-  color: rgb(12, 12, 12);
-  font-size: 1.2rem;
+  line-height: 50rpx;
+  color: rgb(177, 174, 174);
+  font-size: 1.0rem;
+  align-self: center;
+
 
 }
+
 .item_deleteAll{
   width: 60rpx;
   height: 60rpx;
-  margin-right: 20rpx;
-  justify-content: flex-start
 }
 

@@ -124,12 +124,12 @@
   </button>
 
   <button class='btn2' bindtap='sendEmail'>
-    <image class='btnImg' src='../../image/icon/star_before.png' ></image>
-    <text>邮件</text>
+    <image class='btnImg' src='../../image/icon/star_after.png' ></image>
+    <text>私信</text>
   </button>
 
   <button class='btn2' open-type='share'>
-      <image class='btnImg' src='../../image/icon/icon_share_before.png'></image>
+      <image class='btnImg' src='../../image/icon/icon_share_after.png'></image>
       <text>分享</text>
   </button>
 

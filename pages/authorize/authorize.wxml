@@ -1,7 +1,6 @@
-<!--pages/about/about.wxml-->
- <view wx:if="{{canIUse}}">
+<view wx:if="{{canIUse}}">
     <view class='header'>
-        <image src='/image/logo.png'></image>
+        <image src='/image/logo1.png'></image>
     </view>
 
     <view class='content'>
@@ -11,7 +10,7 @@
 
     <view class='identity' >
 
-      <button class='teacher' lang='zh_CN' open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo">
+      <button class='teacher' lang='zh_CN' open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo" data-type="teacher">
          <image class='image' src='/image/icon/icon_teacher.png'></image>
          <text  class='text'>我是老师</text>
       </button>
@@ -23,14 +22,10 @@
     
     </view>
 
-    <!-- <button class='bottom' hover-class="bottom-hover" lang='zh_CN' open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo">
-        授权登录
-    </button> -->
+  </view>
 
-</view>
+  <view wx:else>请升级微信版本</view>
 
-<view wx:else>请升级微信版本</view>
-
-<view class='copy_bottom'>
- <text>copyright© nest-lab.com</text>
-</view>
+  <view class='copy_bottom'>
+  <text>copyright© nest-lab.com</text>
+  </view>

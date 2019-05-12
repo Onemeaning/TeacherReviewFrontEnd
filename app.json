@@ -11,7 +11,8 @@
     "pages/emailDetails/emailDetails",
     "pages/editInfo/editInfo",
     "pages/writeEmail/writeEmail",
-    "pages/eamilsDetailsInfo/eamilsDetailsInfo"
+    "pages/eamilsDetailsInfo/eamilsDetailsInfo",
+    "pages/teacherCetify/teacherCetify"
   ],
   "tabBar": {
     "list": [
@@ -41,5 +42,6 @@
     "navigationBarBackgroundColor": "#2A76BC",
     "navigationBarTextStyle": "white",
     "navigationBarTitleText": "导师评价系统"
-  }
+  },
+  "sitemapLocation": "sitemap.json"
 }

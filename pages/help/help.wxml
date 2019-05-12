@@ -4,32 +4,45 @@
 
 <view class="main_body">
 
-<view class="message2">{{message2}}</view>
-<view class="message2_1">{{message2_1}}</view>
-<view class="message2_2">{{message2_2}}</view>
+    <view class="messageContent">{{message2}}</view>
+    <view class="messageTitle">{{message2_1}}</view>
+    <view class="messageContent">{{message2_2}}</view>
 
-<view class="zhujiemian">
-<image mode="widthFix" src='../../image/zhujiemian.png'></image>
-</view>
+    <view class="myImage">
+    <image mode="widthFix" src='{{naviPhoto[0]}}'></image>
+    </view>
 
-<view class="message3_1">{{message3_1}}</view>
-<view class="message3_2">{{message3_2}}</view>
+    <view class="messageTitle">{{message3_1}}</view>
+    <view class="messageContent">{{message3_2}}</view>
 
-<view class="xuanzejiemian">
-<image mode="widthFix" src='../../image/xuanzejiemian.png'></image>
-</view>
+    <view class="myImage">
+    <image mode="widthFix" src='{{naviPhoto[1]}}'></image>
+    </view>
 
-<view class="message4_1">{{message4_1}}</view>
+    <view class="messageTitle">{{message4_1}}</view>
+    <view class="messageContent">{{message4_2}}</view>
+    <view class="myImage">
+    <image mode="widthFix" src='{{naviPhoto[2]}}'></image>
+    </view>
 
-<view class="daoshixuanze">
-<image mode="widthFix" src='../../image/daoshixuanze.png'></image>
-</view>
+    <view class="messageTitle">{{message5_1}}</view>
+    <view class="messageContent">{{message5_2}}</view>
 
-<view class="message5_1">{{message5_1}}</view>
-<view class="message5_2">{{message5_2}}</view>
+    <view class="myImage">
+    <image mode="widthFix" src='{{naviPhoto[3]}}'></image>
+    </view>
 
-<view class="daoshipingjia">
-<image mode="widthFix" src='../../image/daoshipingjia.png'></image>
-</view>
+
+    <view class="messageTitle">{{message6_1}}</view>
+    <view class="messageContent">{{message6_2}}</view>
+    <view class="myImage">
+    <image mode="widthFix" src='{{naviPhoto[4]}}'></image>
+    </view>
+
+    <view class="messageTitle">{{message7_1}}</view>
+    <view class="messageContent">{{message7_2}}</view>
+    <view class="myImage">
+    <image mode="widthFix" src='{{naviPhoto[5]}}'></image>
+    </view>
 
 </view>

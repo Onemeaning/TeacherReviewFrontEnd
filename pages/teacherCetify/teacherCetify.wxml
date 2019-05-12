@@ -1,0 +1,33 @@
+<import src="../../model/model.wxml"/>
+<template is="areaData" data="{{...item}}"/>
+
+  <form bindsubmit="cetifyTeacher">
+    <view class="row">
+      <label class="title">姓名</label>
+      <view class="info">
+        <input class="info-input" bindinput="handleNameChange" value = "{{tName}}" placeholder="填写您的姓名"/>
+      </view>
+    </view>
+
+    <view class="row" bindtap="handleSchoolChange">
+      <label class="title">单位</label>
+      <view class="info">
+        <text class="info-input" >{{city}}{{county}}</text>
+      </view>
+    </view>
+
+    <view class='aline'>
+
+        <view class='resumeImageOut' bindtap="chooseImg">
+            <image mode='widthFix' class='resumeImage' name="files" wx:if="{{source[0] != null}}" src='{{source[0]}}'/>
+            <image mode='widthFix' class='resumeImageBefore' wx:else src='../../image/icon/icon_camera.png'/>
+          </view>
+        
+          <view class='resume'>
+            <text>拍照认证</text>
+            <text class='privacyText'>【解释说明】，本次上传的人脸照片，仅用来与数据库中照片比对，来认证您的身份，为您提供更好的服务，我们承诺，您的所有个人信息将会被严格保密,请放心使用。</text>
+          </view>
+
+    </view>
+      <button class='bottom' hover-class="bottom-hover" form-type='submit'>开始认证</button>
+  </form>

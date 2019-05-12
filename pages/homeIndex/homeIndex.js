@@ -12,8 +12,43 @@ Page({
       showScrollView: true,
       item: {
         show: show
-      }
+      },
+      naviPhoto: [],
     },
+
+
+   /* 生命周期函数--监听页面加载*/
+
+  onLoad: function (options) {
+    wx.showLoading({
+      title: '正在加载，请稍后',
+    })
+   this.getStaticPhoto();
+  },
+
+/**
+   * 获取静态图像的地址
+   */
+  getStaticPhoto: function() {
+    var that = this;
+    wx: wx.request({
+      url: app.globalData.urlPath + "/superadmin/getStaticPhoto",
+      method: 'GET',
+      dataType: 'json',
+      responseType: 'text',
+      success: function (res) {
+        var searchResult = res.data.photos;
+
+        that.setData({
+          naviPhoto: searchResult,
+        }) 
+        wx.hideLoading();
+      },   
+     
+    })
+  },
+
+
 
   /**
    * 通过学校按钮查询系中所有老师列表
@@ -51,6 +86,9 @@ Page({
     })
     wx.hideNavigationBarLoading();
   },
+
+
+
 
 
   //点击选择城市按钮显示picker-view
@@ -105,7 +143,6 @@ Page({
     });
   },
 
-
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
@@ -115,10 +152,6 @@ Page({
     //请求数据
     model.updateAreaData(that, 0, e);
   },
-
-
-
-
 
 
     /**

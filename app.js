@@ -15,17 +15,19 @@ App({
    
   },
 
-         /**
-           * 这是全局变量，用于存储用户信息的，方便后面使用
-           */
-          globalData: {
-            userInfo: null,
-            urlPath: "http://49.123.68.14:8080",
-            openid: '',
-            // aSelectedTeacher:null,
-            findedTeachers: [],
-            teacherId:1,
-            systemInfo :'',
-            emailInfo:null,
-         }
+    /**
+     * 这是全局变量，用于存储用户信息的，方便后面使用
+     */
+    globalData: {
+      userInfo: null,
+      // urlPath: "https://www.nest-lab.com/wx-te-0.0.1-SNAPSHOT",
+      urlPath:"http://49.123.68.14:8080",
+      openid: '',
+      // aSelectedTeacher:null,
+      findedTeachers: [],
+      teacherId:1,
+      systemInfo :'',
+      emailInfo:null,
+      isTeacher:false,
+    }
 }) 

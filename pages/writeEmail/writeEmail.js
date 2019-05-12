@@ -83,7 +83,7 @@ Page({
 
 
   /**
-     * 上传照片
+     * 发送一封邮件
      */
   sendEmail: function (data) {
     var that = this;

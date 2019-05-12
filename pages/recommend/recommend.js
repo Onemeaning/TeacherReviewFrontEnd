@@ -19,14 +19,16 @@ Page({
     showScrollView:true,
     item: {
       show: show
-    }
+    },
+
+    showWhat:false,
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    this.func_lisTopFive("");   
+  
   },
   /**
    * 生命周期函数--监听页面初次渲染完成
@@ -56,20 +58,6 @@ Page({
    * 生命周期函数--监听页面卸载
    */
   onUnload: function () {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
 
   },
 
@@ -109,7 +97,9 @@ Page({
    */
   func_lisTopFive: function (affication) {
     var that = this;
-    wx.showNavigationBarLoading();
+    wx.showLoading({
+      title: '正在加载，请稍后！',
+    })
     wx.request({
       url: app.globalData.urlPath + "/superadmin/topFiveTeachers",//自己的服务接口地址
       method: 'GET',
@@ -131,6 +121,7 @@ Page({
         else {
           that.setData({
             topFiveTeachers: topFiveTeachers,
+            showWhat:true,
           });
 
           if(affication!=null&&affication!="")
@@ -144,51 +135,11 @@ Page({
               title: "《"+ affication+"》专业热门导师推荐",
             })
           }
+          wx.hideLoading(); 
         }
       },
     });
-    wx.hideNavigationBarLoading();
   },
-/**
- * 通过学校按钮查询系中所有老师列表
- */
-searchByAffilication :function(affication)
-{
-  wx.showNavigationBarLoading();
-  wx: wx.request({
-    url: app.globalData.urlPath + "/superadmin/findByAffiliation",
-    data: {
-      tAffiliation: affication
-    },
-    method: 'GET',
-    dataType: 'json',
-    responseType: 'text',
-    success: function (res) {
-      var searchResult = res.data.teachers;
-      // console.log(res.data.seccess);
-      // console.log(searchResult.length)
-      if (searchResult != null && searchResult.length > 0) {
-        app.globalData.findedTeachers = searchResult;//将查询到数据放置到全局变量中
-        wx.navigateTo({
-          url: "../../pages/teachers/teachers",
-        })
-      }
-      else {
-        wx.showToast({
-          title: '该系暂未录入系统',
-          icon: 'loding',
-          duration: 2000,
-        })
-      }
-
-    },
-    fail: function (res) { },
-    complete: function (res) { },
-
-  })
-  wx.hideNavigationBarLoading();
-},
-
 
   //点击选择城市按钮显示picker-view
   translate: function (e) {
@@ -213,8 +164,8 @@ searchByAffilication :function(affication)
       var county = item.countys[item.value[2]].name;
       var affication = province + city + county;
 
-      this.searchByAffilication(affication);
-      // this.func_lisTopFive(affication);
+      this.func_lisTopFive(affication);
+      
       this.setData({
         searchContent: ''
       })

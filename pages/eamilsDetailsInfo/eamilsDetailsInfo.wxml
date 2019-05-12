@@ -1,21 +1,24 @@
 <!--pages/eamilsDetailsInfo/eamilsDetailsInfo.wxml-->
 <scroll-view class='email' scroll-y="true">
      <view class="adapter_item">
-            <image src="{{emailInfo.fromIdImage}}" class="talk-item-face"></image>   
-            <view class="item_content" >
-
-                <view class='item_top'>
-                  <text class="item_id">{{emailInfo.fromIdNickName}}</text>    
-                  <view class='item_bottom'>
-                  <image src='../../image/icon/icon_reply.png' class="item_delete" catchtap ='replyEmail'data-index='{{index}}'></image> 
-                  </view> 
-                </view>
-                <text class="item_time">{{emailInfo.sendTime}}</text>
-            </view>           
+          <image class="talk-item-face"  src="{{emailInfo.fromIdImage}}" ></image>   
+          <view class="item_content" >
+            <view class='item_top'>
+              <text class="item_id">{{emailInfo.fromIdNickName}}</text>    
+              <view class='item_bottom'>
+              <image src='../../image/icon/icon_reply.png' class="item_delete" catchtap ='replyEmail'data-index='{{index}}'></image> 
+              </view> 
+            </view>
+             <text class="item_time">{{emailInfo.sendTime}}</text>
+           </view>           
       </view>
 
   <text class="item_detail">{{emailInfo.emailContent}}</text>  
 
+
+<view wx:if="{{emailInfo.resumeUrl!=null}}">
   <text style='margin-top:30rpx;font-weight:bold'>简历信息图片：</text>
-  <image src='../../image/resume.jpg' mode='widthFix' class='resumePhoto'></image> 
+  <image src='{{emailInfo.resumeUrl}}' mode='widthFix' class='resumePhoto'></image> 
+</view>
+
 </scroll-view>

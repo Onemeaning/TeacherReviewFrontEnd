@@ -1,10 +1,12 @@
+page{
+  background: #eee;
+}
 .nav{
      display: flex;
      background-color: #2A76BC;
      flex-direction: column;
      justify-content: flex-start;
 }
-
 
 .wxinfo{
   margin-left: 50rpx;
@@ -33,7 +35,7 @@
   font-weight: bold;
 }
 .address{
-   color: gray;
+   color: rgb(211, 211, 211);
    font-size: 0.8rem;
 }
 
@@ -90,8 +92,8 @@
 .bottom { 
   width: 90%; 
   align-items: center;
-  height: 80rpx; 
-  line-height: 80rpx; 
+  height: 90rpx; 
+  line-height: 90rpx; 
   background: #2A76BC; 
   border-radius: 98rpx;
   color:#fff; 

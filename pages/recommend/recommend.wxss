@@ -51,7 +51,7 @@ view.searchItem text{
   display: flex;
   flex-direction: column;
   height:100vh;
-  background:rgb(240, 238, 254);
+  background:rgb(255, 255, 255);
 }
 .swiperstyleHide{
   position: fixed;
@@ -64,23 +64,40 @@ view.searchItem text{
 .all-teacher-css
 {
  margin-top: 30rpx;
- height:82vh;
+ height:86vh;
  display: flex;
  flex-direction: column;
  align-items: center;
- background:#fff; 
+ background:#eee;  
  border-radius:3%;
- width: 620rpx;
+ width: 660rpx;
+}
 
+.all-teacher-css-hover
+{
+ background:rgb(204, 202, 202);
+}
+
+
+
+.all-teacher-css-before
+{
+ margin-top: 30rpx;
+ height:86vh;
+ display: flex;
+ flex-direction: column;
+ align-items: center;
+ background:rgb(247, 247, 247); 
+ border-radius:3%;
+ width: 730rpx;
 }
 .teacher-detail
 {
-  margin-top: 50rpx;
+  margin-top: 30rpx;
   display: flex;
   flex-direction: column;
   text-align: left;
   font-size: small;
-  color: black;
 }
 .picture{
   margin-top: 40rpx;
@@ -96,9 +113,25 @@ view.searchItem text{
   -webkit-box-orient:vertical;
   -webkit-line-clamp:3; 
 }
+
+.intro_text_before{
+  overflow:hidden; 
+  margin-left: 20rpx;
+  text-overflow:ellipsis;
+  display:-webkit-box; 
+  font-size: 1rem;
+  -webkit-box-orient:vertical;
+  -webkit-line-clamp:10; 
+}
 .aline{
  
   flex-direction: row;
   text-align: left;
   margin-bottom: 10rpx;
+}
+
+.aline text{
+  color:#777;
+  margin-left: 30rpx;
+  font-size: 0.9rem;
 }

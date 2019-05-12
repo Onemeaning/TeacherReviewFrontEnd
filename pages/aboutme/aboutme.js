@@ -5,9 +5,12 @@ Page({
    * 页面的初始数据
    */
   data: {
-    myinfos: null,
+    myinfos: null,//学生的个人信息
     uid:'',
     emailsConunt:0,//未读邮件的数目
+    isTeacher:false,
+
+    detailInfo:null,//老师的个人信息
   },
 
   /**
@@ -15,10 +18,14 @@ Page({
    */
   onLoad: function (options) {
     var id = app.globalData.openid;
+    var isTe = app.globalData.isTeacher;
     this.getWxUserDetail();
+    this.queryInfo(id);
+
     this.getUncheckedEmails();
     this.setData({
-         uid:id
+         uid:id,
+         isTeacher:isTe,
      });
 
   },
@@ -26,6 +33,7 @@ Page({
   onShow:function()
   {
     this.getWxUserDetail();
+    this.queryInfo(this.data.uid);
     this.getUncheckedEmails();
   },
 
@@ -60,7 +68,7 @@ Page({
   updateUserInfo: function () {
     wx.showModal({
       title: '温馨提示',
-      content: '修改完整信息，让老师更了解你哦',
+      content: '修改完整信息，让TA更了解你哦',
       success: function (res) {
         if (res.confirm) {
           wx.navigateTo({
@@ -125,6 +133,36 @@ getUncheckedEmails:function()
           console.log('用户点击取消')
         }
       }
+    })
+  },
+
+  /**
+   * 按照老师的ID查询信息
+   * 
+   */
+  queryInfo: function (teacherId) {
+    var that = this;
+    wx.showLoading({
+      title: '正在加载，请稍后',
+    })
+    wx: wx.request({
+      url: app.globalData.urlPath + "/superadmin/findByTeacherId",
+      data: {
+        tId: teacherId,
+      },
+      method: 'GET',
+      dataType: 'json',
+      responseType: 'text',
+      success: function (res) {
+        var t_data = res.data.success;
+        if (t_data != null) {
+
+          that.setData({
+            detailInfo: t_data,
+          })
+          wx.hideLoading();
+        }
+      },
     })
   },
 

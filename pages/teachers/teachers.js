@@ -13,6 +13,9 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    wx.showLoading({
+      title: '正在加载，请稍后',
+    });
     var teachers = app.globalData.findedTeachers;
     this.setData({
       teacherList: teachers,
@@ -25,14 +28,15 @@ Page({
   onReady: function () {
     wx.setNavigationBarTitle({
       title: this.data.teacherList[0].tAffiliation,
-    })
+    });
+    wx.hideLoading();
   },
 
   /**
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    
   },
 
   /**

@@ -95,6 +95,7 @@ background: rgb(19, 54, 87);
   margin-left: 20rpx;
   margin-top: 10rpx;
   font-size: 1.1rem;
+  width: 100%;
   color: gray
 }
 

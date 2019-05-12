@@ -1,6 +1,3 @@
-/* pages/about/about.wxss 
-在这个文件中定义样式规则，可以在wxml中通过class属性来使用样式
-*/
 .header {
     margin: 90rpx 0 90rpx 50rpx;
     text-align: center;
@@ -40,15 +37,15 @@ background: rgb(19, 54, 87);
 
 
 .copy_bottom{
-  position: fixed;
-  bottom: 20rpx;
-  left: 240rpx;
+  display: flex;
+  margin-top: 30rpx;
   width: 100%;
 }
 
 .copy_bottom text{
   font-size: small;
   text-decoration:underline;
+  width: 100%;
   color: gray;
   text-align: center;
 }

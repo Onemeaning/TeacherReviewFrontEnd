@@ -1,54 +1,52 @@
-<view>
-  <view class="row">
-    <label class="title">我的地址</label>
-    <view class="info" bindtap="handleAddressClick">{{address}}</view>
-  </view>
-
-  <view class="row">
+<view class="row">
     <label class="title">我的身份</label>
     <view class="info">
       <radio-group bindchange="handleTypeChange">
         <label>
-          <radio value="student" checked="true"/>学生
-          <radio value="teacher"/>老师
+          <radio value="student" checked='{{!isTeacher}}'/>学生
+          <radio value="teacher" checked='{{isTeacher}}' />老师
          </label>
       </radio-group>
     </view>
   </view>
 
 
+
+<view wx:if="{{!isTeacher}}"> 
+
   <view class="row">
     <label class="title">姓名</label>
     <view class="info">
-      <input class="info-input" bindinput="handleNameChange" placeholder="填写您的姓名"/>
+      <input class="info-input" bindinput="handleNameChange" value='{{myinfos.uNickname}}' placeholder="填写您的姓名"/>
     </view>
   </view>
+
 
   <view class="row">
     <label class="title">学校</label>
     <view class="info">
-      <input class="info-input" bindinput="handleSchoolChange" placeholder="填写您的学校"/>
+      <input class="info-input" bindinput="handleSchoolChange" value='{{myinfos.uSchool}}' placeholder="填写您的学校"/>
     </view>
   </view>
 
   <view class="row">
     <label class="title">学院</label>
     <view class="info">
-      <input class="info-input" bindinput="handleCollegeChange" placeholder="填写您的联系方式"/>
+      <input class="info-input" bindinput="handleCollegeChange" value='{{myinfos.uCollege}}' placeholder="填写您所在学院"/>
     </view>
   </view>
 
   <view class="row">
       <label class="title">专业</label>
       <view class="info">
-        <input class="info-input" bindinput="handleDepartmentChange" placeholder="填写您的专业"/>
+        <input class="info-input" bindinput="handleDepartmentChange"value='{{myinfos.uDepartment}}'  placeholder="填写您的专业"/>
       </view>
     </view>
 
     <view class="row">
       <label class="title">学号</label>
       <view class="info">
-        <input class="info-input" bindinput="handleStudentIdChange" placeholder="填写您的专业"/>
+        <input class="info-input" bindinput="handleStudentIdChange"value='{{myinfos.uStudentId}}'  placeholder="填写您的学号"/>
       </view>
     </view>
 
@@ -56,13 +54,73 @@
   <view class="row">
     <label class="title">导师</label>
     <view class="info">
-      <input class="info-input" bindinput="handleTutorChange" placeholder="填写您的导师"/>
+      <input class="info-input" bindinput="handleTutorChange" value='{{myinfos.uTeacherName}}' placeholder="填写您的导师"/>
     </view>
   </view>
+</view>
+
+
+
+
+
+
+<!-- 老师进来看到的界面 -->
+ <scroll-view wx:else>
+
+      <view class="row">
+        <label class="title">姓名</label>
+        <view class="info">
+          <input class="info-input" bindinput="handleTeaNameChange" placeholder="填写您的姓名" value='{{detailInfo.tName}}'/>
+        </view>
+      </view>
+
+      <view class="row">
+        <label class="title">单位</label>
+        <view class="info">
+          <input class="info-input" bindinput="handleAffchange" placeholder="填写您的单位" value='{{detailInfo.tAffiliation}}' />
+        </view>
+      </view>
+
+    <view class="row">
+      <label class="title">邮箱</label>
+      <view class="info">
+        <input class="info-input" bindinput="handlEmailChange" value='{{detailInfo.tEmail}}' placeholder="填写您的邮箱"/>
+      </view>
+    </view>
+
+    <view style='margin-Top:20rpx;'/>
+
+      <view class="big-info">
+      <label class="title">研究方向</label>
+      <textarea class="textarea" bindblur="getResearch" maxlength="1000" placeholder="填写您的研究方向" contenteditable="true" auto-height="true"value='{{detailInfo.tResearchInterest}}'/>
+      
+    </view>
+
+      <view class="big-info">
+      <label class="title">简介</label>
+      <textarea class="textarea" bindblur="getIntroduce" maxlength="1000" placeholder="填写您的简介" contenteditable="true" auto-height="true"value='{{detailInfo.tIntroduction}}'/>
+      
+    </view>
+
+      <view style='margin-Top:20rpx;'/>
+         
+      <view class="big-info">
+        <label class="title">发表论文</label>
+        <textarea class="textarea" bindblur="getPapers" maxlength="100000" placeholder="填写您发表论文" contenteditable="true" auto-height="true"value='{{detailInfo.tPublishedPaper}}'/>
+
+      </view>
+
+    <view style='margin-Top:10rpx;'/>
+
+      <view class="big-info">
+        <label class="title">项目信息</label>
+        <textarea class="textarea"  bindblur='getAllProjects' maxlength="100000" placeholder="填写您的项目信息" contenteditable="true" auto-height="true"value='{{detailInfo.tProjects}}'/>
+
+      </view>
+  </scroll-view>
+
+
 
 <view style='margin-top:50rpx;'></view>
-
-  <button class='bottom' hover-class="bottom-hover" bindtap="handleSubmit">提交信息 </button>
-
-</view>
+<button class='bottom' hover-class="bottom-hover" bindtap="handleSubmit">提交信息 </button>
 

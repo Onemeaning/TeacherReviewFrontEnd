@@ -32,8 +32,8 @@
       
   </block>
   
-      <view class='clearAll'  wx:if= "{{dataList.length>0}}"  bindlongtap='clearAll'>
-        <text class="item_id">长按清空所有邮件</text>
+      <view class='clearAll' hover-class='clearAllHover' wx:if= "{{dataList.length>0}}"  bindlongtap='clearAll'>
+        <text  >长按清空所有邮件</text>
         <image src='../../image/icon/icon_delete.png' class="item_deleteAll"></image> 
       </view>
 </view>

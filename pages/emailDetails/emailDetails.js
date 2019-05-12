@@ -6,7 +6,7 @@ Page({
    */
   data: {
     dataList: [],
-    dataOrigin:[],//这个需要存储原始的信息，保证时间没有被裁减过的。
+    // dataOrigin:[],//这个需要存储原始的信息，保证时间没有被裁减过的。
   },
 
   /**
@@ -25,14 +25,12 @@ Page({
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-
   },
 
   /**
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
   },
 
   /**
@@ -41,7 +39,7 @@ Page({
   onHide: function () {
     wx.showLoading({
       title: '正在加载',
-    })
+    }) 
     this.getAllEmails();
   },
 
@@ -83,24 +81,22 @@ Page({
       success: function (res) {
         if(res.data.success!=null)
         {
-         
-          that.setData({
-            dataOrigin: res.data.success
-          })
+                 
+          // that.setData({
+          //   dataOrigin: res.data.success
+          // })        
           /**
            * 截图时间的片段，否则显示的时候很难看
            */
-          for (var i = 0; i < res.data.success.length; i++) {
-            var temp = res.data.success[i].sendTime;
-            var time = temp.substring(8, 10) + "号 " + temp.substring(11, 16);
-            res.data.success[i].sendTime = time;
-          }
-
+          // for (var i = 0; i < res.data.success.length; i++) {
+          //   var temp = res.data.success[i].sendTime;
+          //   var time = temp.substring(7, 9) + "月"+ temp.substring(8, 10) + "号 " + temp.substring(11, 16);
+          //   res.data.success[i].sendTime = time;
+          // }
           that.setData({
             dataList: res.data.success
-          })
-
-          wx.hideLoading();
+          })  
+          wx.hideLoading();   
         }
              
       },
@@ -114,9 +110,9 @@ Page({
   {
     var that = this;
     var index = event.target.dataset.index;
-    var fromId = that.data.dataOrigin[index].fromId;
+    var fromId = that.data.dataList[index].fromId;
     var toId = app.globalData.openid;
-    var sendTime = that.data.dataOrigin[index].sendTime;
+    var sendTime = that.data.dataList[index].sendTime;
 
     wx.showModal({
       title: '提示',
@@ -209,7 +205,7 @@ Page({
   eamilsDetailsInfo:function(event){
     var that  = this;
     var index = event.currentTarget.dataset.index;
-    var data = that.data.dataOrigin[index];
+    var data = that.data.dataList[index];
 
     that.updateUncheckedEmails(data.fromId,app.globalData.openid,data.sendTime);
     app.globalData.emailInfo = data;

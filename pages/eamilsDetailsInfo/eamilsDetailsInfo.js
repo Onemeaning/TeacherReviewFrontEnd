@@ -14,7 +14,7 @@ Page({
    */
   onLoad: function (options) {
     this.setData({
-      emailInfo : app.globalData.emailInfo,
+      emailInfo: app.globalData.emailInfo,
     })
   },
 
@@ -22,7 +22,7 @@ Page({
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-
+   
   },
 
   /**
@@ -42,8 +42,8 @@ Page({
   /**
    * 生命周期函数--监听页面卸载
    */
-  onUnload: function () {
-
+  onUnload: function () { 
+   this.deletetempPic();
   },
 
   /**
@@ -71,5 +71,25 @@ Page({
       url: '../../pages/writeEmail/writeEmail?fromNickName=' + fromNickName + "&toNickName=" + toNickName + "&toId=" + toId
     });
   },
+  
+  /**
+   * 退出时候，删除服务器端从服务器中下载的临时图,tempImages是服务器端的临时文件夹；
+   */
+  deletetempPic: function () {
+    wx: wx.request({
+      url: app.globalData.urlPath + "/superadmin/deletetempPic",
+      data: {
+        "resumeUrl": "tempImages",
+      },
+      method: 'GET',
+      dataType: 'json',
+      responseType: 'text',
+      success: function (res) {
+      },
+    })
+  },
+
+
+
 
 })
