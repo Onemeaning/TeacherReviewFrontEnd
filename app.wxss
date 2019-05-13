@@ -6,6 +6,7 @@
   background: #2A76BC; 
   border-radius: 98rpx;
   color:#fff; 
+  margin-bottom: 20rpx;
 }
 
 .bottom-hover{
@@ -43,6 +44,7 @@ background: rgb(19, 54, 87);
 /* 这两部分用于aboutme页面和editInfo页面 */
 .row{
   line-height:50px;
+  border-radius: 2%;
   border-bottom:1px solid #ccc;
   color:#777;
   overflow:hidden;
@@ -73,6 +75,7 @@ background: rgb(19, 54, 87);
 }
 
 .big-info{
+border-radius: 2%;
 display: flex;
 width: 100%;
 flex-direction: column;

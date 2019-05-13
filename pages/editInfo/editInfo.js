@@ -42,8 +42,67 @@ Page({
   },
 
 
+  onShow: function () {
+
+    var isTe = app.globalData.isTeacher;
+    this.setData({
+      type: "student",
+      isTeacher: isTe,
+    });
+
+  },
+
+
   handleTypeChange(e) {
-    this.data.type = e.detail.value;
+    var that = this;
+    var identity = e.detail.value;
+    if(identity=="teacher")
+    {
+      wx.showModal({
+        title: '前往授权',
+        content: '您点击了老师身份，我们需要对您的身份进行验证，前往验证？',
+        success: function (res) {
+          if (res.confirm) {
+              wx.navigateTo({
+                url: '../../pages/teacherCetify/teacherCetify',
+              })
+          }
+          else if (res.cancel) {
+            var isTe = app.globalData.isTeacher;
+            that.setData({
+              type: "student",
+              isTeacher: isTe,
+            });
+          }
+        }
+      })
+    }
+    else{
+
+      wx.showModal({
+        title: '温馨提示',
+        content: '切换为学生身份，系统将删除您老师身份，您将失去修改【导师信息】权限，是否确认？',
+        success: function (res) {
+          if (res.confirm) {
+            wx.removeStorageSync("isTeacher")
+            app.globalData.isTeacher = false;
+            wx.switchTab({
+              url: '/pages/aboutme/aboutme'
+            })
+           
+          }
+          else if (res.cancel) {
+            var isTe = app.globalData.isTeacher;
+            that.setData({
+              type: "teacher",
+              isTeacher: isTe,
+            });
+          }
+        }
+      })
+
+    }
+    
   },
 
   handleNameChange(e) {

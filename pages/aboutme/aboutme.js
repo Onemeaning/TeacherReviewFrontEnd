@@ -8,6 +8,7 @@ Page({
     myinfos: null,//学生的个人信息
     uid:'',
     emailsConunt:0,//未读邮件的数目
+
     isTeacher:false,
 
     detailInfo:null,//老师的个人信息
@@ -20,8 +21,6 @@ Page({
     var id = app.globalData.openid;
     var isTe = app.globalData.isTeacher;
     this.getWxUserDetail();
-    this.queryInfo(id);
-
     this.getUncheckedEmails();
     this.setData({
          uid:id,
@@ -32,9 +31,18 @@ Page({
 
   onShow:function()
   {
+    var isTe = app.globalData.isTeacher;
+    this.setData({
+      isTeacher: isTe,
+    });
+
     this.getWxUserDetail();
-    this.queryInfo(this.data.uid);
     this.getUncheckedEmails();
+
+    //是老师的时候才会查询这个
+    if (this.data.isTeacher) {
+      this.queryInfo(this.data.uid);
+    }
   },
 
 
@@ -165,6 +173,14 @@ getUncheckedEmails:function()
       },
     })
   },
+
+  clickEmail:function(){
+    wx.showToast({
+      title: '请点击右上方私信图标！',
+      icon:'none',
+      duration:2000,
+    })
+  }
 
 
 })

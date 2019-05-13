@@ -100,7 +100,6 @@ Page({
       wx.showLoading({
         title: '正在上传！',
       })
-
       wx.uploadFile({
         url: app.globalData.urlPath + "/superadmin/writeEmail",//自己的服务接口地址
         filePath: that.data.source[0],
@@ -127,7 +126,7 @@ Page({
         complete: function (complete) {
             wx.hideLoading();
             wx.showToast({
-              title: '提交成功',
+              title: '发送成功',
               icon: 'succes',
               duration: 1000,
             }),
@@ -137,6 +136,33 @@ Page({
               })
 
         }
+      })
+    }
+    else{
+
+      wx.request({
+        url: app.globalData.urlPath + "/superadmin/notifyInfo",//自己的服务接口地址
+        method: "POST",
+        data: {
+          'fromId': fromId,
+          'fromIdImage': fromImage,
+          'emailContent': content,
+          'fromIdNickName': fromNickName,
+          'sendTime': date,
+          'toId': that.data.toId,
+        },
+        success: function (res) {
+          wx.hideLoading();
+          wx.showToast({
+            title: '发送成功',
+            icon: 'succes',
+            duration: 1000,
+          }),
+            that.setData({
+              source: [],
+              content: "",
+            })
+        },
       })
     }
   }

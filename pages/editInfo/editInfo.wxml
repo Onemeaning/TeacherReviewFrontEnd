@@ -21,6 +21,7 @@
     </view>
   </view>
 
+  <view style='margin-Top:20rpx;'/>
 
   <view class="row">
     <label class="title">学校</label>
@@ -43,6 +44,9 @@
       </view>
     </view>
 
+  <view style='margin-Top:20rpx;'/>
+
+  
     <view class="row">
       <label class="title">学号</label>
       <view class="info">
@@ -110,7 +114,7 @@
 
       </view>
 
-    <view style='margin-Top:10rpx;'/>
+    <view style='margin-Top:20rpx;'/>
 
       <view class="big-info">
         <label class="title">项目信息</label>

@@ -18,7 +18,7 @@
 
 
       <view>   
-        <textarea bindblur="getValue" class='textarea' placeholder='快把你的想法告诉TA吧：)' value='{{content}}'></textarea>
+        <textarea bindblur="getValue" class='textarea' placeholder='快把你的想法告诉TA吧：)' maxlength="5000" contenteditable="true" auto-height="true"value='{{content}}'></textarea>
       </view>
 
 
@@ -32,7 +32,7 @@
         <image class='btnImg' src='../../image/icon/icon_upload.png' bindtap="chooseImg"></image>
       </view>
 
-      <button class='submit-btn' hover-class="submit-btn-hover" form-type='submit'>发送邮件</button>
+      <button class='submit-btn' hover-class="submit-btn-hover" form-type='submit'>确认发送</button>
 
 </form>
 

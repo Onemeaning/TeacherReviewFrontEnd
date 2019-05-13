@@ -1,6 +1,7 @@
 <import src="../../model/model.wxml"/>
 <template is="areaData" data="{{...item}}"/>
 
+<view  class="{{showScrollView?'swiperstyle':'swiperstyleHide'}}">
   <form bindsubmit="cetifyTeacher">
     <view class="row">
       <label class="title">姓名</label>
@@ -31,3 +32,4 @@
     </view>
       <button class='bottom' hover-class="bottom-hover" form-type='submit'>开始认证</button>
   </form>
+</view>

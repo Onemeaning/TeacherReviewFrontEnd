@@ -11,7 +11,7 @@ Page({
 
       showScrollView: true,
       item: {
-        show: show
+        show: show 
       },
       naviPhoto: [],
     },
@@ -48,13 +48,13 @@ Page({
     })
   },
 
-
-
   /**
    * 通过学校按钮查询系中所有老师列表
    */
   searchByAffilication: function (affication) {
-    wx.showNavigationBarLoading();
+    wx.showLoading({
+      title: '正在加载请稍后',
+    })
     wx: wx.request({
       url: app.globalData.urlPath + "/superadmin/findByAffiliation",
       data: {
@@ -84,7 +84,7 @@ Page({
       complete: function (res) { },
 
     })
-    wx.hideNavigationBarLoading();
+    wx.hideLoading();
   },
 
 
@@ -115,7 +115,6 @@ Page({
       var affication = province + city + county;
 
       this.searchByAffilication(affication);
-      // this.func_lisTopFive(affication);
       this.setData({
         searchContent: ''
       })

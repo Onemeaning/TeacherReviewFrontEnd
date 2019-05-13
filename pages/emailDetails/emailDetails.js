@@ -146,7 +146,7 @@ Page({
               wx.showToast({
                 title: toasetext,
                 icon: '',
-                duration: 2000
+                duration: 500
               })
             },
           })
@@ -189,7 +189,7 @@ Page({
               wx.showToast({
                 title: toasetext,
                 icon: '',
-                duration: 2000
+                duration: 1000
               })
             },
           })

@@ -20,8 +20,8 @@ App({
      */
     globalData: {
       userInfo: null,
-      // urlPath: "https://www.nest-lab.com/wx-te-0.0.1-SNAPSHOT",
-      urlPath:"http://49.123.68.14:8080",
+      urlPath: "https://www.nest-lab.com/wx-te-0.0.2-SNAPSHOT",
+      //urlPath:"http://49.123.68.14:8080",
       openid: '',
       // aSelectedTeacher:null,
       findedTeachers: [],

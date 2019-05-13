@@ -57,10 +57,10 @@
 
 <view style='margin-Top:20rpx;'/>
 
-     <view class="row">
-        <label class="title">邮件</label>
+     <view class="row" bindtap='clickEmail'>
+        <label class="title">私信</label>
         <view class="info">
-          <text class='info-input'>{{emailsConunt}} 封邮件未读</text>
+          <text class='info-input'>{{emailsConunt}} 封私信未读</text>
         </view>
      </view>
 
