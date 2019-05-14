@@ -88,6 +88,15 @@ Page({
     //请求数据
     model.updateAreaData(that, 0, e);
   },
+  
+
+  /**
+   * 生命周期函数--监听页面卸载
+   */
+  onUnload: function () {
+    app.deletetempPic();
+  },
+
 
   /**
     * 选择图片
@@ -139,7 +148,7 @@ Page({
            app.globalData.isTeacher = true;//说明是个导师，那么他在《我的信息》这个界面中将有不同于学生的功能；
            wx.setStorageSync('isTeacher', true);//往数据库中存储信息，说明身份是个老师，便于下次进来之后能够区分
 
-           that.deletetempPic();
+           app.deletetempPic();
             // 不能使用重定向，因为重定向只能在非tab页面之间的跳转
             wx.switchTab({
               url: '/pages/homeIndex/homeIndex'
@@ -156,8 +165,7 @@ Page({
                 if (sm.confirm) {
                   that.chooseImg();
                 }
-                else{
-                  that.deletetempPic();
+                else{                
                   wx.navigateBack({});
                 }
               }
@@ -173,23 +181,6 @@ Page({
       content: '请按照要求填写完整所有信息以及拍照信息，否则无法完成认证；',
     })
   }
-  },
-
-  /**
- * 退出时候，删除服务器端从服务器中下载的临时图,cetifyTemp是服务器端的临时文件夹,用于临时存储保教师认证的所用的照片；
- */
-  deletetempPic: function () {
-    wx: wx.request({
-      url: app.globalData.urlPath + "/superadmin/deletetempPic",
-      data: {
-        "resumeUrl": "cetifyTemp",
-      },
-      method: 'GET',
-      dataType: 'json',
-      responseType: 'text',
-      success: function (res) {
-      },
-    })
   },
 
 })

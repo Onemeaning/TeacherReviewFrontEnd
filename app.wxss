@@ -112,11 +112,36 @@ background-color: #fff;
 }
 
 .selfbtnImg {
-  margin-left: 20rpx;
+  margin-left: 30rpx;
   width: 46rpx;
   height: 46rpx;
 }
 
 .selfbtn-hover{
   background-color: rgb(233, 129, 32);
+}
+
+.rowWithImage{
+  background-color: #fff;
+  border-radius: 2rpx;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: left;
+}
+
+.rowWithImage-hover{
+  background-color: #eee;
+}
+
+.rowWithImage image{
+  width: 60rpx;
+  height: 60rpx;
+}
+
+.rowWithImage text{
+ margin-left: 150rpx;
+ color:#777;
+ font-size: 1rem;
+ line-height:50px;
 }

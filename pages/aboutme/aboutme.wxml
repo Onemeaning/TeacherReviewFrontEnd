@@ -55,14 +55,14 @@
         </view>
       </view>
 
-<view style='margin-Top:20rpx;'/>
+<!-- <view style='margin-Top:20rpx;'/>
 
      <view class="row" bindtap='clickEmail'>
         <label class="title">私信</label>
         <view class="info">
           <text class='info-input'>{{emailsConunt}} 封私信未读</text>
         </view>
-     </view>
+     </view> -->
 
    </view> 
 
@@ -90,8 +90,21 @@
 
   </scroll-view>
 
-    <view style='margin-Top:20rpx;'/>
-    <button class='bottom' hover-class="bottom-hover" bindtap='updateUserInfo'>修改个人信息 </button>
+  <view style='margin-Top:30rpx;'/>
+
+  <button  class='rowWithImage' hover-class="rowWithImage-hover" open-type='openSetting'> 
+    <image  src='../../image/icon/icon_authority.png'></image>
+    <text >撤销授权信息</text>
+  </button>
+
+ <view style='margin-Top:10rpx;'/>
+
+  <view  class='rowWithImage' hover-class="rowWithImage-hover" bindtap='updateUserInfo'> 
+      <image  class='selfbtnImg' src='../../image/icon/icon_modify.png'></image>
+      <text > 修改个人信息</text>
+  </view>
+
+    <!-- <button class='bottom' hover-class="bottom-hover" bindtap='updateUserInfo'>修改个人信息 </button> -->
 
 </view>
 

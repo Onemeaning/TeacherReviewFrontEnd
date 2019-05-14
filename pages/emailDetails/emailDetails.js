@@ -14,54 +14,44 @@ Page({
    */
 
   onLoad:function(){
-
     wx.showLoading({
       title: '正在加载',
-    }) 
-   this.getAllEmails();
+    })
+    this.getAllEmails();
+   
   },
 
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
+
+
   },
 
   /**
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
+    this.setData({
+      dataList: this.data.dataList
+    })
+
   },
 
   /**
    * 生命周期函数--监听页面隐藏
    */
   onHide: function () {
-    wx.showLoading({
-      title: '正在加载',
-    }) 
-    this.getAllEmails();
+
+
   },
 
   /**
    * 生命周期函数--监听页面卸载
    */
   onUnload: function () {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
+    app.deletetempPic();
   },
 
   /**
@@ -131,12 +121,13 @@ Page({
             responseType: 'text',
             success: function (res) {
               var result = res.data.success;
-              console.log(result)
               var toasetext = "删除成功！";
+
               if (result != true) {
                 toasetext = "删除失败！" + res.data.errMsg;
                 console.log(toasetext)
               }
+
               else {
                 that.data.dataList.splice(event.target.dataset.index, 1);
                 that.setData({
@@ -206,7 +197,7 @@ Page({
     var that  = this;
     var index = event.currentTarget.dataset.index;
     var data = that.data.dataList[index];
-
+    that.data.dataList[index].checked = true;
     that.updateUncheckedEmails(data.fromId,app.globalData.openid,data.sendTime);
     app.globalData.emailInfo = data;
     wx.navigateTo({

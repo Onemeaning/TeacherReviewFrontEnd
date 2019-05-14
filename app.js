@@ -11,8 +11,7 @@ App({
       success: function (res) {
         that.globalData.systemInfo = res.system
       },
-    });
-   
+    });  
   },
 
     /**
@@ -20,8 +19,8 @@ App({
      */
     globalData: {
       userInfo: null,
-      urlPath: "https://www.nest-lab.com/wx-te-0.0.2-SNAPSHOT",
-      //urlPath:"http://49.123.68.14:8080",
+      // urlPath: "https://www.nest-lab.com/wx-te-0.0.2-SNAPSHOT",
+      urlPath:"http://49.123.68.14:8080",
       openid: '',
       // aSelectedTeacher:null,
       findedTeachers: [],
@@ -29,5 +28,30 @@ App({
       systemInfo :'',
       emailInfo:null,
       isTeacher:false,
-    }
+    },
+
+/**
+* 退出时候，删除服务器端从服务器中下载的临时图,openId是服务器端的临时文件夹
+*/
+  deletetempPic: function () {
+    var openId = this.globalData.openid;
+    wx: wx.request({
+      url: this.globalData.urlPath + "/superadmin/deletetempPic",
+      data: {
+        "tempPath": openId,
+      },
+      method: 'GET',
+      dataType: 'json',
+      responseType: 'text',
+      success: function (res) {
+      },
+    })
+  },
+
+
+
+
+
+
+
 }) 

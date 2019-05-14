@@ -5,14 +5,18 @@ Page({
     canIUse: wx.canIUse('button.open-type.getUserInfo'),
   },
   onLoad: function () {
+
     wx.showLoading({
       title: '正在加载，请稍后',
     });
+
     var that = this;
       // 查看是否授权
+
         wx.getSetting({
           success: function (res) {
-            if (res.authSetting['scope.userInfo']) {
+            if (res.authSetting['scope.userInfo']) 
+            {
               wx.getUserInfo({
                 lang: "zh_CN",
                 success: function (res) {    
@@ -21,15 +25,14 @@ Page({
                   app.globalData.openid = wx.getStorageSync('openId');
                   app.globalData.isTeacher = wx.getStorageSync('isTeacher');
 
-                  // console.log("用户授权之后拿出来的信息："+ res.userInfo);
-                  // console.log("用户授权之后从缓存区读取ID："  + wx.getStorageSync('openId'));
                   //用户已经授权过
                   wx.switchTab({
                     url: '/pages/homeIndex/homeIndex'
                   })
                 }
+
               });
-            }
+            }            
           }
         })  
       wx.hideLoading();      

@@ -121,7 +121,7 @@ getUncheckedEmails:function()
   })
 },
 
-
+ 
   /**
    * 退出登录
    */
@@ -131,14 +131,15 @@ getUncheckedEmails:function()
       content: '是否确认退出',
       success: function (res) {
         if (res.confirm) {
-          // console.log('用户点击确定')
-          wx.removeStorageSync('openId');
+          // wx.removeStorageSync('openId');
+          // wx.clearStorage();
+          
           //页面跳转
           wx.redirectTo({
             url: '../../pages/authorize/authorize',
           })
         } else if (res.cancel) {
-          console.log('用户点击取消')
+
         }
       }
     })
