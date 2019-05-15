@@ -8,6 +8,7 @@ Page({
   data: {
     emailInfo:null,
     historyMessage:null,//;历史聊天记录
+    chatMode:false,
   },
 
   /**
@@ -19,8 +20,36 @@ Page({
     })
   },
 
+
+  /**
+  * 生命周期函数--监听页面初次渲染完成
+  */
+  onReady: function () {
+
+    wx.setNavigationBarTitle({
+      title: this.data.emailInfo.fromIdNickName,
+    });
+    
+  },
+
+  /**
+   * 生命周期函数--监听页面显示
+   */
+  onShow: function () {
+
+    if (this.data.historyMessage!=null||this.data.chatMode==true)
+    {
+      this.getAllHistoryEmails();
+    }
+    
+  },
+
+
   replyEmail: function (e) {
     var that = this;
+    that.setData({
+      chatMode:true,
+    })
     var fromNickName = app.globalData.userInfo.nickName;
     var toNickName = that.data.emailInfo.fromIdNickName;
     var toId = that.data.emailInfo.fromId;
@@ -39,11 +68,13 @@ Page({
     var that = this;
     var fromId = that.data.emailInfo.fromId;
     var toId = app.globalData.openid;
+    var time = that.data.emailInfo.sendTime;
     wx: wx.request({
       url: app.globalData.urlPath + "/superadmin/getAllHistoryEmails",
       data: {
         "fromId": fromId,
         "toId": toId,
+        "sendTime":time,
       },
       method: 'GET',
       dataType: 'json',
@@ -54,6 +85,12 @@ Page({
             historyMessage: res.data.success
           })
           wx.hideLoading();
+        }
+        else{
+          wx.showToast({
+            title: '抱歉：未找到聊天记录',
+          })
+
         }
       },
     })

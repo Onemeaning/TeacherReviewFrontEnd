@@ -133,8 +133,9 @@ Page({
               that.setData({
                 source: [],
                 content: "",
+              }),
+              wx.navigateBack({
               })
-
         }
       })
     }
@@ -152,16 +153,28 @@ Page({
           'toId': that.data.toId,
         },
         success: function (res) {
-          wx.hideLoading();
-          wx.showToast({
-            title: '发送成功',
-            icon: 'succes',
-            duration: 1000,
-          }),
-            that.setData({
-              source: [],
-              content: "",
+          var result = res.data.success;
+          if (result == true) {
+            wx.showToast({
+              title: '发送成功',
+              icon: 'succes',
+              duration: 1000,
+            }),
+              that.setData({
+                source: [],
+                content: "",
+              }),
+              wx.navigateBack({
+              })          
+          }
+          else
+          {
+            wx.showToast({
+              title: '未知错误',
+              icon: "none",
+              duration: 1000,
             })
+          }
         },
       })
     }
