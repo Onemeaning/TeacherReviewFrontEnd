@@ -65,6 +65,12 @@
 
 
 .item_id {
+  text-overflow: -o-ellipsis-lastline;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
   height: 80rpx;
   line-height: 80rpx;
   vertical-align: left;
@@ -74,6 +80,13 @@
 }
 
 .item_time {
+  text-overflow: -o-ellipsis-lastline;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+
   height: 80rpx;
   line-height: 80rpx;
   font-size: 0.8rem;

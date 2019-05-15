@@ -1,4 +1,7 @@
 /* pages/eamilsDetailsInfo/eamilsDetailsInfo.wxss */
+page{
+  background: #eee;
+}
 .email{
   display: flex;
   flex-direction: column;
@@ -7,6 +10,7 @@
 
 
 .adapter_item {
+  background: #fff;
   padding-left: 12rpx;
   width: 100%;
   display: flex;
@@ -23,9 +27,6 @@
     height: 100rpx;  
     border-radius: 50%;
 }
-
-
-
 
 .item_content {
   width: 600rpx;
@@ -48,7 +49,14 @@
 
 
 .item_id {
-  width: 550rpx;
+  text-overflow: -o-ellipsis-lastline;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+
+  height: 80rpx;
   line-height: 80rpx;
   vertical-align: left;
   color: rgb(12, 12, 12);
@@ -70,6 +78,7 @@
 
 /*********主题内容*************/
 .item_detail {
+  background: #fff;
   padding: 20rpx;
   width: 95%;
   color: gray;
@@ -83,13 +92,11 @@
 
 /******* 底部一行样式********/
 .item_bottom{
-  width: 730rpx;
+  width: 80rpx;
   height: 80rpx;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: flex-end;
-  margin-bottom: 5rpx;
+  position: fixed;
+  right: 20rpx;
+  top: 20rpx;
 }
 
 .item_delete{

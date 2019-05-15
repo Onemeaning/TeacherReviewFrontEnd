@@ -4,7 +4,7 @@
           <image class="talk-item-face"  src="{{emailInfo.fromIdImage}}" ></image>   
           <view class="item_content" >
             <view class='item_top'>
-              <text class="item_id">{{emailInfo.fromIdNickName}}</text>    
+              <text class="item_id">{{emailInfo.fromIdNickName}}</text>     
               <view class='item_bottom'>
               <image src='../../image/icon/icon_reply.png' class="item_delete" catchtap ='replyEmail'data-index='{{index}}'></image> 
               </view> 
@@ -12,13 +12,37 @@
              <text class="item_time">{{emailInfo.sendTime}}</text>
            </view>           
       </view>
+<text class="item_detail">{{emailInfo.emailContent}}</text>  
 
-  <text class="item_detail">{{emailInfo.emailContent}}</text>  
-
-
-<view wx:if="{{emailInfo.resumeUrl!=null}}">
+<view style='margin-Top:10rpx;'/>
+<view wx:if="{{emailInfo.resumeUrl!=null}}" style='background: #fff;'>
   <text style='margin-top:30rpx;font-weight:bold'>简历信息图片：</text>
   <image src='{{emailInfo.resumeUrl}}' mode='widthFix' class='resumePhoto'></image> 
+</view>
+
+
+<view style='margin-Top:10rpx;'/>
+<view wx:if="{{historyMessage==null}}"> 
+  <view  class='rowWithImage' hover-class="rowWithImage-hover" bindtap='getAllHistoryEmails'> 
+        <image  class='selfbtnImg' src='../../image/icon/icon_more.png'></image>
+        <text > 查看历史记录</text>
+  </view>
+</view>
+
+<view wx:else>
+   <block wx:key="{{index}}" wx:for="{{historyMessage}}" >
+      <view class="adapter_item">
+        <image class="talk-item-face"  src="{{item.fromIdImage}}" ></image>   
+        <text class="item_detail">{{item.emailContent}}</text>                  
+      </view> 
+      
+    <view wx:if="{{item.resumeUrl!=null}}" style='background: #fff;'>
+      <image src='{{item.resumeUrl}}' mode='widthFix' class='resumePhoto'></image> 
+    </view>
+
+   <view style='margin-Top:10rpx;'/>
+  </block>  
+
 </view>
 
 </scroll-view>

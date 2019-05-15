@@ -104,8 +104,6 @@
       <text > 修改个人信息</text>
   </view>
 
-    <!-- <button class='bottom' hover-class="bottom-hover" bindtap='updateUserInfo'>修改个人信息 </button> -->
-
 </view>
 
 
