@@ -41,7 +41,7 @@
   "window": {
     "navigationBarBackgroundColor": "#2A76BC",
     "navigationBarTextStyle": "white",
-    "navigationBarTitleText": "导师评价系统"
+    "navigationBarTitleText": "师生互选助手"
   },
   "sitemapLocation": "sitemap.json"
 }

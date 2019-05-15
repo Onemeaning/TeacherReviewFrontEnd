@@ -167,10 +167,10 @@ Page({
     var that = this;
     var dateUtil = require('../../utils/dateUtils.js');
     var date = dateUtil.getToday();
-    var content = "亲爱的小伙伴们，欢迎使用《导师选评助手》，我们是你们的小助手meanlam，这里将是你与导师交流的一个平台，导师给你回的信息都在保存在这里，meanlam祝你们都能找到合适的老师！";
+    var content = "亲爱的小伙伴们，欢迎使用《师生互选助手》，我们是你们的小助手meanlam，这里将是你与导师交流的一个平台，导师给你回的信息都在保存在这里，meanlam祝你们都能找到合适的老师！";
     var fromId = "oKnF45PKGIEW1BV3EAw9CBx3FZhc";
     var fromImage = "/image/logo1.png";
-    var fromNickName = "导师选评助手";
+    var fromNickName = "师生互选助手";
     var toId = id;
 
     wx.request({

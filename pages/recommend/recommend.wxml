@@ -65,7 +65,7 @@
 
                 <view class='aline'>
                   <text style='font-weight:bold;margin-left: 20rpx'>姓名:</text>
-                  <text>导师选评助手</text>
+                  <text>师生互选助手</text>
                 </view>
 
                <view class='aline'>  
@@ -80,7 +80,7 @@
 
                 <view class='aline'>
                     <text style='font-weight:bold;margin-left: 20rpx'>简介:</text>
-                    <text class = 'intro_text_before'>《导师选评助手》初衷是为所有需要了解导师信息、研究方向的学生，以及希望招到合适学生的老师们提供一个信息对等的平台。如果您是学生您可以在上方的搜索栏中输入你想了解的专业，如：“计算机科学与技术”，即可得到该专业热度老师（按老师被浏览次数排名显示），您也可以点击右上角的【学校】按钮快速选择一个某个系，了解该系老师的浏览次数排名。</text>
+                    <text class = 'intro_text_before'>《师生互选助手》初衷是为所有需要了解导师信息、研究方向的学生，以及希望招到合适学生的老师们提供一个信息对等的平台。如果您是学生您可以在上方的搜索栏中输入你想了解的专业，如：“计算机科学与技术”，即可得到该专业热度老师（按老师被浏览次数排名显示），您也可以点击右上角的【学校】按钮快速选择一个某个系，了解该系老师的浏览次数排名。</text>
                 </view>
 
               </view>

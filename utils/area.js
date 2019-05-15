@@ -53,7 +53,7 @@ function getSchoolInfo(callBack) {
       "sheng": "11",
       "di": "01",
       "xian": "07",
-      "name": "网络空间安全系",
+      "name": "空间安全系",
       "level": 3
     },
     {
@@ -69,7 +69,7 @@ function getSchoolInfo(callBack) {
       "sheng": "11",
       "di": "02",
       "xian": "28",
-      "name": "结构工程",
+      "name": "桥梁工程",
       "level": 3
     },
     {
@@ -77,7 +77,7 @@ function getSchoolInfo(callBack) {
       "sheng": "11",
       "di": "02",
       "xian": "29",
-      "name": "桥梁与隧道工程",
+      "name": "建筑环境与能源应用工程系",
       "level": 3
     }, 
     {
@@ -85,7 +85,7 @@ function getSchoolInfo(callBack) {
       "sheng": "11",
       "di": "02",
       "xian": "30",
-      "name": "市政工程",
+      "name": "岩土与地下工程系",
       "level": 3
     },
     {
@@ -93,7 +93,7 @@ function getSchoolInfo(callBack) {
       "sheng": "11",
       "di": "02",
       "xian": "31",
-      "name": "供热、供燃气、通风及空调工程",
+      "name": "建筑工程系",
       "level": 3
     },
     {
@@ -101,7 +101,7 @@ function getSchoolInfo(callBack) {
       "sheng": "11",
       "di": "02",
       "xian": "32",
-      "name": "岩土工程",
+      "name": "桥梁工程系",
       "level": 3
     },
     {
@@ -109,11 +109,568 @@ function getSchoolInfo(callBack) {
       "sheng": "11",
       "di": "02",
       "xian": "33",
-      "name": "道路与铁道工程",
+      "name": "水工程科学系",
       "level": 3
     },
 
+	{
+      "code": "110300",
+      "sheng": "11",
+      "di": "03",
+      "xian": "00",
+      "name": "工商管理学院",
+      "level": 2
+    },
 
+	{
+      "code": "110301",
+      "sheng": "11",
+      "di": "03",
+      "xian": "01",
+      "name": "工商管理系",
+      "level": 3
+    },
+	
+	{
+      "code": "110302",
+      "sheng": "11",
+      "di": "03",
+      "xian": "02",
+      "name": "管理科学系",
+      "level": 3
+    },
+	
+	{
+      "code": "110303",
+      "sheng": "11",
+      "di": "03",
+      "xian": "03",
+      "name": "市场营销系",
+      "level": 3
+    },
+	
+	{
+      "code": "110304",
+      "sheng": "11",
+      "di": "03",
+      "xian": "04",
+      "name": "信息管理与电子商务系",
+      "level": 3
+    },
+	
+	{
+      "code": "110305",
+      "sheng": "11",
+      "di": "03",
+      "xian": "05",
+      "name": "会计系",
+      "level": 3
+    },
+	
+	{
+      "code": "110306",
+      "sheng": "11",
+      "di": "03",
+      "xian": "06",
+      "name": "财务管理系",
+      "level": 3
+    },
+	
+	{
+      "code": "110400",
+      "sheng": "11",
+      "di": "04",
+      "xian": "00",
+      "name": "法学院",
+      "level": 2
+    },
+	
+	{
+      "code": "110401",
+      "sheng": "11",
+      "di": "04",
+      "xian": "01",
+      "name": "教授系",
+      "level": 3
+    },
+	
+	{
+      "code": "110402",
+      "sheng": "11",
+      "di": "04",
+      "xian": "02",
+      "name": "副教授系",
+      "level": 3
+    },
+	
+	{
+      "code": "110403",
+      "sheng": "11",
+      "di": "04",
+      "xian": "03",
+      "name": "助理教授系",
+      "level": 3
+    },
+	
+	{
+      "code": "110500",
+      "sheng": "11",
+      "di": "05",
+      "xian": "00",
+      "name": "机械与运载工程学院",
+      "level": 2
+    },
+	
+	{
+      "code": "110501",
+      "sheng": "11",
+      "di": "05",
+      "xian": "01",
+      "name": "机械设计系",
+      "level": 3
+    },
+	
+	{
+      "code": "110502",
+      "sheng": "11",
+      "di": "05",
+      "xian": "02",
+      "name": "机械制造工程",
+      "level": 3
+    },
+	
+	{
+      "code": "110503",
+      "sheng": "11",
+      "di": "05",
+      "xian": "03",
+      "name": "工程力学系",
+      "level": 3
+    },
+	
+	{
+      "code": "110504",
+      "sheng": "11",
+      "di": "05",
+      "xian": "04",
+      "name": "机电工程系",
+      "level": 3
+    },
+	
+	{
+      "code": "110505",
+      "sheng": "11",
+      "di": "05",
+      "xian": "05",
+      "name": "车辆工程系",
+      "level": 3
+    },
+	
+	{
+      "code": "110506",
+      "sheng": "11",
+      "di": "05",
+      "xian": "06",
+      "name": "能源与动力工程系",
+      "level": 3
+    },
+	
+	{
+      "code": "110600",
+      "sheng": "11",
+      "di": "06",
+      "xian": "00",
+      "name": "教育科学研究院",
+      "level": 2
+    },
+	
+	{
+      "code": "110601",
+      "sheng": "11",
+      "di": "06",
+      "xian": "01",
+      "name": "教授系",
+      "level": 3
+    },
+	
+	{
+      "code": "110602",
+      "sheng": "11",
+      "di": "06",
+      "xian": "02",
+      "name": "副教授系",
+      "level": 3
+    },
+	
+	{
+      "code": "110700",
+      "sheng": "11",
+      "di": "07",
+      "xian": "00",
+      "name": "金融与统计学院",
+      "level": 2
+    },
+	
+	{
+      "code": "110701",
+      "sheng": "11",
+      "di": "07",
+      "xian": "01",
+      "name": "保险学系",
+      "level": 3
+    },
+	
+	{
+      "code": "110702",
+      "sheng": "11",
+      "di": "07",
+      "xian": "02",
+      "name": "货币金融系",
+      "level": 3
+    },
+	
+	{
+      "code": "110703",
+      "sheng": "11",
+      "di": "07",
+      "xian": "03",
+      "name": "金融工程系",
+      "level": 3
+    },
+	
+	{
+      "code": "110704",
+      "sheng": "11",
+      "di": "07",
+      "xian": "04",
+      "name": "统计学系",
+      "level": 3
+    },
+	
+	{
+      "code": "110705",
+      "sheng": "11",
+      "di": "07",
+      "xian": "05",
+      "name": "应用金融系",
+      "level": 3
+    },
+	
+	{
+      "code": "110800",
+      "sheng": "11",
+      "di": "08",
+      "xian": "00",
+      "name": "经济与贸易学院",
+      "level": 2
+    },
+	
+	{
+      "code": "110801",
+      "sheng": "11",
+      "di": "08",
+      "xian": "01",
+      "name": "教授系",
+      "level": 3
+    },
+	
+	{
+      "code": "110802",
+      "sheng": "11",
+      "di": "08",
+      "xian": "02",
+      "name": "副教授系",
+      "level": 3
+    },
+	
+	{
+      "code": "110803",
+      "sheng": "11",
+      "di": "08",
+      "xian": "03",
+      "name": "助理教授系",
+      "level": 3
+    },
+	
+	{
+      "code": "110900",
+      "sheng": "11",
+      "di": "09",
+      "xian": "00",
+      "name": "马克思主义学院",
+      "level": 2
+    },
+	
+	{
+      "code": "110901",
+      "sheng": "11",
+      "di": "09",
+      "xian": "01",
+      "name": "教授系",
+      "level": 3
+    },
+	
+	{
+      "code": "110902",
+      "sheng": "11",
+      "di": "09",
+      "xian": "02",
+      "name": "副教授系",
+      "level": 3
+    },
+	
+	{
+      "code": "111000",
+      "sheng": "11",
+      "di": "10",
+      "xian": "00",
+      "name": "数学与计量经济学院",
+      "level": 2
+    },
+	
+	{
+      "code": "111001",
+      "sheng": "11",
+      "di": "10",
+      "xian": "01",
+      "name": "数学与应用数学系",
+      "level": 3
+    },
+	
+	{
+      "code": "111002",
+      "sheng": "11",
+      "di": "10",
+      "xian": "02",
+      "name": "公共数学系",
+      "level": 3
+    },
+	
+	{
+      "code": "111100",
+      "sheng": "11",
+      "di": "11",
+      "xian": "00",
+      "name": "体育学院",
+      "level": 2
+    },
+	
+	{
+      "code": "111101",
+      "sheng": "11",
+      "di": "11",
+      "xian": "01",
+      "name": "硕导系",
+      "level": 2
+    },
+	
+	{
+      "code": "111200",
+      "sheng": "11",
+      "di": "12",
+      "xian": "00",
+      "name": "外国语学院",
+      "level": 2
+    },
+	
+	{
+      "code": "111201",
+      "sheng": "11",
+      "di": "12",
+      "xian": "01",
+      "name": "大学外语系",
+      "level": 3
+    },
+	
+	{
+      "code": "111202",
+      "sheng": "11",
+      "di": "12",
+      "xian": "02",
+      "name": "日语系",
+      "level": 3
+    },
+	
+	{
+      "code": "111203",
+      "sheng": "11",
+      "di": "12",
+      "xian": "03",
+      "name": "英语系",
+      "level": 3
+    },
+	
+	{
+      "code": "111204",
+      "sheng": "11",
+      "di": "12",
+      "xian": "04",
+      "name": "英语系",
+      "level": 3
+    },
+	
+	{
+      "code": "111300",
+      "sheng": "11",
+      "di": "13",
+      "xian": "00",
+      "name": "物理与微电子科学学院",
+      "level": 2
+    },
+	
+	{
+      "code": "111301",
+      "sheng": "11",
+      "di": "13",
+      "xian": "01",
+      "name": "教授系",
+      "level": 3
+    },
+	
+	{
+      "code": "111302",
+      "sheng": "11",
+      "di": "13",
+      "xian": "02",
+      "name": "副教授系",
+      "level": 3
+    },
+	
+	{
+      "code": "111303",
+      "sheng": "11",
+      "di": "13",
+      "xian": "03",
+      "name": "助理教授系",
+      "level": 3
+    },
+	
+	{
+      "code": "111400",
+      "sheng": "11",
+      "di": "14",
+      "xian": "00",
+      "name": "新闻传播与影视艺术学院",
+      "level": 2
+    },
+	
+	{
+      "code": "111401",
+      "sheng": "11",
+      "di": "14",
+      "xian": "01",
+      "name": "新闻系",
+      "level": 3
+    },
+	
+	{
+      "code": "111402",
+      "sheng": "11",
+      "di": "14",
+      "xian": "02",
+      "name": "传播系",
+      "level": 3
+    },
+	
+	{
+      "code": "111403",
+      "sheng": "11",
+      "di": "14",
+      "xian": "03",
+      "name": "网络与新媒体系",
+      "level": 3
+    },
+	
+	{
+      "code": "111404",
+      "sheng": "11",
+      "di": "14",
+      "xian": "04",
+      "name": "广告系",
+      "level": 3
+    },
+	
+	{
+      "code": "111405",
+      "sheng": "11",
+      "di": "14",
+      "xian": "05",
+      "name": "广播电视编导系",
+      "level": 3
+    },
+	
+	{
+      "code": "111500",
+      "sheng": "11",
+      "di": "15",
+      "xian": "00",
+      "name": "岳麓书院",
+      "level": 2
+    },
+	
+	{
+      "code": "111501",
+      "sheng": "11",
+      "di": "15",
+      "xian": "01",
+      "name": "哲学系",
+      "level": 3
+    },
+	
+	{
+      "code": "111502",
+      "sheng": "11",
+      "di": "15",
+      "xian": "02",
+      "name": "历史系",
+      "level": 3
+    },
+	
+	{
+      "code": "111503",
+      "sheng": "11",
+      "di": "15",
+      "xian": "03",
+      "name": "考古学系",
+      "level": 3
+    },
+	
+	{
+      "code": "111600",
+      "sheng": "11",
+      "di": "16",
+      "xian": "00",
+      "name": "中国语言文学学院",
+      "level": 2
+    },
+	
+	{
+      "code": "111601",
+      "sheng": "11",
+      "di": "16",
+      "xian": "01",
+      "name": "教授系",
+      "level": 3
+    },
+	
+	{
+      "code": "111602",
+      "sheng": "11",
+      "di": "16",
+      "xian": "02",
+      "name": "副教授系",
+      "level": 3
+    },
+	
+		{
+      "code": "111603",
+      "sheng": "11",
+      "di": "16",
+      "xian": "03",
+      "name": "助理教授系",
+      "level": 3
+    },
+	
     {
       "code": "120000",
       "sheng": "12",
@@ -127,7 +684,7 @@ function getSchoolInfo(callBack) {
       "sheng": "12",
       "di": "01",
       "xian": "00",
-      "name": "计算机学院",
+      "name": "公共管理学院",
       "level": 2
     },
     {
@@ -135,7 +692,7 @@ function getSchoolInfo(callBack) {
       "sheng": "12",
       "di": "01",
       "xian": "01",
-      "name": "计算机科学系",
+      "name": "教授系",
       "level": 3
     },
     {
@@ -143,7 +700,7 @@ function getSchoolInfo(callBack) {
       "sheng": "12",
       "di": "01",
       "xian": "02",
-      "name": "软件工程系",
+      "name": "副教授系",
       "level": 3
     },
     {
@@ -151,31 +708,16 @@ function getSchoolInfo(callBack) {
       "sheng": "12",
       "di": "01",
       "xian": "03",
-      "name": "数据科学与工程系",
+      "name": "讲师系",
       "level": 3
     },
-    {
-      "code": "120104",
-      "sheng": "12",
-      "di": "01",
-      "xian": "04",
-      "name": "通信工程系",
-      "level": 3
-    },
-    {
-      "code": "120105",
-      "sheng": "12",
-      "di": "01",
-      "xian": "05",
-      "name": "网络空间安全系",
-      "level": 3
-    },
+
     {
       "code": "120200",
       "sheng": "12",
       "di": "02",
       "xian": "00",
-      "name": "外国语学院",
+      "name": "化学化工学院",
       "level": 2
     },
     {
@@ -183,7 +725,7 @@ function getSchoolInfo(callBack) {
       "sheng": "12",
       "di": "02",
       "xian": "21",
-      "name": "英语系",
+      "name": "冶金及应用物理化学系",
       "level": 3
     },
     {
@@ -191,25 +733,100 @@ function getSchoolInfo(callBack) {
       "sheng": "12",
       "di": "02",
       "xian": "23",
-      "name": "法语系",
+      "name": "应用化学系",
       "level": 3
     },
-    {
-      "code": "120224",
+	
+	{
+      "code": "120300",
       "sheng": "12",
-      "di": "02",
-      "xian": "24",
-      "name": "日语系",
-      "level": 3
+      "di": "03",
+      "xian": "00",
+      "name": "数学与统计学院",
+      "level": 2
     },
-    {
-      "code": "120225",
+	
+	{
+      "code": "120301",
       "sheng": "12",
-      "di": "02",
-      "xian": "25",
-      "name": "西班牙语系",
+      "di": "03",
+      "xian": "01",
+      "name": "数学与应用数学系",
       "level": 3
     },
+	
+	{
+      "code": "120302",
+      "sheng": "12",
+      "di": "03",
+      "xian": "02",
+      "name": "信息与计算科学系",
+      "level": 3
+    },
+	
+	{
+      "code": "120303",
+      "sheng": "12",
+      "di": "03",
+      "xian": "03",
+      "name": "概率与统计学系",
+      "level": 3
+    },
+	
+	{
+      "code": "120400",
+      "sheng": "12",
+      "di": "04",
+      "xian": "00",
+      "name": "计算机学院",
+      "level": 2
+    },
+	
+	{
+      "code": "120401",
+      "sheng": "12",
+      "di": "04",
+      "xian": "01",
+      "name": "计算机科学系",
+      "level": 3
+    },
+	
+	{
+      "code": "120402",
+      "sheng": "12",
+      "di": "04",
+      "xian": "02",
+      "name": "软件工程系",
+      "level": 3
+    },
+	
+	{
+      "code": "120403",
+      "sheng": "12",
+      "di": "04",
+      "xian": "03",
+      "name": "数据科学与工程系",
+      "level": 3
+    },
+	
+	{
+      "code": "120404",
+      "sheng": "12",
+      "di": "04",
+      "xian": "04",
+      "name": "通信工程系",
+      "level": 3
+    },
+	
+	{
+      "code": "120405",
+      "sheng": "12",
+      "di": "04",
+      "xian": "05",
+      "name": "网路空间安全系",
+      "level": 3
+    },
+  
     {
       "code": "120000",
       "sheng": "12",
