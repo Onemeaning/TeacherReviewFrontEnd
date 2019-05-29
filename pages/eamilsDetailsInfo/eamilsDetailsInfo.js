@@ -9,6 +9,7 @@ Page({
     emailInfo:null,
     historyMessage:null,//;历史聊天记录
     chatMode:false,
+    openid:"",
   },
 
   /**
@@ -17,6 +18,7 @@ Page({
   onLoad: function (options) {
     this.setData({
       emailInfo: app.globalData.emailInfo,
+      openid: app.globalData.openid,
     })
   },
 
@@ -35,7 +37,7 @@ Page({
   /**
    * 生命周期函数--监听页面显示
    */
-  onShow: function () {
+  onShow: function () { 
 
     if (this.data.historyMessage!=null||this.data.chatMode==true)
     {
@@ -62,9 +64,17 @@ Page({
     * 获取历史信息聊天记录
     */
   getAllHistoryEmails: function () {
-    wx.showLoading({
-      title: '获取历史信息中',
-    })
+    var that = this;
+    if (that.data.chatMode==true)
+    {
+      wx.showNavigationBarLoading();
+    }
+    else{
+      wx.showLoading({
+        title: '获取历史信息中',
+      })
+    }
+
     var that = this;
     var fromId = that.data.emailInfo.fromId;
     var toId = app.globalData.openid;
@@ -84,7 +94,13 @@ Page({
           that.setData({
             historyMessage: res.data.success
           })
-          wx.hideLoading();
+          if (that.data.chatMode == true) {
+            wx.hideNavigationBarLoading();
+          }
+          else {
+            wx.hideLoading();
+          }
+
         }
         else{
           wx.showToast({

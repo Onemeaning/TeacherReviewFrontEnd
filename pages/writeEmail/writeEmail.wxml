@@ -18,7 +18,7 @@
 
 
       <view>   
-        <textarea bindblur="getValue" class='textarea' placeholder='快把你的想法告诉TA吧：)' maxlength="5000" contenteditable="true" auto-height="true"value='{{content}}'></textarea>
+        <textarea bindinput="getValue" class='textarea' placeholder='快把你的想法告诉TA吧：)' maxlength="5000" contenteditable="true" auto-height="true"value='{{content}}'></textarea>
       </view>
 
 

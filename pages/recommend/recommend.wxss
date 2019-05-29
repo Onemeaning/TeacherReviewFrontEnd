@@ -36,22 +36,34 @@ view.searchItem input {
 
 }
 
-view.searchItem text{
-
+.text1{
+    align-self: center;
+    margin-left: 10rpx;
+    font-size: 1.0rem;
+    color: #2A76BC;
+    font-weight: bold;
+    font-family: '幼圆';
+    
+}
+.text{
     align-self: center;
     margin-left: 10rpx;
     margin-right: 30rpx;  
-    color: black;
+    font-size: 1.0rem;
+    color: #2A76BC;
+    font-weight: bold;
+    font-family: '幼圆';
     
 }
-
-
+.texthover{
+    color: gray 
+}
 
 .swiperstyle{
   display: flex;
   flex-direction: column;
   height:100vh;
-  background:rgb(255, 255, 255);
+  background:#fff;
 }
 .swiperstyleHide{
   position: fixed;
@@ -75,21 +87,17 @@ view.searchItem text{
 
 .all-teacher-css-hover
 {
- background:rgb(204, 202, 202);
+ background:#fff;
 }
 
 
 
 .all-teacher-css-before
 {
- margin-top: 30rpx;
- height:86vh;
  display: flex;
+ padding-top: 40rpx;
  flex-direction: column;
  align-items: center;
- background:rgb(247, 247, 247); 
- border-radius:3%;
- width: 730rpx;
 }
 .teacher-detail
 {
@@ -102,8 +110,14 @@ view.searchItem text{
 .picture{
   margin-top: 40rpx;
   height: 200rpx;
-  width: 250rpx;
+  width: 200rpx;
   border-radius:50%;
+}
+
+.picture1{
+  width: 680rpx;
+  border: #2A76BC solid 3rpx;
+  border-radius: 20rpx;
 }
 .intro_text{
   overflow:hidden; 
@@ -114,15 +128,6 @@ view.searchItem text{
   -webkit-line-clamp:3; 
 }
 
-.intro_text_before{
-  overflow:hidden; 
-  margin-left: 20rpx;
-  text-overflow:ellipsis;
-  display:-webkit-box; 
-  font-size: 1rem;
-  -webkit-box-orient:vertical;
-  -webkit-line-clamp:10; 
-}
 .aline{
  
   flex-direction: row;

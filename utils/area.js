@@ -33,26 +33,26 @@ function getSchoolInfo(callBack) {
       "level": 3
     },
     {
-      "code": "110105",
+      "code": "110103",
       "sheng": "11",
       "di": "01",
-      "xian": "05",
+      "xian": "03",
       "name": "软件工程系",
       "level": 3
     },
     {
-      "code": "110106",
+      "code": "110104",
       "sheng": "11",
       "di": "01",
-      "xian": "06",
+      "xian": "04",
       "name": "计算机工程系",
       "level": 3
     },
     {
-      "code": "110107",
+      "code": "110105",
       "sheng": "11",
       "di": "01",
-      "xian": "07",
+      "xian": "05",
       "name": "空间安全系",
       "level": 3
     },
@@ -65,50 +65,50 @@ function getSchoolInfo(callBack) {
       "level": 2
     },
     {
-      "code": "110228",
+      "code": "110201",
       "sheng": "11",
       "di": "02",
-      "xian": "28",
+      "xian": "01",
       "name": "桥梁工程",
       "level": 3
     },
     {
-      "code": "110229",
+      "code": "110202",
       "sheng": "11",
       "di": "02",
-      "xian": "29",
+      "xian": "02",
       "name": "建筑环境与能源应用工程系",
       "level": 3
     }, 
     {
-      "code": "110230",
+      "code": "110203",
       "sheng": "11",
       "di": "02",
-      "xian": "30",
+      "xian": "03",
       "name": "岩土与地下工程系",
       "level": 3
     },
     {
-      "code": "110231",
+      "code": "110204",
       "sheng": "11",
       "di": "02",
-      "xian": "31",
+      "xian": "04",
       "name": "建筑工程系",
       "level": 3
     },
     {
-      "code": "110232",
+      "code": "110205",
       "sheng": "11",
       "di": "02",
-      "xian": "32",
+      "xian": "05",
       "name": "桥梁工程系",
       "level": 3
     },
     {
-      "code": "110233",
+      "code": "110206",
       "sheng": "11",
       "di": "02",
-      "xian": "33",
+      "xian": "06",
       "name": "水工程科学系",
       "level": 3
     },
@@ -671,6 +671,7 @@ function getSchoolInfo(callBack) {
       "level": 3
     },
 	
+  // *****************中南大学 12 *******************************
     {
       "code": "120000",
       "sheng": "12",
@@ -721,18 +722,18 @@ function getSchoolInfo(callBack) {
       "level": 2
     },
     {
-      "code": "120221",
+      "code": "120201",
       "sheng": "12",
       "di": "02",
-      "xian": "21",
+      "xian": "01",
       "name": "冶金及应用物理化学系",
       "level": 3
     },
     {
-      "code": "120223",
+      "code": "120202",
       "sheng": "12",
       "di": "02",
-      "xian": "23",
+      "xian": "02",
       "name": "应用化学系",
       "level": 3
     },
@@ -826,7 +827,7 @@ function getSchoolInfo(callBack) {
       "name": "网路空间安全系",
       "level": 3
     },
-  
+  /*
     {
       "code": "120000",
       "sheng": "12",
@@ -1665,7 +1666,7 @@ function getSchoolInfo(callBack) {
       "name": "法学",
       "level": 3
     },
-
+ */
   ];
   callBack(str);
 }

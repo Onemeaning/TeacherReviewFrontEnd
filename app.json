@@ -24,7 +24,7 @@
       },
       {
         "pagePath": "pages/recommend/recommend",
-        "text": "导师信息",
+        "text": "推荐导师",
         "iconPath": "image/icon/icon_teachers_line.png",
         "selectedIconPath": "image/icon/icon_teachers_solid.png"
       },

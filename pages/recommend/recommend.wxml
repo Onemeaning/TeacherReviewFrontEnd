@@ -7,7 +7,8 @@
         <view class='searchItem'>
             <image src="/image/icon/icon_search.png" />
             <input  bindconfirm='searchTeachers' value='{{province}}{{city}}{{county}}' data-choose='{{province}} {{city}} {{county}}' type="text" confirm-type="search" placeholder="请输入专业名称" ></input>
-            <text bindtap="translate">| 学校</text>
+            <view class='text1'>|</view>
+            <view class='text' hover-class='texthover' bindtap="translate">学校</view>
         </view>
     </view>
 
@@ -56,38 +57,10 @@
 </view>
 
 <view wx:else>
-
-<swiper  class="{{showScrollView?'swiperstyle':'swiperstyleHide'}}">
-          <swiper-item >      
-            <view class='all-teacher-css-before' >
-            <image class='picture' mode='widthFix' src='../../image/logo1.png'></image>
-              <view class='teacher-detail'>
-
-                <view class='aline'>
-                  <text style='font-weight:bold;margin-left: 20rpx'>姓名:</text>
-                  <text>师生互选助手</text>
-                </view>
-
-               <view class='aline'>  
-                  <text style='font-weight:bold;margin-left: 20rpx'>单位:</text>
-                  <text>www.nest-lab.com</text>
-                </view>
-
-                <view class='aline'>
-                    <text style='font-weight:bold;margin-left: 20rpx'>邮箱:</text>
-                    <text>wminglin@hnu.edu.cn</text>
-                </view>
-
-                <view class='aline'>
-                    <text style='font-weight:bold;margin-left: 20rpx'>简介:</text>
-                    <text class = 'intro_text_before'>《师生互选助手》初衷是为所有需要了解导师信息、研究方向的学生，以及希望招到合适学生的老师们提供一个信息对等的平台。如果您是学生您可以在上方的搜索栏中输入你想了解的专业，如：“计算机科学与技术”，即可得到该专业热度老师（按老师被浏览次数排名显示），您也可以点击右上角的【学校】按钮快速选择一个某个系，了解该系老师的浏览次数排名。</text>
-                </view>
-
-              </view>
-               
-            </view>           
-          </swiper-item>
-  </swiper>
+ 
+      <view class='all-teacher-css-before' >
+            <image class='picture1' mode='widthFix' src='../../image/recommend.png'></image>         
+      </view>           
 
 </view>
 

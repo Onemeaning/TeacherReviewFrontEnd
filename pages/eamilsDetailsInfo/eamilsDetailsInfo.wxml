@@ -1,5 +1,5 @@
 <!--pages/eamilsDetailsInfo/eamilsDetailsInfo.wxml-->
-<scroll-view class='email' scroll-y="true">
+<view class='email'>
      <view class="adapter_item">
           <image class="talk-item-face"  src="{{emailInfo.fromIdImage}}" ></image>   
           <view class="item_content" >
@@ -33,18 +33,33 @@
 <view wx:else>
 <view style='margin-Top:40rpx;'/>
    <block wx:key="{{index}}" wx:for="{{historyMessage}}" >
-      <view class="adapter_item">
-        <image class="talk-item-face"  src="{{item.fromIdImage}}" ></image>   
-        <text class="item_detail">{{item.emailContent}}</text>                  
-      </view> 
 
-    <view wx:if="{{item.resumeUrl!=null}}" style='background: #fff;'>
-      <image src='{{item.resumeUrl}}' mode='widthFix' class='resumePhoto'></image> 
-    </view>
+      <view wx:if="{{item.fromId==openid}}"> 
+          <view class="his_adapter_item">
+            <image class="talk-item-face" mode='widthFix' src="{{item.fromIdImage}}" ></image>   
+            <text class="his_item_detail">{{item.emailContent}}</text>                  
+          </view> 
 
-   <view style='margin-Top:10rpx;'/>
+          <view wx:if="{{item.resumeUrl!=null}}">
+            <image src='{{item.resumeUrl}}' mode='widthFix' class='his_resumePhoto'></image> 
+          </view>
+      </view>
+
+      <view wx:else>
+          <view class="his_adapter_item_reverse">
+            <image class="talk-item-face-reverse"  src="{{item.fromIdImage}}" ></image>   
+            <text class="his_item_detail_reverse">{{item.emailContent}}</text>                  
+          </view> 
+
+          <view wx:if="{{item.resumeUrl!=null}}">
+            <image src='{{item.resumeUrl}}' mode='widthFix' class='his_resumePhoto_reverse'></image> 
+          </view>
+      </view>
+      
+      <view style='margin-Top:50rpx;'/>
+
   </block>  
 
 </view>
 
-</scroll-view>
+</view>

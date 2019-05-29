@@ -89,13 +89,21 @@ Page({
     var that = this;
     var dateUtil = require('../../utils/dateUtils.js');
     var date = dateUtil.getToday();
-
-    var content = this.data.content;
+    var content = this.data.content;  
     var fromId = app.globalData.openid;
     var fromImage = app.globalData.userInfo.avatarUrl;
     var fromNickName = app.globalData.userInfo.nickName;
     var toId = that.data.toId;
-
+    if (content == null || content == "")
+    {
+      wx.showToast({
+        title: '内容不能为空！',
+        icon:'none',
+        duration:1000,
+      })
+    }
+  else
+  {
     if (that.data.source != null && that.data.source.length > 0) {
       wx.showLoading({
         title: '正在上传！',
@@ -125,15 +133,15 @@ Page({
         },
         complete: function (complete) {
             wx.hideLoading();
-            wx.showToast({
-              title: '发送成功',
-              icon: 'succes',
-              duration: 1000,
-            }),
-              that.setData({
-                source: [],
-                content: "",
-              }),
+            // wx.showToast({
+            //   title: '发送成功',
+            //   icon: 'succes',
+            //   duration: 1000,
+            // }),
+            //   that.setData({
+            //     source: [],
+            //     content: "",
+            //   }),
               wx.navigateBack({
               })
         }
@@ -179,5 +187,5 @@ Page({
       })
     }
   }
-
+ }
 })

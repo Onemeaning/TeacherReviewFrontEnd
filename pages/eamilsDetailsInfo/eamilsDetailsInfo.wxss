@@ -18,14 +18,12 @@ page{
   border-bottom: solid 1rpx rgb(199, 195, 195);  
 }
 
-
 /* 用户头像样式*/
 .talk-item-face { 
-    margin-top: 20rpx;
     margin-left: 20rpx;
     width: 100rpx;  
     height: 100rpx;  
-    border-radius: 50%;
+    border-radius: 10%;
 }
 
 .item_content {
@@ -86,7 +84,6 @@ page{
   vertical-align: middle;
   display: flex;
   flex-wrap:wrap;
-  border-bottom: solid 1rpx rgb(199, 195, 195);  
 }
 
 
@@ -107,7 +104,6 @@ page{
   margin-right: 20rpx;
 }
 
-
 .resumePhoto{
   margin-top: 20rpx;
   display: flex;
@@ -117,3 +113,85 @@ page{
   align-items: center;
   border: #4f515348 solid 1rpx;
 }
+
+
+
+
+
+
+/* 历史记录 */
+.his_adapter_item{
+  padding-left: 12rpx;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+}
+
+.his_item_detail {
+  padding-top:20rpx;
+  padding-bottom: 10rpx;
+  margin-left: 20rpx;
+  padding-left: 20rpx;
+  padding-right: 20rpx;
+  width: 500rpx;
+  color:rgb(80, 80, 80);
+  font-size: 1.0rem;
+  vertical-align: middle;
+  display: flex;
+  flex-wrap: wrap;
+  border-bottom: solid 1rpx rgb(199, 195, 195);  
+}
+
+.his_resumePhoto{
+  margin-top: 10rpx;
+  display: flex;
+  width:480rpx; 
+  border-radius: 10rpx;
+  margin-left: 132rpx;
+  justify-content: center;
+  align-items: center;
+  border: #4f515348 solid 1rpx;
+}
+
+/* 反向显示 */
+.his_adapter_item_reverse{
+  padding-right: 12rpx;
+  display: flex;
+  flex-direction: row-reverse;   
+}
+
+.talk-item-face-reverse { 
+  margin-right: 20rpx;
+  width: 100rpx;  
+  height: 100rpx;  
+  border-radius: 10%;
+}
+
+.his_item_detail_reverse {
+  padding-top:20rpx;
+  padding-bottom: 10rpx;
+  margin-right: 20rpx;
+  padding-left: 20rpx;
+  padding-right: 20rpx;
+  width: 500rpx;
+  color:#777;
+  font-size: 1.0rem;
+  vertical-align: middle;
+  display: flex;
+  flex-direction: row-reverse;
+  flex-wrap:wrap;
+  border-bottom: solid 1rpx rgb(199, 195, 195);  
+}
+
+.his_resumePhoto_reverse{
+  margin-top: 10rpx;
+  display: flex;
+  flex-direction: row-reverse;
+  width:480rpx; 
+  border-radius: 10rpx;
+  margin-left: 130rpx;
+  justify-content: center;
+  align-items: center;
+  border: #4f515348 solid 1rpx;
+}
+

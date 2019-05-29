@@ -13,7 +13,7 @@
   </swiper>
 
 <button class='selfbtn' hover-class="selfbtn-hover" bindtap="translate">
-    <view>搜索导师信息</view>
+    <view>选择目标院校</view>
     <image class='selfbtnImg' src='../../image/icon/icon_search1.png'></image>
  </button>
 
