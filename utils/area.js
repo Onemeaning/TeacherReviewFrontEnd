@@ -1,6 +1,31 @@
 function getSchoolInfo(callBack) {
   var str = [
     {
+      "code": "000000",
+      "sheng": "00",
+      "di": "00",
+      "xian": "00",
+      "name": "选择学校",
+      "level": 1
+    },
+    {
+      "code": "000100",
+      "sheng": "00",
+      "di": "01",
+      "xian": "00",
+      "name": "选择学院",
+      "level": 2
+    },
+    {
+      "code": "000001",
+      "sheng": "00",
+      "di": "01",
+      "xian": "01",
+      "name": "选择系",
+      "level": 3
+    },
+
+    {
       "code": "110000",
       "sheng": "11",
       "di": "00",

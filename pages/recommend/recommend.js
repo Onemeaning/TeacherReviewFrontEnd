@@ -1,5 +1,6 @@
 // pages/comment/comment.js
 var model = require('../../model/model.js')
+var wxCharts = require('../../utils/wxcharts.js');
 const app = getApp();
 var show = false;
 var item = {};
@@ -9,7 +10,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    topFiveTeachers:[],//用于存储今天推荐的点赞数前五名的老师信息
+    topFiveTeachers:[],//用于存储所有老师的信息
     searchContent:'通信工程',
 
     province:"",//学校
@@ -28,7 +29,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-  
+    
   },
   /**
    * 生命周期函数--监听页面初次渲染完成
@@ -119,6 +120,7 @@ Page({
           });
         }
         else {
+
           that.setData({
             topFiveTeachers: topFiveTeachers,
             showWhat:true,
@@ -193,8 +195,4 @@ Page({
   },
  
   
-
-
-
-
 })

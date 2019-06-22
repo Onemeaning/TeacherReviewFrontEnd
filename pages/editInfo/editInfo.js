@@ -105,6 +105,7 @@ Page({
     
   },
 
+
   handleNameChange(e) {
     this.data.uNickname = e.detail.value;
   },

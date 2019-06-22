@@ -18,34 +18,36 @@
           <swiper-item >      
             <view class='all-teacher-css' hover-class='all-teacher-css-hover' bindtap='func_detail' data-teacher-item="{{item}}">
             <image class='picture' mode='widthFix' src='{{item.tPhoto}}'></image>
-              <view class='teacher-detail'>
 
+              <view class='teacher-detail'>
                 <view class='aline'>
-                  <text style='font-weight:bold;margin-left: 20rpx'>姓名:</text>
-                  <text>{{item.tName}}</text>
+                  <text class = 'aline_title'>姓名:</text>
+                  <text class='aline_text' >{{item.tName}}</text>
                 </view>
 
                <view class='aline'>  
-                  <text style='font-weight:bold;margin-left: 20rpx'>单位:</text>
-                  <text>{{item.tAffiliation}}</text>
+                  <text class = 'aline_title'>单位:</text>
+                  <text class='aline_text'> {{item.tAffiliation}}</text>
                 </view>
-
+                
                 <view class='aline'>
-                    <text style='font-weight:bold;margin-left: 20rpx'>邮箱：</text>
-                    <text>{{item.tEmail}}</text>
-                </view>
-
-                <view class='aline'>
-                    <text style='font-weight:bold;margin-left: 20rpx'>简介:</text>
+                    <text class = 'aline_title'>简介:</text>
                     <text class = 'intro_text'>{{item.tIntroduction}}</text>
                 </view>
 
                 <view class='aline'>
-                    <text style='font-weight:bold;margin-left: 20rpx'>研究方向:</text>
+                    <text class = 'aline_title'>邮箱：</text>
+                    <text class='aline_text' >{{item.tEmail}}</text>
+                </view>
+
+          
+                <view class='aline'>
+                    <text class = 'aline_title'>研究方向:</text>
                     <text class = 'intro_text'>{{item.tResearchInterest}}</text>
                 </view> 
-
-                <text style='font-weight:bold; text-align: center;color:#777;'>{{item.tDetailLink}}</text>  
+               
+                <text class = 'intro_text'>{{item.tDetailLink}}</text>  
+                
               </view>
                
             </view>           

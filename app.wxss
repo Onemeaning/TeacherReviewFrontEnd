@@ -102,7 +102,7 @@ background-color: #fff;
 .selfbtn {
   width: 90%;
   margin-top: 20rpx;
-  background-color: burlywood;
+  background-color:rgb(233, 129, 32) ;
   color: white;
   border-radius: 2rpx;
   display: flex;
@@ -118,7 +118,7 @@ background-color: #fff;
 }
 
 .selfbtn-hover{
-  background-color: rgb(233, 129, 32);
+  background-color: burlywood;
 }
 
 .rowWithImage{

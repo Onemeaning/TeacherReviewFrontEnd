@@ -1,7 +1,11 @@
 <view class='global-css'>
-    <image class='app-about-banner' mode='widthFix' src='{{detailInfo.tPhoto}}'></image>
+    <view class='columnImage'>
+      <image class='app-about-banner' mode='widthFix' src='{{detailInfo.tPhoto}}'></image>
+      <canvas canvas-id="pieCanvas" disable-scroll="true" class="{{showView?'canvas':'canvasHide'}}"></canvas>
+    </view>
+   
     <view class='pageStyle'>
-    <text style='text-align: right;color:gray;margin-right:20rpx'>该页面点击数：{{access_count}}</text>
+    <text style='text-align: right;color:gray;margin-right:20rpx'>页面访问次数：{{access_count}}</text>
       <view class='aline'>
       <text style='font-weight:bold;margin-right: 20rpx'>姓名:</text>
       <text >{{detailInfo.tName}}</text>
@@ -28,6 +32,8 @@
       </view>    
     </view>
 </view>
+
+ <canvas canvas-id="lineCanvas" disable-scroll="true" class="{{showView?'canvasline':'canvasHide'}}"></canvas>
 
 
 <scroll-view  style='margin-bottom: 150rpx;'>
@@ -68,7 +74,8 @@
            <!-- 评论体   -->
            <scroll-view class='talk-body' scroll-y="true" ><!--滚动到底会触发事件用这个bindscrolltolower="onScrollLoad"-->
                <block wx:key="{{index}}" wx:for="{{list}}">
-                    
+                 
+                <view wx:if="{{item.uType > 0 || item.sourceId == openid }}"> 
 
                     <view class='talk-item-top'>
                        <image class='talk-item-face' src='{{item.uPhoto}}'></image>
@@ -95,6 +102,8 @@
                           <text class='talk-item-delete' bindtap='fc_deleteComment' data-time='{{item.uInsertTime}}' data-index='{{index}}' data-sourceid='{{item.sourceId}}'>删除</text>
                         </view>
                      </view>
+
+                </view>
 
                </block>
            </scroll-view>

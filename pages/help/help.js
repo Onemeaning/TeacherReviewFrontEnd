@@ -26,6 +26,7 @@ Page({
     message7_1: '第五步 查看老师回复的私信',
     message7_2: '在这里，您可以看到老师给您的回复，同样您也可以继续回复他，愉快的交流可以让导师最终选择您的几率增大。',
 
+    message8_1: '演示DEMO',
     naviPhoto:[],
 
   },
@@ -60,4 +61,11 @@ Page({
     })
   },
 
+  /**
+    * 当发生错误时触发error事件，event.detail = {errMsg: 'something wrong'}
+    */
+  videoErrorCallback: function (e) {
+    console.log('视频错误信息:')
+    console.log(e.detail.errMsg)
+  },
 })

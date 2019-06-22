@@ -10,14 +10,41 @@
   font-size: small;
 
 }
-.app-about-banner{
-  width: 20%;/*所有手机的屏幕的宽度都为750rpx，我们可以按照比例来使得图片适应手机屏幕的大小*/
-  height: 300rpx;
-  /* border-radius: 50%;设置图片四周脚的弧度，当为50%的时候就是一个圆形的图片了 */
-  margin-top:0.6cm; 
-  margin-left: 15rpx;
- 
+.columnImage{
+ display: flex;
+ flex-direction: column;
+ flex-wrap: wrap;
+ width: 180rpx;
 }
+
+.app-about-banner{
+  width: 160rpx;
+  /* border-radius: 50%;设置图片四周脚的弧度，当为50%的时候就是一个圆形的图片了 */
+  margin-top:0.3cm; 
+  margin-left: 20rpx;
+}
+
+.canvas{
+  width: 120px;
+  height: 180px;
+}
+
+.canvasHide{
+  position: fixed;
+  bottom: -100%rpx;
+  height: 0;  
+  width: 100%;  
+  overflow: hidden
+}
+
+.canvasline{
+  margin-top: 20rpx;
+  width: 730rpx;
+  height: 200px;
+  padding-left: 10rpx;
+}
+
+
 .global-css{
   background-color: whitesmoke;
   display: flex;
@@ -294,6 +321,7 @@ position: absolute;
   border-radius: 10%;
   color: white;
 }
+
 
 
 /**************************/

@@ -19,7 +19,8 @@ App({
      */
     globalData: {
       userInfo: null,
-      urlPath: "https://www.nest-lab.com/wx-te-0.0.2-SNAPSHOT",
+      urlPath: "https://www.nest-lab.com/wx-te-1.0.0-RELEASE/",
+      // urlPath: "https://www.nest-lab.com/wx-te-0.0.2-SNAPSHOT",
       // urlPath:"http://49.123.68.14:8080",
       openid: '',
       // aSelectedTeacher:null,

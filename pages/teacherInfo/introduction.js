@@ -1,5 +1,6 @@
 // pages/introduction.js
 const app = getApp();
+var wxCharts = require('../../utils/wxcharts.js');
 Page({
   /**
    * 页面的初始数据
@@ -20,12 +21,16 @@ Page({
       imageLocate:"",//给老师表达爱心的数目
       imageCommnet:"",//给老师的评论icon
       userImageLocate:"",//给用户评论的点赞图标
-
+      openid:"",
       /**下面是处理每一条评论对应的点赞数的 */
       everycommentCountsMap : {},//每一条评论的点赞数目
       areYouSupportedEveryComments:{},//存储着每一条评论你是否点赞了的数据
 
       system:true,//表示是IOS系统
+
+      years:[],
+      projectsCount:[],
+      papersCounts:[],
   },
   
   /**
@@ -44,16 +49,21 @@ Page({
         })
     }   
     this.queryInfo(app.globalData.teacherId); 
+    this.getTeacherTag(app.globalData.teacherId);
     this.isPushedThumbs();  //初始化是否点赞了，如果已经点赞将点赞图标设置为点赞后的，将doesPush设置为true， 
     this.getThumbsCounts();//获取点赞的数量 
     this.loadTalks();    // 设置动画内容为：使用绝对定位显示区域，高度变为100%  
     this.setEveryCommentsSupportCounts(); //获取每条评论的点赞数目
     this.areYouSupportEveryComments();//获取你是否为每条评论点赞了
-    this.setData({
-      userImageLocate: "../../image/icon/icon_support_before.png"
 
+   
+
+    this.setData({
+      userImageLocate: "../../image/icon/icon_support_before.png",
+      openid:app.globalData.openid
     });
     
+
   },
 
   /**
@@ -65,13 +75,16 @@ Page({
       duration: 700, // 整个动画过程花费的时间，单位为毫秒
       timingFunction: "ease", // 动画的类型
       delay: 0 // 动画延迟参数
-    })
+    });
+
+  
   },
 
   /**
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
+ 
      this.queryInfo(app.globalData.teacherId);
   },
 
@@ -79,7 +92,7 @@ Page({
    * 生命周期函数--监听页面隐藏
    */
   onHide: function () {
-
+    
   },
 
   /**
@@ -374,6 +387,7 @@ updateAccessCounts:function()
       success: function (res) {
         var t_data = res.data.success;
         if (t_data != null) {
+
           that.setData({
             detailInfo: t_data,
             access_count: t_data.tThumpUpCounts,
@@ -382,6 +396,39 @@ updateAccessCounts:function()
             title: t_data.tName,
           })
 
+          if (t_data.years != null && t_data.projects != null && t_data.papers != null)
+          {
+            new wxCharts({
+              canvasId: 'lineCanvas',
+              type: 'line',
+              categories: t_data.years,
+              animation: true,
+              background: '#fff',
+              series: [{
+                name: '科研论文',
+                data: t_data.papers,
+              },
+              {
+                name: '科研项目',
+                data: t_data.projects,
+              }],
+
+              xAxis: {
+                disableGrid: true
+              },
+              yAxis: {
+                title: '近年论文、项目产出',
+                min: 0
+              },
+              width: 395,
+              height: 200,
+              dataLabel: true,
+              dataPointShape: true,
+              extra: {
+                lineStyle: 'curve'
+              }
+            });
+          }
           wx.hideLoading();
         }
       },
@@ -630,4 +677,73 @@ areYouSupportEveryComments:function()
       url: '../../pages/writeEmail/writeEmail?fromNickName=' + fromNickName + "&toNickName=" + toNickName + "&toId=" + toId
     });
   },
+
+  /**
+   * 获取老师画像
+   */
+  getTeacherTag: function (teacherId) {
+    var that = this;
+    wx: wx.request({
+      url: app.globalData.urlPath + "/superadmin/getTeacherTag",
+      data: {
+        tId: teacherId,
+      },
+      method: 'GET',
+      dataType: 'json',
+      responseType: 'text',
+      success: function (res) {
+        var t_data = res.data.success;
+        if (t_data != null && t_data.length >= 2) {
+          new wxCharts({
+            animation: true, //是否有动画
+            canvasId: 'pieCanvas',
+            type: 'pie',
+            series: [{
+              name: t_data[2].uType,
+              data: t_data[2].countsNum,
+            },
+            {
+              name: t_data[1].uType,
+              data: t_data[1].countsNum,
+            },
+              {
+                name: t_data[0].uType,
+                data: t_data[0].countsNum,
+              },
+            ],
+            width: 120,
+            height: 180,
+            dataLabel: false,
+          });
+        }
+
+        else{
+          new wxCharts({
+            animation: true, //是否有动画
+            canvasId: 'pieCanvas',
+            type: 'pie',
+            series: [{
+              name: '科研大佬',
+              data: 40,
+            },
+            {
+              name: "为人师表",
+              data: 30,
+            },
+              {
+                name: "和蔼可亲",
+                data: 30,
+              },
+            ],
+            width: 120,
+            height: 180,
+            dataLabel: false,
+          });
+
+        }
+      },
+    })
+  }
+
 })
+

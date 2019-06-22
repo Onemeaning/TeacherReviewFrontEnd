@@ -45,4 +45,11 @@
     <image mode="widthFix" src='{{naviPhoto[5]}}'></image>
     </view>
 
+    <view  class="messageTitle">{{message8_1}}</view>
+    <view>  
+      <video style="width:100%;height=360px;margin:1px; "src="https://www.nest-lab.com/wx-te-0.0.2-SNAPSHOT/demo.mp4"                      binderror="videoErrorCallback" initial-time = "0.6">
+      </video>
+
+    </view>
+
 </view>
