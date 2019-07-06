@@ -1,6 +1,5 @@
 // pages/comment/comment.js
 var model = require('../../model/model.js')
-var wxCharts = require('../../utils/wxcharts.js');
 const app = getApp();
 var show = false;
 var item = {};

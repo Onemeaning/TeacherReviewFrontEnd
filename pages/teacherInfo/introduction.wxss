@@ -1,4 +1,14 @@
 /* pages/introduction.wxss */
+page{
+  background: #eee;
+  width: 750rpx;
+}
+.global-css{
+  background-color: #fff;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
 
 .pageStyle{
   margin-left:0.5cm;
@@ -8,8 +18,8 @@
   display: flex;
   flex-direction: column;
   font-size: small;
-
 }
+
 .columnImage{
  display: flex;
  flex-direction: column;
@@ -38,31 +48,22 @@
 }
 
 .canvasline{
-  margin-top: 20rpx;
-  width: 730rpx;
+  width: 750rpx;
   height: 200px;
   padding-left: 10rpx;
-}
-
-
-.global-css{
-  background-color: whitesmoke;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-
+  background-color: #fff;
 }
 
 .intro_text{
   overflow:hidden; 
   text-overflow:ellipsis;
+  word-wrap:break-word;
   display:-webkit-box; 
   -webkit-box-orient:vertical;
   -webkit-line-clamp:2; 
 }
 
 .aline{
- 
   flex-direction: row;
   text-align: left;
   margin-bottom: 10rpx;
@@ -78,6 +79,43 @@
 .btnImg {
   width: 60rpx;
   height: 60rpx;
+}
+
+.introductionText{
+  text-overflow:ellipsis;
+   word-wrap:break-word;
+}
+
+.admissions{
+  text-align: left;
+  background-color: #fff;
+
+}
+.admissionLine{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding-left: 10rpx;
+  background-color: #fff;
+}
+
+.circle{
+  margin-top: 5rpx;
+  background-color: #eee;
+  width: 40rpx;
+  height: 40rpx;
+  margin-left: 10rpx;
+  margin-right: 10rpx;
+  border-radius: 50%;
+}
+
+.admissionstext{
+text-align: center;
+color: #777;
+font-size: 0.9rem;
+text-overflow:ellipsis;
+word-wrap:break-word;
 }
 
 /*---------------------------------------------*/

@@ -96,8 +96,7 @@
 
       <view class="big-info">
       <label class="title">研究方向</label>
-      <textarea class="textarea" bindblur="getResearch" maxlength="1000" placeholder="填写您的研究方向" contenteditable="true" auto-height="true"value='{{detailInfo.tResearchInterest}}'/>
-      
+      <textarea class="textarea" bindblur="getResearch" maxlength="1000" placeholder="填写您的研究方向" contenteditable="true" auto-height="true"value='{{detailInfo.tResearchInterest}}'/>   
     </view>
 
       <view class="big-info">
@@ -105,6 +104,14 @@
       <textarea class="textarea" bindblur="getIntroduce" maxlength="1000" placeholder="填写您的简介" contenteditable="true" auto-height="true"value='{{detailInfo.tIntroduction}}'/>
       
     </view>
+
+    <view style='margin-Top:20rpx;'/>
+
+      <view class="big-info">
+      <label class="title">招生需求</label>
+      <textarea class="textarea" bindblur="getAdmissions" maxlength="1000" placeholder="填写您的招生需求" contenteditable="true" auto-height="true"value='{{detailInfo.tAdmissions}}'/>   
+    </view>
+
 
       <view style='margin-Top:20rpx;'/>
          

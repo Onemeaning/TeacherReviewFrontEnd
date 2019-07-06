@@ -1,11 +1,12 @@
 <view class='global-css'>
+
     <view class='columnImage'>
       <image class='app-about-banner' mode='widthFix' src='{{detailInfo.tPhoto}}'></image>
       <canvas canvas-id="pieCanvas" disable-scroll="true" class="{{showView?'canvas':'canvasHide'}}"></canvas>
     </view>
    
     <view class='pageStyle'>
-    <text style='text-align: right;color:gray;margin-right:20rpx'>页面访问次数：{{access_count}}</text>
+      <text style='text-align: right;color:gray;margin-right:20rpx'>页面访问次数：{{access_count}}</text>
       <view class='aline'>
       <text style='font-weight:bold;margin-right: 20rpx'>姓名:</text>
       <text >{{detailInfo.tName}}</text>
@@ -13,7 +14,7 @@
 
       <view class='aline'>
       <text style='font-weight:bold;margin-right: 20rpx'>简介：</text>
-      <text >{{detailInfo.tIntroduction}}</text>
+      <text class='introductionText'>{{detailInfo.tIntroduction}}</text>
       </view>
 
       <view class='aline'>
@@ -33,18 +34,35 @@
     </view>
 </view>
 
+<view style='margin-Top:20rpx;'/>
+
+<view class='admissions'>
+
+<view class='admissionLine'>
+    <view class = 'circle'> </view>
+    <text style='font: 0.9rem;font-weight: bold;'>招生需求</text>
+    <view class = 'circle'> </view>
+</view>
+   <text class='admissionstext'>{{detailInfo.tAdmissions}}</text>
+
+</view>
+
+ <view style='margin-Top:20rpx;'/>
  <canvas canvas-id="lineCanvas" disable-scroll="true" class="{{showView?'canvasline':'canvasHide'}}"></canvas>
+<view style='margin-Top:20rpx;'/>
 
+<scroll-view  style='margin-bottom: 150rpx;background-color: #fff;'>
 
-<scroll-view  style='margin-bottom: 150rpx;'>
     <view wx:if="{{detailInfo.tPublishedPaper!=null}}">
       <text style='font-weight:bold;'> 一、发表论文：\n</text>
-      <text style='font-size:small'>{{detailInfo.tPublishedPaper}}</text>
+      <text style='font-size:small;'>{{detailInfo.tPublishedPaper}}</text>
     </view>
+
+    <view style='margin-Top:20rpx;'/>
 
     <view wx:if="{{detailInfo.tProjects!=null}}">
       <text style='font-weight:bold;'> \n二、研究项目：\n</text>
-      <text style='font-size:small'>{{detailInfo.tProjects}}</text>
+      <text style='font-size:small;'>{{detailInfo.tProjects}}</text>
     </view>
 
 </scroll-view> 

@@ -24,6 +24,7 @@ Page({
       title: '正在加载，请稍后',
     })
    this.getStaticPhoto();
+  //  this.getQingtaiInfo();
   },
 
 /**
@@ -151,7 +152,7 @@ Page({
     //请求数据
     model.updateAreaData(that, 0, e);
   },
-
+ 
 
     /**
    * ***************帮助和意见反馈****************************
@@ -168,4 +169,21 @@ Page({
       url: "../../pages/advice/advice",
     })
   },
+
+  
+    getQingtaiInfo: function() {
+      var that = this;
+      wx: wx.request({
+        url: "https://www.cingta.com/search",
+        method: 'GET',
+        dataType: 'json',
+        responseType: 'text',
+        success: function (res) {
+
+          var searchResult = res.data;
+          console.log(searchResult);
+        },
+
+      })
+    },
 })

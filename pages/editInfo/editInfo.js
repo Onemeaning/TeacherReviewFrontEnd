@@ -16,6 +16,7 @@ Page({
     tName:"",
     tAffiliation:"",
     tResearchInterest:"",
+    tAdmissions:"",
     tIntroduction:"",
     tPublishedPaper:"",
     tProjects:"",
@@ -150,6 +151,13 @@ Page({
     })
   },
 
+  getAdmissions: function(e) {
+    this.setData({
+      tAdmissions: e.detail.value,
+    })
+  },
+
+
   getIntroduce: function (e) {
     this.setData({
       tIntroduction: e.detail.value,
@@ -186,6 +194,7 @@ Page({
           "tId": app.globalData.openid,
           "tName": that.data.tName,
           "tAffiliation": that.data.tAffiliation,
+          "tAdmissions":that.data.tAdmissions,
           "tEmail":that.data.tEmail,
           "tResearchInterest": that.data.tResearchInterest,
           "tIntroduction": that.data.tIntroduction,
